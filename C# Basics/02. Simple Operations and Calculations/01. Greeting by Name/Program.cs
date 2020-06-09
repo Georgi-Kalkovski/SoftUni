@@ -12,9 +12,7 @@ namespace _01.Greeting_by_Name
         {
 
             string name = Console.ReadLine();
-            // vuvejdame string ot konzolata
             Console.WriteLine($"Hello, {name}!");
-            // izvajdame text sus stringa, koito sme vuveli
 
         }
     }
