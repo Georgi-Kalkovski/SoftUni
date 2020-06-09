@@ -1,0 +1,59 @@
+{
+  "format": 1,
+  "restore": {
+    "G:\\C#\\03. C# ADVANCED\\10.07.19 - Functional Programming - Exercises\\Solution1\\06. Reverse And Exclude\\06. Reverse And Exclude.csproj": {}
+  },
+  "projects": {
+    "G:\\C#\\03. C# ADVANCED\\10.07.19 - Functional Programming - Exercises\\Solution1\\06. Reverse And Exclude\\06. Reverse And Exclude.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\C#\\03. C# ADVANCED\\10.07.19 - Functional Programming - Exercises\\Solution1\\06. Reverse And Exclude\\06. Reverse And Exclude.csproj",
+        "projectName": "06. Reverse And Exclude",
+        "projectPath": "G:\\C#\\03. C# ADVANCED\\10.07.19 - Functional Programming - Exercises\\Solution1\\06. Reverse And Exclude\\06. Reverse And Exclude.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "G:\\C#\\03. C# ADVANCED\\10.07.19 - Functional Programming - Exercises\\Solution1\\06. Reverse And Exclude\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

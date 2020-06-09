@@ -1,0 +1,11 @@
+G:\C#\03. C# ADVANCED\10.07.19 - Functional Programming - Exercises\Solution1\07. Predicate For Names\bin\Debug\netcoreapp2.1\07. Predicate For Names.deps.json
+G:\C#\03. C# ADVANCED\10.07.19 - Functional Programming - Exercises\Solution1\07. Predicate For Names\bin\Debug\netcoreapp2.1\07. Predicate For Names.runtimeconfig.json
+G:\C#\03. C# ADVANCED\10.07.19 - Functional Programming - Exercises\Solution1\07. Predicate For Names\bin\Debug\netcoreapp2.1\07. Predicate For Names.runtimeconfig.dev.json
+G:\C#\03. C# ADVANCED\10.07.19 - Functional Programming - Exercises\Solution1\07. Predicate For Names\bin\Debug\netcoreapp2.1\07. Predicate For Names.dll
+G:\C#\03. C# ADVANCED\10.07.19 - Functional Programming - Exercises\Solution1\07. Predicate For Names\bin\Debug\netcoreapp2.1\07. Predicate For Names.pdb
+G:\C#\03. C# ADVANCED\10.07.19 - Functional Programming - Exercises\Solution1\07. Predicate For Names\obj\Debug\netcoreapp2.1\07. Predicate For Names.csprojAssemblyReference.cache
+G:\C#\03. C# ADVANCED\10.07.19 - Functional Programming - Exercises\Solution1\07. Predicate For Names\obj\Debug\netcoreapp2.1\07. Predicate For Names.csproj.CoreCompileInputs.cache
+G:\C#\03. C# ADVANCED\10.07.19 - Functional Programming - Exercises\Solution1\07. Predicate For Names\obj\Debug\netcoreapp2.1\07. Predicate For Names.AssemblyInfoInputs.cache
+G:\C#\03. C# ADVANCED\10.07.19 - Functional Programming - Exercises\Solution1\07. Predicate For Names\obj\Debug\netcoreapp2.1\07. Predicate For Names.AssemblyInfo.cs
+G:\C#\03. C# ADVANCED\10.07.19 - Functional Programming - Exercises\Solution1\07. Predicate For Names\obj\Debug\netcoreapp2.1\07. Predicate For Names.dll
+G:\C#\03. C# ADVANCED\10.07.19 - Functional Programming - Exercises\Solution1\07. Predicate For Names\obj\Debug\netcoreapp2.1\07. Predicate For Names.pdb

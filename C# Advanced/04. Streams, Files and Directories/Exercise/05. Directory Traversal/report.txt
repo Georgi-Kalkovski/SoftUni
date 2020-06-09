@@ -1,0 +1,8 @@
+.json
+--05. Directory Traversal.runtimeconfig.json - 0.154kb
+--05. Directory Traversal.runtimeconfig.dev.json - 0.252kb
+--05. Directory Traversal.deps.json - 0.501kb
+.dll
+--05. Directory Traversal.dll - 7.680kb
+.pdb
+--05. Directory Traversal.pdb - 1.600kb
