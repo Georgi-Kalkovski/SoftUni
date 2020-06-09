@@ -12,11 +12,10 @@ namespace _08.Celsius_to_Fahrenheit
         {
 
             double celsius = double.Parse(Console.ReadLine());
-            // vuvejdame na konzolata celzii
+            
             double fahrenheit = (celsius * 9) / 5 + 32;
-            // chrez formulata namirame farenhaid
+            
             Console.WriteLine($"{fahrenheit:F2}");
-            // vadim na konzolata farenhaid
         }
     }
 }
