@@ -1,6 +1,0 @@
-G:\C#\PROGRAMMING BASICS WITH C# - ЯНУАРИ 2019\01.19.19 - Условни конструкции (if, else-if, switch)\Solution1\12. Toy Shop\bin\Debug\_12.Toy_Shop.exe.config
-G:\C#\PROGRAMMING BASICS WITH C# - ЯНУАРИ 2019\01.19.19 - Условни конструкции (if, else-if, switch)\Solution1\12. Toy Shop\bin\Debug\_12.Toy_Shop.exe
-G:\C#\PROGRAMMING BASICS WITH C# - ЯНУАРИ 2019\01.19.19 - Условни конструкции (if, else-if, switch)\Solution1\12. Toy Shop\bin\Debug\_12.Toy_Shop.pdb
-G:\C#\PROGRAMMING BASICS WITH C# - ЯНУАРИ 2019\01.19.19 - Условни конструкции (if, else-if, switch)\Solution1\12. Toy Shop\obj\Debug\12. Toy Shop.csprojResolveAssemblyReference.cache
-G:\C#\PROGRAMMING BASICS WITH C# - ЯНУАРИ 2019\01.19.19 - Условни конструкции (if, else-if, switch)\Solution1\12. Toy Shop\obj\Debug\_12.Toy_Shop.exe
-G:\C#\PROGRAMMING BASICS WITH C# - ЯНУАРИ 2019\01.19.19 - Условни конструкции (if, else-if, switch)\Solution1\12. Toy Shop\obj\Debug\_12.Toy_Shop.pdb
