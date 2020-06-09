@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    display: flex;
+    align-items: stretch; 
+    justify-content: space-between;
+    background: #e1e3e4;
+    border-bottom: 1px solid lightgray;
+}
+
+ul {
+    display: flex;
+    align-items: center; /*centrira*/
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;  
+    padding: 0;
+    height: 100%;
+}
+
+li {
+    margin-right: 10px;
+    height: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    border-right: 1px solid lightgray;
+    padding: 10px;
+    font-size: 18px;
+}
+
+li:last-child {  /* vzima se napredvid posledniq li ot poredicata */
+    border-right: none;
+}
+
+.logo {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    margin-right: auto;
+}
+
+a {
+    color: gray;
+    text-decoration: none; /* maha gadnata cherta na linka */
+}
+
+.submit-site-button {
+    height: 100%;
+    border: 0;
+    background: #54908a;
+    color: white;
+    text-transform: uppercase; /* pravi vsichki bukvi glavni */
+    font-weight: bold;
+    padding-right: 20px;
+    padding-left: 20px;
+    text-align: center;
+}
+
+.search-button {
+    height: 100%;
+    border: 0;
+    background: #343434;
+    padding-right: 20px;
+    padding-left: 20px;
+    color: white;
+}
+
+.dropdown-menu-trigger {  /* koda nadolo e za dropbox */
+    position: relative;
+}
+
+.dropdown-menu-trigger:hover
+.dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    border: 1px solid;
+    top: 100%;
+}

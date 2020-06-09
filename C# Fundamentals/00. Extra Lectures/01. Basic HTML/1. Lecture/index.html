@@ -1,0 +1,130 @@
+<!DOCTYPE html> <!-- s tova se kazva na faila, che shte e html-->
+<html lang="en">
+<!-- saita shte e na angliiski-->
+
+<head>
+    <!-- glava-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lecture</title> <!-- ime na saita-->
+
+    <style type="text/css">
+        #programming-language {
+            color: red;
+        }
+
+        .all-programming-languages {
+            border: 1px
+        }
+    </style> <!-- VAJNO !!! CSS se pishe v HEAD v tag <style></style>-->
+</head>
+
+<body>
+    <!-- tqlo-->
+
+    <h1>BIG</h1> <!-- heading ot 1-6 ot golqmo kum malko-->
+
+    <p>paragraph</p> <!-- paragraph-->
+
+    <ul>
+        <!-- unorder list-->
+        <li>Spisuk</li>
+        <li>bez</li>
+        <li>podredba</li>
+    </ul>
+
+    <ol>
+        <!-- order list-->
+        <li>purvo</li>
+        <li>vtoro</li>
+        <li>treto</li>
+    </ol>
+
+    <div>
+        <!-- konteiner, v koito moje da se dobavi kum stranicata JS ili CSS-->
+    </div>
+
+    <span>
+        <!-- obratnoto na div(subira contenta zaedno) i moje da se nablegne na nego kato neshto otdelno-->
+    </span>
+
+    <!-- key value sets-->
+    <p height="300px"></p> <!-- dava se na paragrafa 300 pixela-->
+    <p id="programming-languages"></p>
+    <!-- dava se na daden element ID, po tozi nachin moje da se nameri elementa v CSS-->
+    <p class="all-programming-languages"> 1</p>
+    <!-- po tozi nachin moje da se selektira poveche komponenti vmesto edin kato ID-->
+    <p class="all-programming-languages"> 2</p>
+
+    <img src="./images/img_lights.jpg" alt="severno siqnie" style="width: 100px; height: 50px">
+    <!-- izpolzvane na snimka (trqbva da e v sushtata papka kudeto e html faila)-->
+
+    <a href="https://sait.bg">SAIT</a> <!-- sait("https://" zaduljitelno, "www." ne e zaduljitelno)-->
+
+    <p><a href="https://google.com">
+            Go to
+            <span style="color: blue">G</span>
+            <span style="color: red">O</span>
+            <span style="color: yellow">O</span>
+            <span style="color: blue">G</span>
+            <span style="color: green">L</span>
+            <span style="color: red">E</span>
+            from here
+        </a></p>
+
+    <form>
+        <!-- FORM se polzva za vzimane na informaciq ot user-->
+
+        <label for="first-name-input">First Name:</label>
+
+        <input type="text" placeholder="Enter your first name" id="first-name-input" maxlength="5" minlength="2">
+        <!-- placeholdera durji kakvo shte pishe v bqloto pole, predi potrebitelq da zapochne da pishe informaciq-->
+        <!-- maxlength kazva kolko dulug moje da e inputa-->
+        <!-- minlength kazva kolko minimalno characteri mogat da budat napisani (pravi greshka)-->
+
+        <br> <!-- preminava se na nov red-->
+
+        <label for="last-name-input">Last Name:</label>
+        <input type="text" placeholder="Enter your last name" id="last-name-input">
+        <br>
+
+        <button type="submit">Click to submit your info</button> <!-- buton -->
+
+        <br>
+        <select>
+            <!-- dava se pravo na opcii-->
+            <option>option one</option>
+            <option>option two</option>
+        </select>
+
+    </form> <!-- mesta za uvejdane na danni ot potrebitelq-->
+
+    <table> <!-- nachalo na table-->
+            <thead> <!-- glava na table-->
+                <tr>  <!-- <tr> table row - red-->
+                    <th>Programming Language</th><th>Developed by</th><th>First appeared</th> <!-- <th> table head-->
+                </tr>
+            </thead>
+
+            <tbody> <!-- tqlo na table-->
+                <tr>
+                    <td>C#</td><td>Microsoft</td><td>2000</td> <!-- <td> table data-->
+                </tr>
+                <tr>
+                    <td>Java</td><td>Oracle</td><td>1995</td>
+                </tr>
+                <tr>
+                    <td>PHP</td><td>Zend Technologies</td><td>1995</td>
+                </tr>
+            </tbody>
+        </table> <!-- krai na table-->
+
+
+</body>
+
+</html>
+
+<!-- VAJNO !!! SETTINGS > SEARCH - WORD WRAP (ON)... slaga na nov red, ako stigne do kraq na monitora-->
+<!-- VAJNO !!! FILE > AUTO SAVE ... zapisva avtomatichno promenite-->
+<!-- VAJNO !!! https://validator.w3.org ... proverka na validnostta na html koda-->

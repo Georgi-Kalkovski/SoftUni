@@ -1,0 +1,53 @@
+
+a {
+    color:#000;
+}
+
+#softuni-link {    /* #name - za selektirane na ID */
+    color:darkblue;
+}
+.red-link {    /* .name - za selektirane na class */
+    color:red;
+    border: 1px solid red;
+    padding: 5px;
+    /*padding-left,right,top,bottom*/
+    margin: 5px;
+    /*margin-left,right,top,bottom*/
+}
+
+p {
+    border: 1px solid red;
+}
+
+div {
+    border: 1px solid green;
+}
+
+.some-div {
+    text-align: right;
+}
+
+ul li, ol li {
+    border: 2px solid yellow;
+}
+
+*{      /* * se polzva za nastroiki na celiq sait */
+    box-sizing: border-box;        /* <-- se polzva za avto-korigirane na boxa sprqmo vuvedenite danni */
+}
+a, p, div, ol, ul, li {
+font-family: 'Roboto',Arial,sans-serif; /* smenq shrift na bukvi, zarejda se purviq shrift, ako ne raboti v browsera se zarejda vtoriq i tn. */
+/* fonts.google.com - sait za shriftove  */
+font-size:25px; /* razmer na shrifta */
+}
+p{
+    color: #567; /*5 = red 6 = green 7 = blue*/
+    /* 
+        color: red;
+        color: rgb(255,0,0);
+    */
+}
+header {
+    display: flex;
+    align-items: center; /*centrira*/
+    justify-content: space-between;
+}

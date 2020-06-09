@@ -1,0 +1,33 @@
+D:\VS projects\Phonebook\Phonebook\bin\Debug\netcoreapp2.0\Phonebook.deps.json
+D:\VS projects\Phonebook\Phonebook\bin\Debug\netcoreapp2.0\Phonebook.runtimeconfig.json
+D:\VS projects\Phonebook\Phonebook\bin\Debug\netcoreapp2.0\Phonebook.runtimeconfig.dev.json
+D:\VS projects\Phonebook\Phonebook\bin\Debug\netcoreapp2.0\Phonebook.dll
+D:\VS projects\Phonebook\Phonebook\obj\Debug\netcoreapp2.0\Phonebook.csprojAssemblyReference.cache
+D:\VS projects\Phonebook\Phonebook\obj\Debug\netcoreapp2.0\Phonebook.csproj.CoreCompileInputs.cache
+D:\VS projects\Phonebook\Phonebook\obj\Debug\netcoreapp2.0\Phonebook.AssemblyInfoInputs.cache
+D:\VS projects\Phonebook\Phonebook\obj\Debug\netcoreapp2.0\Phonebook.AssemblyInfo.cs
+D:\VS projects\Phonebook\Phonebook\bin\Debug\netcoreapp2.0\Phonebook.pdb
+D:\VS projects\Phonebook\Phonebook\obj\Debug\netcoreapp2.0\Phonebook.dll
+D:\VS projects\Phonebook\Phonebook\obj\Debug\netcoreapp2.0\Phonebook.pdb
+D:\basic Web\Skeleton\Phonebook\bin\Debug\netcoreapp2.0\Phonebook.deps.json
+D:\basic Web\Skeleton\Phonebook\bin\Debug\netcoreapp2.0\Phonebook.runtimeconfig.json
+D:\basic Web\Skeleton\Phonebook\bin\Debug\netcoreapp2.0\Phonebook.runtimeconfig.dev.json
+D:\basic Web\Skeleton\Phonebook\bin\Debug\netcoreapp2.0\Phonebook.dll
+D:\basic Web\Skeleton\Phonebook\bin\Debug\netcoreapp2.0\Phonebook.pdb
+D:\basic Web\Skeleton\Phonebook\obj\Debug\netcoreapp2.0\Phonebook.csprojAssemblyReference.cache
+D:\basic Web\Skeleton\Phonebook\obj\Debug\netcoreapp2.0\Phonebook.csproj.CoreCompileInputs.cache
+D:\basic Web\Skeleton\Phonebook\obj\Debug\netcoreapp2.0\Phonebook.AssemblyInfoInputs.cache
+D:\basic Web\Skeleton\Phonebook\obj\Debug\netcoreapp2.0\Phonebook.AssemblyInfo.cs
+D:\basic Web\Skeleton\Phonebook\obj\Debug\netcoreapp2.0\Phonebook.dll
+D:\basic Web\Skeleton\Phonebook\obj\Debug\netcoreapp2.0\Phonebook.pdb
+G:\C#\02. C# TECHNOLOGY FUNDAMENTALS - МАЙ 2019\08.02.19 - Basic Web Project - Упр\Skeleton\Phonebook\obj\Debug\netcoreapp2.0\Phonebook.dll
+G:\C#\02. C# TECHNOLOGY FUNDAMENTALS - МАЙ 2019\08.02.19 - Basic Web Project - Упр\Skeleton\Phonebook\obj\Debug\netcoreapp2.0\Phonebook.pdb
+G:\C#\02. C# TECHNOLOGY FUNDAMENTALS - МАЙ 2019\08.02.19 - Basic Web Project - Упр\Skeleton\Phonebook\bin\Debug\netcoreapp2.0\Phonebook.deps.json
+G:\C#\02. C# TECHNOLOGY FUNDAMENTALS - МАЙ 2019\08.02.19 - Basic Web Project - Упр\Skeleton\Phonebook\bin\Debug\netcoreapp2.0\Phonebook.runtimeconfig.json
+G:\C#\02. C# TECHNOLOGY FUNDAMENTALS - МАЙ 2019\08.02.19 - Basic Web Project - Упр\Skeleton\Phonebook\bin\Debug\netcoreapp2.0\Phonebook.runtimeconfig.dev.json
+G:\C#\02. C# TECHNOLOGY FUNDAMENTALS - МАЙ 2019\08.02.19 - Basic Web Project - Упр\Skeleton\Phonebook\bin\Debug\netcoreapp2.0\Phonebook.dll
+G:\C#\02. C# TECHNOLOGY FUNDAMENTALS - МАЙ 2019\08.02.19 - Basic Web Project - Упр\Skeleton\Phonebook\bin\Debug\netcoreapp2.0\Phonebook.pdb
+G:\C#\02. C# TECHNOLOGY FUNDAMENTALS - МАЙ 2019\08.02.19 - Basic Web Project - Упр\Skeleton\Phonebook\obj\Debug\netcoreapp2.0\Phonebook.csprojAssemblyReference.cache
+G:\C#\02. C# TECHNOLOGY FUNDAMENTALS - МАЙ 2019\08.02.19 - Basic Web Project - Упр\Skeleton\Phonebook\obj\Debug\netcoreapp2.0\Phonebook.csproj.CoreCompileInputs.cache
+G:\C#\02. C# TECHNOLOGY FUNDAMENTALS - МАЙ 2019\08.02.19 - Basic Web Project - Упр\Skeleton\Phonebook\obj\Debug\netcoreapp2.0\Phonebook.AssemblyInfoInputs.cache
+G:\C#\02. C# TECHNOLOGY FUNDAMENTALS - МАЙ 2019\08.02.19 - Basic Web Project - Упр\Skeleton\Phonebook\obj\Debug\netcoreapp2.0\Phonebook.AssemblyInfo.cs

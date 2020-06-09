@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LAB</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 5px;
+        }
+
+        /* Clearfix (clear floats) */
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="column">
+            <h1>
+                <span>List</span> exercise
+            </h1>
+
+            <p>
+                The list cointain at least two elements. The most common types are ordered and unordered lists.
+            </p>
+
+            <h2>Example</h2>
+
+            <ol>
+                <li>Apple</li>
+                <ul>
+                    <li>Fruit</li>
+                    <li>It's Healthy</li>
+                </ul>
+                <li>Cucumber</li>
+                <ul>
+                    <li>Vegetable</li>
+                    <li>The perfect salad ingredient</li>
+                </ul>
+                <li>Bonster</li>
+                <ul>
+                    <li>Energy drink</li>
+                    <li>Contains coffee</li>
+            </ol>
+        </div>
+
+
+        <div class="column">
+            <h1>
+                <span>Table</span> exercise
+            </h1>
+
+            <p>
+                Tables is a structured set of data made up of rows and columns.
+            </p>
+
+            <h2>Example</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Programming Language</th>
+                        <th>Developed by</th>
+                        <th>First appeared</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>C#</td>
+                        <td>Microsoft</td>
+                        <td>2000</td>
+                    </tr>
+                    <tr>
+                        <td>Java</td>
+                        <td>Oracle</td>
+                        <td>1995</td>
+                    </tr>
+                    <tr>
+                        <td>PHP</td>
+                        <td>Zend Technologies</td>
+                        <td>1995</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="column">
+            <h1>
+                <span></span>Forms</span> exercise
+            </h1>
+
+            <p>
+                An HTML Form is made of one or more widgets. Those widgets can be text fields(single line or multiline),
+                select boxes, buttons, checkboxes, or radio buttons.
+            </p>
+
+            <h2>Example</h2>
+
+            <label for="Username">Username</label>
+            <input type="Username" placeholder="Username">
+            <br>
+            <label for="Password">Password</label>
+            <input type="Password" placeholder="Password">
+            <br>
+            <label for="Email">Email</label>
+            <input type="Email" placeholder="Email">
+            <br>
+            <label for="Age">Age</label>
+            <select>
+                <option>Under 20</option>
+                <option>20 or more</option>
+            </select>
+            <br>
+            <button>Submit</button>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="column">
+            <img src="./images/nested list.png" alt="nested list">
+        </div>
+        <div class="column">
+            <img src="./images/tables.png" alt="tables">
+        </div>
+        <div class="column">
+            <img src="./images/form.gif" alt="forms">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="column">
+            Nested list icon <a
+                href="https://clarkwp.files.wordpress.com/2013/10/lists_and_nested_lists_in_wordpress.png?w=311&h=266&crop=1">HERE</a>
+        </div>
+        <div class="column">
+            Tables icon <a href="http://www.corelangs.com/html/tables/img/html-table-structure.png">HERE</a>
+        </div>
+        <div class="column">
+            Forms icon <a href="http://www.phpform.info/images/sampleform.gif">HERE</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

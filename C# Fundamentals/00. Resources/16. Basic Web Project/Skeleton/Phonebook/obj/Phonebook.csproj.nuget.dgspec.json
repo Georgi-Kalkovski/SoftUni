@@ -1,0 +1,71 @@
+{
+  "format": 1,
+  "restore": {
+    "G:\\C#\\02. C# TECHNOLOGY FUNDAMENTALS - МАЙ 2019\\08.02.19 - Basic Web Project - Упр\\Skeleton\\Phonebook\\Phonebook.csproj": {}
+  },
+  "projects": {
+    "G:\\C#\\02. C# TECHNOLOGY FUNDAMENTALS - МАЙ 2019\\08.02.19 - Basic Web Project - Упр\\Skeleton\\Phonebook\\Phonebook.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\C#\\02. C# TECHNOLOGY FUNDAMENTALS - МАЙ 2019\\08.02.19 - Basic Web Project - Упр\\Skeleton\\Phonebook\\Phonebook.csproj",
+        "projectName": "Phonebook",
+        "projectPath": "G:\\C#\\02. C# TECHNOLOGY FUNDAMENTALS - МАЙ 2019\\08.02.19 - Basic Web Project - Упр\\Skeleton\\Phonebook\\Phonebook.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "G:\\C#\\02. C# TECHNOLOGY FUNDAMENTALS - МАЙ 2019\\08.02.19 - Basic Web Project - Упр\\Skeleton\\Phonebook\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.0": {
+          "dependencies": {
+            "Microsoft.AspNetCore.All": {
+              "target": "Package",
+              "version": "[2.0.9, )"
+            },
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.0.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[2.0.3, )"
+            },
+            "MySql.Data.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.12, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
