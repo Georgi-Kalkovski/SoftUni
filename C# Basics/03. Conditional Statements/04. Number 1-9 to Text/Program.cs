@@ -12,19 +12,14 @@ namespace _04.Number_1_9_to_Text
         {
 
             double number = double.Parse(Console.ReadLine());
-            // pishem na konzolata chislo
 
             if (number > 9)
-            // ako chisloto e nad 9
             {
                 Console.WriteLine("number too big");
-                // vadim na konzolata, che chisloto e tvurde golqmo
                 return;
-                // slagame krai na programta
             }
 
             switch (number)
-            // ako chisloto e po-malko ot 10, izpolzvame "switch"
             {
                 case 1: Console.WriteLine("one"); break;
                 case 2: Console.WriteLine("two"); break;
@@ -35,9 +30,6 @@ namespace _04.Number_1_9_to_Text
                 case 7: Console.WriteLine("seven"); break;
                 case 8: Console.WriteLine("eight"); break;
                 case 9: Console.WriteLine("nine"); break;
-                // pri vseki red imame sluchai ot 1 do 9
-                // suotvetno na vsqka cifra vadim na konzolata kak se pishe s bukvi
-                // slagame krai na sluchaq s "break"
             }
         }
     }
