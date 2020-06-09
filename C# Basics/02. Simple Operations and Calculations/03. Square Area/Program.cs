@@ -12,11 +12,8 @@ namespace _03.Square_Area
         {
 
             int a = int.Parse(Console.ReadLine());
-            // vuvejdame na konzolata strana na kvadrat
             int area = a * a;
-            // namirame liceto na kvadrata kato umnojim ednata strana po drugata
             Console.WriteLine(area);
-            // vadim na konzolata liceto na kvadrata
         }
     }
 }
