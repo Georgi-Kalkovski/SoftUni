@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\Items\Sets\DarkKnightSets\DoomSet\" />
+    <Folder Include="Models\Items\Sets\ElfSets\BuffSet\" />
+    <Folder Include="Models\Items\Sets\SoulMasterSets\MagicSet\" />
+    <Folder Include="Models\Items\Sets\SoulMasterSets\PosionSet\" />
+    <Folder Include="Models\Items\Weapons\Scipters\" />
+    <Folder Include="Utilities\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="1.1.0" />
+  </ItemGroup>
+
+</Project>
