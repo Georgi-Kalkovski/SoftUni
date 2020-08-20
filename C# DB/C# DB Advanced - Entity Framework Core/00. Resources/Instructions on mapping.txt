@@ -1,0 +1,20 @@
+
+Step 1 - Install the packages one by one using Package Manager Console
+
+Install-Package Microsoft.EntityFrameworkCore.Tools –v 3.1.3
+Install-Package Microsoft.EntityFrameworkCore.SqlServer –v 3.1.3
+Install-Package Microsoft.EntityFrameworkCore.SqlServer.Design
+
+Step 2 - Mapping the database schema to C# classes using Package Manager Console
+
+(Computer at work) Scaffold-DbContext -Connection "Server=DESKTOP-GHV5K6M\MSSQLSERVER01;Database=(name);Integrated Security=True;" -Provider Microsoft.EntityFrameworkCore.SqlServer -OutputDir Data/Models
+(Computer at home) Scaffold-DbContext -Connection "Server=DESKTOP-IT8J5QV;Database=(name);Integrated Security=True;" -Provider Microsoft.EntityFrameworkCore.SqlServer -OutputDir Data/Models
+
+Step 3 - Adding Migration
+
+Add-Migration (name)
+
+Step 4 - Remove packages after the mapping
+
+Uninstall-Package Microsoft.EntityFrameworkCore.Tools -r
+Uninstall-Package Microsoft.EntityFrameworkCore.SqlServer.Design -RemoveDependencies

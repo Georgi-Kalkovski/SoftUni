@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Libraries>
+  <Library Name="Jo Bowl">
+    <Sections>
+      <SectionName>Horror</SectionName>
+      <Books>
+        <book>
+          <BookName>It</BookName>Here you can put description about the book<BookAuthor>Stephen King</BookAuthor></book>
+        <book>
+          <BookName>Frankenstein</BookName>Here you can put description about the book<BookAuthor>Mary Shelley</BookAuthor></book>
+      </Books>
+    </Sections>
+  </Library>
+  <Library Name="Kevin Sanchez">
+    <Sections>
+      <SectionName>Comedy</SectionName>
+      <Books>
+        <book>
+          <BookName>The Diary of a Nobody</BookName>Here you can put description about the book<BookAuthor>George Grossmith and Weeden Grossmith</BookAuthor></book>
+        <book>
+          <BookName>Queen Lucia</BookName>Here you can put description about the book<BookAuthor>E F Benson</BookAuthor></book>
+      </Books>
+    </Sections>
+  </Library>
+</Libraries>
