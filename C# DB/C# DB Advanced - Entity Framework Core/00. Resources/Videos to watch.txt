@@ -1,0 +1,18 @@
+- Rest
+- C# OOP + Advanced
+- EF Core + DB
+- Internet Explained: https://youtu.be/zqmNjdrKmdc
+- HTML - https://youtu.be/TewMxkTddQk
+- CSS - https://www.youtube.com/watch?v=25Fj5iMRFIg
+- Bootstrap - https://youtu.be/iG2UBr2fAqg
+- Requirements: https://softuni.bg/trainings/resources/officedocument/46822/project-assignment-25-04-2020-asp-net-core-february-2020/2796
+- Top 20 projects for 2020
+- Streams (C# Advanced)
+- UTF-8 (Wikipedia)
+- Attributes (C# OOP)
+- Reflection (C# OOP) - https://youtu.be/LkWis2vrUIE
+- C# tips and tricks - https://youtu.be/KrTMzYhpo3E
+- Individual Project: Models, DbContext, Service
+- JS + JS APPS + Angular/Vue.js/React 
+- EF Core Advanced: https://channel9.msdn.com/Shows/Visual-Studio-Toolbox/Entity-Framework-Core-In-Depth-Part-1
+- Algo course: https://nikolay.it/ (https://www.youtube.com/channel/UCH9CezHU-ICXwIiL9Q--l4w)
