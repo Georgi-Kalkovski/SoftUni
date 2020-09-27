@@ -1,7 +1,0 @@
-C:\Users\Smiley\Desktop\(Demo) C# OOP Exam - 07 Dec 2019\03. Unit Tests_Skeleton (6)\.vs\TheRace\v16\lut\0\b\TheRace\Debug\netcoreapp2.1\TheRace.deps.json
-C:\Users\Smiley\Desktop\(Demo) C# OOP Exam - 07 Dec 2019\03. Unit Tests_Skeleton (6)\.vs\TheRace\v16\lut\0\b\TheRace\Debug\netcoreapp2.1\TheRace.dll
-C:\Users\Smiley\Desktop\(Demo) C# OOP Exam - 07 Dec 2019\03. Unit Tests_Skeleton (6)\.vs\TheRace\v16\lut\0\i\TheRace\Debug\netcoreapp2.1\TheRace.csprojAssemblyReference.cache
-C:\Users\Smiley\Desktop\(Demo) C# OOP Exam - 07 Dec 2019\03. Unit Tests_Skeleton (6)\.vs\TheRace\v16\lut\0\i\TheRace\Debug\netcoreapp2.1\TheRace.AssemblyInfoInputs.cache
-C:\Users\Smiley\Desktop\(Demo) C# OOP Exam - 07 Dec 2019\03. Unit Tests_Skeleton (6)\.vs\TheRace\v16\lut\0\i\TheRace\Debug\netcoreapp2.1\TheRace.AssemblyInfo.cs
-C:\Users\Smiley\Desktop\(Demo) C# OOP Exam - 07 Dec 2019\03. Unit Tests_Skeleton (6)\.vs\TheRace\v16\lut\0\i\TheRace\Debug\netcoreapp2.1\TheRace.csproj.CopyComplete
-C:\Users\Smiley\Desktop\(Demo) C# OOP Exam - 07 Dec 2019\03. Unit Tests_Skeleton (6)\.vs\TheRace\v16\lut\0\i\TheRace\Debug\netcoreapp2.1\TheRace.dll
