@@ -1,10 +1,8 @@
-﻿using SUS.HTTP;
-using System.IO;
-using System.Linq;
-using System;
-using System.Net;
+﻿using MyFirstMvcApp.Controllers;
+using SUS;
+using SUS.MvcFramework;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Text;
 
 namespace MyFirstMvcApp
 {
@@ -13,47 +11,21 @@ namespace MyFirstMvcApp
         
         static async Task Main(string[] args)
         {
-            IHttpServer server = new HttpServer();
-            server.AddRoute("/", HomePage);
-            server.AddRoute("/niki", (request) =>
-            {
-                return new HttpResponse("text/html", new byte[] { 0x56, 0x57 });
-            });
-            server.AddRoute("/favicon.ico", Favicon);
-            server.AddRoute("/about", About);
-            server.AddRoute("/users/login", Login);
-            await server.StartAsync(80);
-        }
+            List<Route> routeTable = new List<Route>();
+            routeTable.Add(new Route("/", new HomeController().Index));
+            routeTable.Add(new Route("/users/login", new UsersController().Login));
+            routeTable.Add(new Route("/users/register", new UsersController().Register));
+            routeTable.Add(new Route("/cards/all", new CardsController().All));
+            routeTable.Add(new Route("/cards/add", new CardsController().Add));
+            routeTable.Add(new Route("/cards/collection", new CardsController().Collection));
 
-        static HttpResponse HomePage(HttpRequest request)
-        {
-            var responseHtml = "<h1>Welcome<h1>" +
-                        request.Headers.FirstOrDefault(x => x.Name == "User-Agent")?.Value;
-            var responseBodyBytes = Encoding.UTF8.GetBytes(responseHtml);
-            var response = new HttpResponse("text/html", responseBodyBytes);
-            return response;
-        }
-        static HttpResponse Favicon(HttpRequest request)
-        {
-            var fileBytes = File.ReadAllBytes("wwwroot/favicon.ico");
-            var response = new HttpResponse("image/vnd.microsoft.icon", fileBytes);
-            return response;
-        }
-        static HttpResponse About(HttpRequest request)
-        {
-            var responseHtml = "<h1>About...<h1>" +
-                        request.Headers.FirstOrDefault(x => x.Name == "User-Agent")?.Value;
-            var responseBodyBytes = Encoding.UTF8.GetBytes(responseHtml);
-            var response = new HttpResponse("text/html", responseBodyBytes);
-            return response;
-        }
-        static HttpResponse Login(HttpRequest request)
-        {
-            var responseHtml = "<h1>Login...<h1>" +
-                        request.Headers.FirstOrDefault(x => x.Name == "User-Agent")?.Value;
-            var responseBodyBytes = Encoding.UTF8.GetBytes(responseHtml);
-            var response = new HttpResponse("text/html", responseBodyBytes);
-            return response;
+            routeTable.Add(new Route("/favicon.ico", new StaticFilesController().CustomJs));
+            routeTable.Add(new Route("/css/bootstrap.min.css", new StaticFilesController().BootstrapCss));
+            routeTable.Add(new Route("/css/custom.css", new StaticFilesController().CustomCss));
+            routeTable.Add(new Route("/js/bootstrap.bundle.min.js", new StaticFilesController().BootstrapJs));
+            routeTable.Add(new Route("/js/custom.js", new StaticFilesController().CustomJs));
+
+            await Host.CreateHostAsync(routeTable, 80);
         }
     }
 }
