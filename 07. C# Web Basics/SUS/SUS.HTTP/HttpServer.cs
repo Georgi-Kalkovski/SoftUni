@@ -64,7 +64,8 @@ namespace SUS.HTTP
                     Console.WriteLine($"{request.Method} {request.Path} => {request.Headers.Count} headers");
 
                     HttpResponse response;
-                    var route = routeTable.FirstOrDefault(x => x.Path == request.Path);
+                    var route = routeTable.FirstOrDefault(x => string.Compare(x.Path, request.Path, true) == 0
+                    && x.Method == request.Method);
                     if (route != null)
                     {
                         response = route.Action(request);

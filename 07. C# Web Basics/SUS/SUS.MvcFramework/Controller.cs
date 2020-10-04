@@ -8,12 +8,12 @@ namespace SUS.MvcFramework
     {
         public HttpResponse View([CallerMemberName]string viewPath = null)
         {
-            var layout = System.IO.File.ReadAllText("Views/Shared/_Layout.html");
+            var layout = System.IO.File.ReadAllText("Views/Shared/_Layout.cshtml");
 
             var viewContnt = System.IO.File.ReadAllText(
                 "Views/" + 
                 GetType().Name.Replace("Controller", string.Empty) + 
-                "/" + viewPath + ".html");
+                "/" + viewPath + ".cshtml");
 
             var responseHtml = layout.Replace("@RenderBody()", viewContnt);
 
@@ -26,6 +26,13 @@ namespace SUS.MvcFramework
         {
             var fileBytes = System.IO.File.ReadAllBytes(filePath);
             var response = new HttpResponse(contentType, fileBytes);
+            return response;
+        }
+
+        public HttpResponse Redirect(string url)
+        {
+            var response = new HttpResponse(HttpStatusCode.Found);
+            response.Headers.Add(new Header("location", url));
             return response;
         }
     }
