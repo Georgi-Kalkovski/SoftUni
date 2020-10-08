@@ -1,7 +1,6 @@
 ﻿using SUS.HTTP;
 using SUS.MvcFramework;
 using System;
-using System.IO;
 
 namespace MyFirstMvcApp.Controllers
 {
@@ -9,27 +8,27 @@ namespace MyFirstMvcApp.Controllers
     {
         public HttpResponse Favicon(HttpRequest request)
         {
-            return File("wwwroot/favicon.ico", "image/vnd.microsoft.icon");
-        }
-      
-        internal HttpResponse BootstrapCss(HttpRequest arg)
-        {
-            return File("wwwroot/css/bootstrap.min.css", "text/css");
+            return this.File("wwwroot/favicon.ico", "image/vnd.microsoft.icon");
         }
 
-        internal HttpResponse CustomCss(HttpRequest arg)
+        internal HttpResponse BootstrapCss(HttpRequest request)
         {
-            return File("wwwroot/css/custom.css", "text/css");
+            return this.File("wwwroot/css/bootstrap.min.css", "text/css");
         }
 
-        internal HttpResponse BootstrapJs(HttpRequest arg)
+        internal HttpResponse CustomCss(HttpRequest request)
         {
-            return File("wwwroot/js/bootstrap.bundle.min.js", "text/javascript");
-        }
-        public HttpResponse CustomJs(HttpRequest arg)
-        {
-            return File("wwwroot/js/custom.js", "text/javascript");
+            return this.File("wwwroot/css/custom.css", "text/css");
         }
 
+        internal HttpResponse CustomJs(HttpRequest request)
+        {
+            return this.File("wwwroot/js/custom.js", "text/javascript");
+        }
+
+        internal HttpResponse BoostrapJs(HttpRequest request)
+        {
+            return this.File("wwwroot/js/bootstrap.bundle.min.js", "text/javascript");
+        }
     }
 }

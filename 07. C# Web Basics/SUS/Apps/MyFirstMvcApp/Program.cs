@@ -3,11 +3,11 @@ using System.Threading.Tasks;
 
 namespace MyFirstMvcApp
 {
-    class Program
+    public class Program
     {
-        
-        static async Task Main(string[] args)
+        public static async Task Main(string[] args)
         {
+            // TODO: <Startup>
             await Host.CreateHostAsync(new Startup(), 80);
         }
     }

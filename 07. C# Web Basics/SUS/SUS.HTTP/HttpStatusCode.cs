@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SUS.HTTP
+﻿namespace SUS.HTTP
 {
     public enum HttpStatusCode
     {
@@ -10,7 +6,7 @@ namespace SUS.HTTP
         MovedPermanently = 301,
         Found = 302,
         TemporaryRedirect = 307,
-        NotFound =404,
-        ServerError =500,
+        NotFound = 404,
+        ServerError = 500,
     }
 }

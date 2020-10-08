@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Reflection;
 
 namespace SUS.HTTP
 {
@@ -7,14 +6,16 @@ namespace SUS.HTTP
     {
         public Header(string name, string value)
         {
-            Name = name;
-            Value = value;
+            this.Name = name;
+            this.Value = value;
         }
+
         public Header(string headerLine)
         {
-            var headerParts = headerLine.Split(new string[] { ": " }, 2, StringSplitOptions.None);
-            Name = headerParts[0];
-            Value = headerParts[1];
+            var headerParts = headerLine.Split(new string[] { ": " },
+                2, StringSplitOptions.None);
+            this.Name = headerParts[0];
+            this.Value = headerParts[1];
         }
 
         public string Name { get; set; }
@@ -23,7 +24,7 @@ namespace SUS.HTTP
 
         public override string ToString()
         {
-            return $"{Name}: {Value}";
+            return $"{this.Name}: {this.Value}";
         }
     }
 }

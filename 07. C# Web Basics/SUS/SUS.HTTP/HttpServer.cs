@@ -1,10 +1,9 @@
-﻿using SUS.MvcFramework;
-using System;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -37,13 +36,14 @@ namespace SUS.HTTP
             {
                 using (NetworkStream stream = tcpClient.GetStream())
                 {
+                    // TODO: research if there is faster data structure for array of bytes
                     List<byte> data = new List<byte>();
                     int position = 0;
-                    byte[] buffer = new byte[HttpConstants.BufferSize];
+                    byte[] buffer = new byte[HttpConstants.BufferSize]; // chunk
                     while (true)
                     {
                         int count =
-                                await stream.ReadAsync(buffer, position, buffer.Length);
+                            await stream.ReadAsync(buffer, position, buffer.Length);
                         position += count;
 
                         if (count < buffer.Length)
@@ -59,19 +59,22 @@ namespace SUS.HTTP
                         }
                     }
 
+                    // byte[] => string (text)
                     var requestAsString = Encoding.UTF8.GetString(data.ToArray());
                     var request = new HttpRequest(requestAsString);
                     Console.WriteLine($"{request.Method} {request.Path} => {request.Headers.Count} headers");
 
                     HttpResponse response;
-                    var route = routeTable.FirstOrDefault(x => string.Compare(x.Path, request.Path, true) == 0
-                    && x.Method == request.Method);
+                    var route = this.routeTable.FirstOrDefault(
+                        x => string.Compare(x.Path, request.Path, true) == 0
+                            && x.Method == request.Method);
                     if (route != null)
                     {
                         response = route.Action(request);
                     }
-                    else 
+                    else
                     {
+                        // Not Found 404
                         response = new HttpResponse("text/html", new byte[0], HttpStatusCode.NotFound);
                     }
 
@@ -85,7 +88,7 @@ namespace SUS.HTTP
 
                 tcpClient.Close();
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 Console.WriteLine(ex);
             }

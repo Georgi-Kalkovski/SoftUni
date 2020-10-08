@@ -18,10 +18,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="ViewTests\CleantHtml.html">
+    <None Update="ViewTests\CleanHtml.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ViewTests\CleantHtml.Result.html">
+    <None Update="ViewTests\CleanHtml.Result.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ViewTests\Foreach.html">

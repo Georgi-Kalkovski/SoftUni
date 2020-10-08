@@ -8,10 +8,11 @@ namespace SUS.HTTP
     {
         public HttpResponse(HttpStatusCode statusCode)
         {
-            StatusCode = statusCode;
-            Headers = new List<Header>();
-            Cookies = new List<Cookie>();
+            this.StatusCode = statusCode;
+            this.Headers = new List<Header>();
+            this.Cookies = new List<Cookie>();
         }
+
         public HttpResponse(string contentType, byte[] body, HttpStatusCode statusCode = HttpStatusCode.Ok)
         {
             if (body == null)
@@ -19,33 +20,33 @@ namespace SUS.HTTP
                 throw new ArgumentNullException(nameof(body));
             }
 
-            StatusCode = statusCode;
-            Body = body;
-            Headers = new List<Header>
+            this.StatusCode = statusCode;
+            this.Body = body;
+            this.Headers = new List<Header>
             {
-                { new Header("Content-Type", contentType)},
-                { new Header("Content-Length", body.Length.ToString())},
+                { new Header("Content-Type", contentType) },
+                { new Header("Content-Length", body.Length.ToString()) },
             };
-            Cookies = new List<Cookie>();
+            this.Cookies = new List<Cookie>();
         }
 
         public override string ToString()
         {
             StringBuilder responseBuilder = new StringBuilder();
-            responseBuilder.Append($"HTTP/1.1 {(int)StatusCode} {StatusCode}" + HttpConstants.NewLine);
-            foreach (var header in Headers)
+            responseBuilder.Append($"HTTP/1.1 {(int)this.StatusCode} {this.StatusCode}" + HttpConstants.NewLine);
+            foreach (var header in this.Headers)
             {
                 responseBuilder.Append(header.ToString() + HttpConstants.NewLine);
             }
 
-            foreach (var cookie in Cookies)
+            foreach (var cookie in this.Cookies)
             {
-                responseBuilder.Append("HashSet-Cookie:" + cookie.ToString() + HttpConstants.NewLine);
+                responseBuilder.Append("Set-Cookie: " + cookie.ToString() + HttpConstants.NewLine);
             }
 
             responseBuilder.Append(HttpConstants.NewLine);
-            return responseBuilder.ToString();
 
+            return responseBuilder.ToString();
         }
 
         public HttpStatusCode StatusCode { get; set; }
