@@ -1,0 +1,61 @@
+﻿<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="page-header text-center">
+                    @if(User == null)
+                    {
+                    <h2 id="tables">Public</h2>
+                    <p>Repositories</p>
+                    }
+                    @else
+                    {
+                    <h2 id="tables">Public and Private for the user</h2>
+                    <p>Repositories</p>
+                    }
+                </div>
+
+                @if (User != null)
+                {
+                <div class="d-flex justify-content-center">
+                    <a class="btn btn-block btn-primary text-white mb-3" href="/Repositories/Create">Create a repository</a>
+                </div>
+                }
+
+                <div class="component">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Owner</th>
+                                <th scope="col">Created On</th>
+                                <th scope="col">Commits Count</th>
+                                @if (User != null)
+                                {
+                                <th scope="col">Commit</th>
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var repository in Model)
+                            {
+                            <tr class="table-light">
+                                <th scope="row">@repository.Name</th>
+                                <td>@repository.OwnerName</td>
+                                <td>@repository.CreatedOn</td>
+                                <td>@repo.CommitsCount</td>
+                                @if (User != null)
+                                {
+                                <td>
+                                    <a class="btn btn-block btn-primary text-white mb-3" href="/Commits/Create?repositoryId=@repository.Id">Commit</a>
+                                </td>
+                                }
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
