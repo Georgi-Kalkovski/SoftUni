@@ -61,11 +61,6 @@ namespace Git.Controllers
                 return this.Error("Username is already taken.");
             }
 
-            if(this.userService.IsPasswordAvailabe(inputModel.Password) == false)
-            {
-                return this.Error("Password is already taken.");
-            }
-
             this.userService.CreateUser(inputModel);
 
             return this.Redirect("/Users/Login");
