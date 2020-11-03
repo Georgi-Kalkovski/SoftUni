@@ -1,0 +1,56 @@
+﻿@model CinemaWorld.Models.InputModels.Users.AjaxLoginInputModel
+
+<div class="form">
+    <h3>Login to your account</h3>
+    <form id="formLoginAjax" asp-area="" asp-controller="Users" asp-action="AjaxLogin" method="post">
+        <div class="shadow">
+            <div class="lds-dual-ring"></div>
+        </div>
+        <span id="login-error" class="text-danger" style="display: none; white-space: pre-line"></span>
+        <input asp-for="Username" placeholder="Username">
+        <input asp-for="Password" placeholder="Password">
+        <input type="submit" value="Login">
+        <hr />
+    </form>
+    <form asp-area="" asp-controller="Users" asp-action="FacebookLogin" method="post">
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Login with Facebook</button>
+    </form>
+</div>
+
+<script>
+    $('#formLoginAjax').submit(function (event) {
+        event.preventDefault();
+        var json = { success: false, message: '', action: '' };
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: $('#formLoginAjax').attr('action'),
+            xhrFields: {
+                withCredentials: true
+            },
+            data: $('#formLoginAjax').serialize(),
+            beforeSend: function () {
+                $('.shadow').show(900);
+            },
+            success: function (data) {
+                json = data;
+            },
+            error: function (errorThrown) {
+                json.message = 'Request failed: ' + errorThrown;
+            },
+            complete: function () {
+                $('.shadow').hide(900);
+                if (json.success) {
+                    $('#myModal').modal('hide');
+                    window.location = json.action;
+                }
+                else {
+                    let span = document.getElementById("login-error");
+                    span.style.display = "block";
+                    span.style.marginBottom = "2.5vh"; // 2,5% from virtual screen
+                    span.innerHTML = json.message;
+                }
+            }
+        });
+    });
+</script> 

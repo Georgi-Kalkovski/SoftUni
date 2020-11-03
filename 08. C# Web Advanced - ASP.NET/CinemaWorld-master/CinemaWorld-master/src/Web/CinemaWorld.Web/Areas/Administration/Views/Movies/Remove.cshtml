@@ -1,0 +1,94 @@
+﻿@model CinemaWorld.Models.ViewModels.Movies.MovieDeleteViewModel
+@{
+    this.ViewData["Title"] = "Delete Movie";
+    this.ViewData["ActivePage"] = MovieNavPages.Movies;
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-area="Administration" asp-controller="Movies" asp-action="Remove" method="post">
+            <h4 class="text-danger">Are you sure you want to delete <b>@Model.Name</b> movie?</h4>
+            <hr />
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" disabled="" />
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfRelease"></label>
+                <input asp-for="DateOfReleaseAsString" class="form-control" disabled="" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Description"></label>
+                <textarea asp-for="Description" class="form-control" disabled=""></textarea>
+            </div>
+            <div class="form-group">
+                <label asp-for="Resolution"></label>
+                <input asp-for="Resolution" class="form-control" disabled="" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Rating"></label>
+                <input asp-for="Rating" class="form-control" disabled="" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Language"></label>
+                <input asp-for="Language" class="form-control" disabled="" />
+            </div>
+            <div class="form-group">
+                <label asp-for="CinemaCategory"></label>
+                <input asp-for="CinemaCategory" class="form-control" disabled="" />
+            </div>
+            <div class="form-group">
+                <label asp-for="TrailerPath"></label>
+                <input asp-for="TrailerPath" class="form-control" disabled="" />
+            </div>
+            <div class="form-group">
+                <label asp-for="CoverPath"></label>
+                <div class="form-group">
+                    <img class="img-fluid img-thumbnail" src="@Model.CoverPath" alt="Cover image" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="WallpaperPath"></label>
+                <div class="form-group">
+                    <img class="img-fluid img-thumbnail" src="@Model.WallpaperPath" alt="Wallpaper" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="IMDBLink"></label>
+                <input asp-for="IMDBLink" class="form-control" disabled="" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Length"></label>
+                <input asp-for="Length" class="form-control" disabled="" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Director.FullName"></label>
+                <input asp-for="Director.FullName" class="form-control" disabled="" />
+            </div>
+            <div class="form-group">
+                <label asp-for="MovieGenres"></label>
+                <div class="container">
+                    <select multiple asp-for="MovieGenres" class="selectpicker">
+                        @foreach (var movieGenre in Model.MovieGenres)
+                        {
+                            <option disabled selected>@movieGenre.Genre.Name</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="MovieCountries"></label>
+                <div class="container">
+                    <select multiple asp-for="MovieCountries" class="selectpicker">
+                        @foreach (var movieCountry in Model.MovieCountries)
+                        {
+                            <option disabled selected>@movieCountry.Country.Name</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-danger">Delete movie</button>
+            <button asp-area="Administration" asp-controller="Movies" asp-action="GetAll" class="btn btn-primary">Back to all movies</button>
+        </form>
+    </div>
+</div>

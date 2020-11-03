@@ -1,0 +1,15 @@
+﻿@{
+    this.ViewData["ActivePage"] = FaqNavPages.About;
+    this.ViewData["Title"] = "Faqs";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <ul class="nav nav-pills nav-stacked">
+                <li class="@FaqNavPages.CreateFaqNavClass(ViewContext)"><a asp-controller="About" asp-action="Create">Create faq</a></li>
+                <li class="@FaqNavPages.GetAllNavClass(ViewContext)"><a asp-controller="About" asp-action="GetAll">List faqs</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

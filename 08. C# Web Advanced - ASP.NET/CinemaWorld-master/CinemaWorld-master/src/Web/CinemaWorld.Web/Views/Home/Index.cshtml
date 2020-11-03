@@ -1,0 +1,457 @@
+﻿@using CinemaWorld.Models.ViewModels.Movies
+@model MoviesHomePageListingViewModel
+@{
+    this.ViewData["Title"] = "Home Page";
+}
+
+@{
+    var moviesCountInMostPopularGrid = 6;
+    var moviesInMostPopularSection = Model.AllMovies.Take(moviesCountInMostPopularGrid);
+}
+
+<!-- banner -->
+<div id="slidey" style="display:none;">
+    <ul>
+        @foreach (var topMovie in Model.TopMoviesInSlider)
+        {
+            <li>
+                <img src="@topMovie.WallpaperPath" alt="Wallpaper">
+                <p class='title'>@topMovie.Name</p>
+                <p class='description'>@topMovie.ShortDescription</p>
+            </li>
+        }
+    </ul>
+</div>
+<!-- //banner -->
+<!-- banner-bottom -->
+<div class="banner-bottom">
+    <div class="container">
+        <div class="w3_agile_banner_bottom_grid">
+            <div id="owl-demo" class="owl-carousel owl-theme">
+                @foreach (var movie in Model.AllMovies)
+                {
+                    <div class="item">
+                        <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
+                            <a asp-area="" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id" class="hvr-shutter-out-horizontal">
+                                <img src="@movie.CoverPath" title="@movie.Name" class="img-responsive img-fluid" alt="Movie Cover Path" />
+                                <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                            </a>
+                            <div class="mid-1 agileits_w3layouts_mid_1_home">
+                                <div class="w3l-movie-text">
+                                    <h6><a asp-area="" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">@movie.Name</a></h6>
+                                </div>
+                                <div class="mid-2 agile_mid_2_home">
+                                    <p>@movie.DateOfRelease.Year</p>
+                                    <div class="block-stars stars_ratings movie_@movie.Id" onload="showRating()">
+                                        <ul class="w3l-ratings">
+                                            <li>
+                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            </li>
+                                        </ul>
+                                        <div class="starRatingsSum">(@movie.StarRatingsSum)</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            @if (movie.DateOfRelease.CompareTo(DateTime.UtcNow) > 0)
+                            {
+                                <div class="ribben">
+                                    <p>NEW</p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //banner-bottom -->
+<!-- general -->
+<div class="general">
+    <h4 class="latest-text w3_latest_text">Featured Movies</h4>
+    <div class="container">
+        <div id="error" class="alert alert-danger alert-dismissible" style="display: none"></div>
+        <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+            <ul id="myTab" class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="true">Top watched</a></li>
+                <li role="presentation"><a href="#rating" id="rating-tab" role="tab" data-toggle="tab" aria-controls="rating" aria-expanded="false">Top Rating</a></li>
+                <li role="presentation"><a href="#imdb" role="tab" id="imdb-tab" data-toggle="tab" aria-controls="imdb" aria-expanded="true">Recently Added</a></li>
+            </ul>
+
+            <div id="myTabContent" class="tab-content">
+                <div role="tabpanel" class="tab-pane fade active in" id="profile" aria-labelledby="profile-tab">
+                    <div class="col-md-2 w3l-movie-gride-agile">
+                        <a href="single.html" class="hvr-shutter-out-horizontal">
+                            <img src="~/images/m22.jpg" title="album-name" class="img-responsive" alt=" " />
+                            <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                        </a>
+                        <div class="mid-1 agileits_w3layouts_mid_1_home">
+                            <div class="w3l-movie-text">
+                                <h6><a href="single.html">Assassin's Creed 3</a></h6>
+                            </div>
+                            <div class="mid-2 agile_mid_2_home">
+                                <p>2016</p>
+                                <div class="block-stars">
+                                    <ul class="w3l-ratings">
+                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="ribben">
+                            <p>NEW</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 w3l-movie-gride-agile">
+                        <a href="single.html" class="hvr-shutter-out-horizontal">
+                            <img src="~/images/m2.jpg" title="album-name" class="img-responsive" alt=" " />
+                            <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                        </a>
+                        <div class="mid-1 agileits_w3layouts_mid_1_home">
+                            <div class="w3l-movie-text">
+                                <h6><a href="single.html">Bad Moms</a></h6>
+                            </div>
+                            <div class="mid-2 agile_mid_2_home">
+                                <p>2016</p>
+                                <div class="block-stars">
+                                    <ul class="w3l-ratings">
+                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="ribben">
+                            <p>NEW</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 w3l-movie-gride-agile">
+                        <a href="single.html" class="hvr-shutter-out-horizontal">
+                            <img src="~/images/m9.jpg" title="album-name" class="img-responsive" alt=" " />
+                            <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                        </a>
+                        <div class="mid-1 agileits_w3layouts_mid_1_home">
+                            <div class="w3l-movie-text">
+                                <h6><a href="single.html">Central Intelligence</a></h6>
+                            </div>
+                            <div class="mid-2 agile_mid_2_home">
+                                <p>2016</p>
+                                <div class="block-stars">
+                                    <ul class="w3l-ratings">
+                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="ribben">
+                            <p>NEW</p>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="rating" aria-labelledby="rating-tab">
+                    @foreach (var topRatingMovie in Model.TopRatingMovies)
+                    {
+                        <div class="col-md-2 w3l-movie-gride-agile">
+                            <a asp-controller="Movies" asp-action="Details" asp-route-id="@topRatingMovie.Id" class="hvr-shutter-out-horizontal">
+                                <img src="@topRatingMovie.CoverPath" title="@topRatingMovie.Name" class="img-responsive" alt="Movie Cover Path" />
+                                <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                            </a>
+                            <div class="mid-1 agileits_w3layouts_mid_1_home">
+                                <div class="w3l-movie-text">
+                                    <h6><a asp-controller="Movies" asp-action="Details" asp-route-id="@topRatingMovie.Id">@topRatingMovie.Name</a></h6>
+                                </div>
+                                <div class="mid-2 agile_mid_2_home">
+                                    <p>@topRatingMovie.DateOfRelease.Year</p>
+                                    <form id="starRatingsForm" method="post"></form>
+                                    <div class="block-stars stars_ratings movie_@topRatingMovie.Id">
+                                        <ul class="w3l-ratings">
+                                            <li>
+                                                <a href="#@topRatingMovie.Id" onclick="sendRating(@topRatingMovie.Id, 1)">
+                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#@topRatingMovie.Id" onclick="sendRating(@topRatingMovie.Id, 2)">
+                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#@topRatingMovie.Id" onclick="sendRating(@topRatingMovie.Id, 3)">
+                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#@topRatingMovie.Id" onclick="sendRating(@topRatingMovie.Id, 4)">
+                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#@topRatingMovie.Id" onclick="sendRating(@topRatingMovie.Id, 5)">
+                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <div class="starRatingsSum">(@topRatingMovie.StarRatingsSum)</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            @if (topRatingMovie.DateOfRelease.CompareTo(DateTime.UtcNow) > 0)
+                            {
+                                <div class="ribben">
+                                    <p>NEW</p>
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="imdb" aria-labelledby="imdb-tab">
+                    @foreach (var movie in Model.RecentlyAddedMovies)
+                    {
+                        <div class="col-md-2 w3l-movie-gride-agile">
+                            <a asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id" class="hvr-shutter-out-horizontal">
+                                <img src="@movie.CoverPath" title="@movie.Name" class="img-responsive" alt="Movie Cover Path" />
+                                <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                            </a>
+                            <div class="mid-1 agileits_w3layouts_mid_1_home">
+                                <div class="w3l-movie-text">
+                                    <h6><a asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">@movie.Name</a></h6>
+                                </div>
+                                <div class="mid-2 agile_mid_2_home">
+                                    <p>@movie.DateOfRelease.Year</p>
+                                    <div class="block-stars stars_ratings movie_@movie.Id" onload="showRating()">
+                                        <ul class="w3l-ratings">
+                                            <li>
+                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            </li>
+                                        </ul>
+                                        <div class="starRatingsSum">(@movie.StarRatingsSum)</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            @if (movie.DateOfRelease.CompareTo(DateTime.UtcNow) > 0)
+                            {
+                                <div class="ribben">
+                                    <p>NEW</p>
+                                </div>
+                            }
+                        </div>
+                    }
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //general -->
+<!-- Most-Popular-Movies -->
+<div class="Latest-tv-series">
+    <h4 class="latest-text w3_latest_text w3_home_popular">Most Popular Movies</h4>
+    <div class="container">
+        <section class="slider">
+            <div class="flexslider">
+                <ul class="slides">
+                    @foreach (var mostPopularMovie in Model.MostPopularMovies)
+                    {
+                        <li>
+                            <div class="agile_tv_series_grid">
+                                <div class="col-md-6 agile_tv_series_grid_left">
+                                    <div class="w3ls_market_video_grid1">
+                                        <img src="@mostPopularMovie.WallpaperPath" title="@mostPopularMovie.Name" class="img-responsive" alt="Movie Cover Path" />
+                                        <a class="w3_play_icon" href="#small-dialog_@mostPopularMovie.Id">
+                                            <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 agile_tv_series_grid_right">
+                                    <p class="fexi_header">@mostPopularMovie.Name</p>
+                                    <p class="fexi_header_para">
+                                        <span class="conjuring_w3">Story Line</span>
+                                        @mostPopularMovie.ShortDescription
+                                    </p>
+                                    <p class="fexi_header_para"><span>Director</span> @mostPopularMovie.Director.FullName </p>
+                                    <p class="fexi_header_para"><span>Date of Release</span> @mostPopularMovie.OnlyDate </p>
+                                    <p class="fexi_header_para"><span>Language</span> @mostPopularMovie.Language </p>
+                                    <p class="fexi_header_para">
+                                        <span>Genres</span>
+                                        @foreach (var genre in mostPopularMovie.MovieGenres)
+                                        {
+                                            <i class="fa fa-film" aria-hidden="true">
+                                                <a asp-controller="Genres" asp-action="ByName" asp-route-name="@genre.Genre.Name">@genre.Genre.Name</a>&nbsp;
+                                            </i>
+                                        }
+                                    </p>
+                                    <p class="fexi_header_para fexi_header_para1">
+                                        <span>Star Rating</span>
+                                        <div class="stars_ratings movie_@mostPopularMovie.Id" onload="showRating()">
+                                            <a>
+                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            </a>
+                                            <a>
+                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            </a>
+                                            <a>
+                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            </a>
+                                            <a>
+                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            </a>
+                                            <a>
+                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            </a>
+                                            <div class="starRatingsSum">(@mostPopularMovie.StarRatingsSum)</div>
+                                        </div>
+                                    </p>
+                                </div>
+                                <div class="clearfix"> </div>
+                                <div class="agileinfo_flexislider_grids">
+                                    @foreach (var movie in moviesInMostPopularSection)
+                                    {
+                                        <div class="col-md-2 w3l-movie-gride-agile">
+                                            <a asp-area="" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id" class="hvr-shutter-out-horizontal">
+                                                <img src="@movie.CoverPath" title="@movie.Name" class="img-responsive" alt="Movie Cover Path" />
+                                                <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                            </a>
+                                            <div class="mid-1 agileits_w3layouts_mid_1_home">
+                                                <div class="w3l-movie-text">
+                                                    <h6><a asp-area="" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">@movie.Name</a></h6>
+                                                </div>
+                                                <div class="mid-2 agile_mid_2_home">
+                                                    <p>@movie.DateOfRelease.Year</p>
+                                                    <div class="block-stars stars_ratings movie_@movie.Id" onload="showRating()">
+                                                        <ul class="w3l-ratings">
+                                                            <li>
+                                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="starRatingsSum">(@movie.StarRatingsSum)</div>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            </div>
+                                            @if (movie.DateOfRelease.CompareTo(DateTime.UtcNow) > 0)
+                                            {
+                                                <div class="ribben">
+                                                    <p>NEW</p>
+                                                </div>
+                                            }
+                                        </div>
+                                    }
+                                    <div class="clearfix"> </div>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </section>
+    </div>
+</div>
+@foreach (var mostPopularMovie in Model.MostPopularMovies)
+{
+    <div id="small-dialog_@mostPopularMovie.Id" class="mfp-hide">
+        <iframe src="@mostPopularMovie.TrailerEmbededPath" allowfullscreen></iframe>
+    </div>
+}
+<!-- //Most-Popular-Movies -->
+
+@section Scripts
+{
+    <script src="js/jquery.slidey.js" asp-append-version="true"></script>
+    <script src="js/jquery.dotdotdot.min.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        $("#slidey").slidey({
+            interval: 9000,
+            listCount: 5,
+            autoplay: false,
+            showList: true
+        });
+        $(".slidey-list-description").dotdotdot();
+    </script>
+    <!-- flexSlider -->
+    <link rel="stylesheet" href="~/css/flexslider.css" type="text/css" media="screen" property="" />
+    <script defer src="~/js/jquery.flexslider.js"></script>
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                start: function (slider) {
+                    $('body').removeClass('loading');
+                }
+            });
+        });
+    </script>
+    <!-- //flexSlider -->
+    <!-- pop-up-box -->
+    <script src="~/js/jquery.magnific-popup.js" type="text/javascript"></script>
+    <!--//pop-up-box -->
+    <script>
+        $(document).ready(function () {
+            $('.w3_play_icon,.w3_play_icon1,.w3_play_icon2').magnificPopup({
+                type: 'inline',
+                fixedContentPos: false,
+                fixedBgPos: true,
+                overflowY: 'auto',
+                closeBtnInside: true,
+                preloader: false,
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in',
+            });
+        });
+    </script>
+    <script type="text/javascript" src="~/js/rating.js"></script>
+}

@@ -1,0 +1,150 @@
+﻿@using CinemaWorld.Data.Models.Enumerations
+@model CinemaWorld.Models.ViewModels.Movies.MovieEditViewModel
+@{
+    this.ViewData["Title"] = "Edit Movie";
+    this.ViewData["ActivePage"] = MovieNavPages.Movies;
+
+    var directors = Model.Directors.Select(x => new SelectListItem(x.FullName, x.Id.ToString()));
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-area="Administration" asp-controller="Movies" asp-action="Edit" enctype="multipart/form-data" method="post">
+            <h4>Edit <b>@Model.Name</b> movie with id: @Model.Id</h4>
+            <hr />
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfRelease"></label>
+                <input asp-for="DateOfRelease" class="form-control" />
+                <span asp-validation-for="DateOfRelease" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description"></label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Resolution"></label>
+                <input asp-for="Resolution" class="form-control" />
+                <span asp-validation-for="Resolution" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rating"></label>
+                <input asp-for="Rating" class="form-control" />
+                <span asp-validation-for="Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Language"></label>
+                <input asp-for="Language" class="form-control" />
+                <span asp-validation-for="Language" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CinemaCategory"></label>
+                <select class="form-control" asp-for="CinemaCategory"
+                        asp-items="@(Html.GetEnumSelectList<CinemaCategory>())">
+                    <option selected="">@Model.CinemaCategory</option>
+                    <option disabled="">Select cinema category</option>
+                </select>
+                <span asp-validation-for="CinemaCategory" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrailerPath"></label>
+                <input asp-for="TrailerPath" class="form-control" />
+                <span asp-validation-for="TrailerPath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Old Cover Image</label>
+                <div class="form-group">
+                    <input asp-for="CoverPath" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <img class="img-fluid img-thumbnail" src="@Model.CoverPath" alt="Cover destination image" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="CoverImage"></label>
+                <input type="file" asp-for="CoverImage" name="CoverImage" />
+                <span asp-validation-for="CoverImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Old Wallpaper</label>
+                <div class="form-group">
+                    <input asp-for="WallpaperPath" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <img class="img-fluid img-thumbnail" src="@Model.WallpaperPath" alt="Wallpaper" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Wallpaper"></label>
+                <input type="file" asp-for="Wallpaper" name="Wallpaper" />
+                <span asp-validation-for="Wallpaper" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IMDBLink"></label>
+                <input asp-for="IMDBLink" class="form-control" />
+                <span asp-validation-for="IMDBLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Length"></label>
+                <input asp-for="Length" class="form-control" />
+                <span asp-validation-for="Length" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DirectorId"></label>
+                <div class="container">
+                    <select asp-for="DirectorId" asp-items="directors" class="selectpicker">
+                        <option selected="" disabled="">Select Director</option>
+                    </select>
+                </div>
+                <span asp-validation-for="DirectorId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SelectedGenres"></label>
+                <div class="container">
+                    <select multiple asp-for="SelectedGenres" class="selectpicker">
+                        <option disabled>Select Genre/Genres</option>
+                        @foreach (var genre in Model.Genres)
+                        {
+                            @if (Model.MovieGenres.Any(x => x.MovieId == Model.Id && x.GenreId == genre.Id))
+                            {
+                                <option value="@genre.Id" selected>@genre.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@genre.Id">@genre.Name</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <span asp-validation-for="SelectedGenres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SelectedCountries"></label>
+                <div class="container">
+                    <select multiple asp-for="SelectedCountries" class="selectpicker">
+                        <option disabled>Select Country/Countries</option>
+                        @foreach (var country in Model.Countries)
+                        {
+                            @if (Model.MovieCountries.Any(x => x.MovieId == Model.Id && x.CountryId == country.Id))
+                            {
+                                <option value="@country.Id" selected>@country.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@country.Id">@country.Name</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <span asp-validation-for="SelectedCountries" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-success">Save changes</button>
+            <button asp-area="Administration" asp-controller="Movies" asp-action="GetAll" class="btn btn-primary">Back to all movies</button>
+        </form>
+    </div>
+</div>

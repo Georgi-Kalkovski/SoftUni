@@ -1,0 +1,295 @@
+﻿@using CinemaWorld.Models.ViewModels.Movies
+@model DetailsListingViewModel
+@{
+    ViewData["Title"] = "Details";
+
+    void DisplayComments(int? parentId)
+    {
+        var comments = this.Model.MovieDetailsViewModel.MovieComments.Where(x => x.ParentId == parentId);
+        if (!comments.Any())
+        {
+            return;
+        }
+
+        @foreach (var comment in comments)
+        {
+            <div class="media">
+                <h5>@comment.UserFullName</h5>
+                @if (this.User.Identity.IsAuthenticated)
+                {
+                    <button type="button" class="btn btn-secondary pull-right" onclick="showAddCommentForm(@comment.Id)">
+                        <i class="fa fa-plus"></i>&nbsp; Answer
+                    </button>
+                }
+                <div class="media-left">
+                    <a>
+                        <img src="/images/user.jpg" title="Cinema World User" alt="User profile picture" />
+                    </a>
+                </div>
+                <div class="media-body">
+                    <p>@Html.Raw(comment.SanitizedContent)</p>
+                    <span>Posted by :<a> @comment.UserUserName </a></span>&nbsp;&nbsp;
+                    <span><i class="fa fa-calendar" aria-hidden="true"></i> <time datetime="@comment.CreatedOn.ToString("O")"></time></span>
+                    @{ DisplayComments(comment.Id); }
+                </div>
+            </div>
+        }
+    }
+}
+
+<link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
+
+<div class="single-page-agile-main">
+    <div class="container">
+        <div class="agileits-single-top">
+            <ol class="breadcrumb">
+                <li><a asp-action="All">Home</a></li>
+                <li class="active">Details</li>
+            </ol>
+        </div>
+        <div class="single-page-agile-info">
+            <div class="show-top-grids-w3lagile">
+                <div class="col-sm-8 single-left">
+                    <div class="song">
+                        <div class="song-info">
+                            <h3>@Model.MovieDetailsViewModel.Name</h3>
+                        </div>
+                        <div class="video-grid-single-page-agileits">
+                            <div data-video="@Model.MovieDetailsViewModel.TrailerPath" id="video" onclick="toggleFullScreen()">
+                                <img src="@Model.MovieDetailsViewModel.WallpaperPath" alt="Movie Wallpaper Path" class="img-responsive" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="song-grid-right">
+                        <div class="share">
+                            <h5>Share this</h5>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                    <div class="media-grids">
+                        <div class="media-left">
+                            @Model.MovieDetailsViewModel.Description
+                        </div>
+                    </div>
+                    <div class="all-comments">
+                        <div class="all-comments-info">
+                            <h3>Comments</h3>
+                            <hr />
+                            @if (this.User.Identity.IsAuthenticated)
+                            {
+                                <div class="px-4 pt-3">
+                                    <button type="button" class="btn btn-primary float-right" onclick="showAddCommentForm(0)">
+                                        <i class="fa fa-plus"></i>&nbsp; Comment
+                                    </button>
+                                </div>
+                            }
+                            <script src="/lib/tinymce/tinymce.min.js" type="text/javascript"></script>
+                            <script type="text/javascript">
+                                tinymce.init({
+                                    selector: "textarea",
+                                    plugins: ["image paste table link code media"],
+                                    setup: function (editor) {
+                                        editor.on('change', function (e) {
+                                            editor.save();
+                                        });
+                                    }
+                                });
+                            </script>
+                            <div class="agile-info-wthree-box">
+                                <form id="AddCommentForm" asp-controller="MovieComments" asp-action="Create" method="post" style="display: none">
+                                    <input type="hidden" name="MovieId" value="@Model.MovieDetailsViewModel.Id" />
+                                    <input type="hidden" name="ParentId" value="0" />
+                                    <div class="form-group">
+                                        <textarea name="Content" id="Content" placeholder="Message" class="form-control" required=""></textarea>
+                                    </div>
+                                    <div>
+                                        <input type="submit" value="SEND COMMENT" />
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="media-grids">
+                            @{ DisplayComments(null); }
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 single-right">
+                    <h3>Up Next</h3>
+                    <div class="single-grid-right">
+                        <div class="single-right-grids">
+                            <div class="col-md-4 single-right-grid-left">
+                                <a href="single.html"><img src="~/images/m1.jpg" alt="" /></a>
+                            </div>
+                            <div class="col-md-8 single-right-grid-right">
+                                <a href="single.html" class="title"> Nullam interdum metus</a>
+                                <p class="author"><a href="#" class="author">John Maniya</a></p>
+                                <p class="views">2,114,200 views</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="single-right-grids">
+                            <div class="col-md-4 single-right-grid-left">
+                                <a href="single.html"><img src="~/images/m2.jpg" alt="" /></a>
+                            </div>
+                            <div class="col-md-8 single-right-grid-right">
+                                <a href="single.html" class="title"> Nullam interdum metus</a>
+                                <p class="author"><a href="#" class="author">John Maniya</a></p>
+                                <p class="views">2,114,200 views </p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="single-right-grids">
+                            <div class="col-md-4 single-right-grid-left">
+                                <a href="single.html"><img src="~/images/m3.jpg" alt="" /></a>
+                            </div>
+                            <div class="col-md-8 single-right-grid-right">
+                                <a href="single.html" class="title"> Nullam interdum metus</a>
+                                <p class="author"><a href="#" class="author">John Maniya</a></p>
+                                <p class="views">2,114,200 views</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="single-right-grids">
+                            <div class="col-md-4 single-right-grid-left">
+                                <a href="single.html"><img src="~/images/m4.jpg" alt="" /></a>
+                            </div>
+                            <div class="col-md-8 single-right-grid-right">
+                                <a href="single.html" class="title"> Nullam interdum metus</a>
+                                <p class="author"><a href="#" class="author">John Maniya</a></p>
+                                <p class="views">2,114,200 views</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="single-right-grids">
+                            <div class="col-md-4 single-right-grid-left">
+                                <a href="single.html"><img src="~/images/m5.jpg" alt="" /></a>
+                            </div>
+                            <div class="col-md-8 single-right-grid-right">
+                                <a href="single.html" class="title"> Nullam interdum metus</a>
+                                <p class="author"><a href="#" class="author">John Maniya</a></p>
+                                <p class="views">2,114,200 views</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="single-right-grids">
+                            <div class="col-md-4 single-right-grid-left">
+                                <a href="single.html"><img src="~/images/c5.jpg" alt="" /></a>
+                            </div>
+                            <div class="col-md-8 single-right-grid-right">
+                                <a href="single.html" class="title"> Nullam interdum metus</a>
+                                <p class="author"><a href="#" class="author">John Maniya</a></p>
+                                <p class="views">2,114,200 views</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="single-right-grids">
+                            <div class="col-md-4 single-right-grid-left">
+                                <a href="single.html"><img src="~/images/m6.jpg" alt="" /></a>
+                            </div>
+                            <div class="col-md-8 single-right-grid-right">
+                                <a href="single.html" class="title"> Nullam interdum metus</a>
+                                <p class="author">By <a href="#" class="author">John Maniya</a></p>
+                                <p class="views">2,114,200 views</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="single-right-grids">
+                            <div class="col-md-4 single-right-grid-left">
+                                <a href="single.html"><img src="~/images/m15.jpg" alt="" /></a>
+                            </div>
+                            <div class="col-md-8 single-right-grid-right">
+                                <a href="single.html" class="title"> Nullam interdum metus</a>
+                                <p class="author">By <a href="#" class="author">John Maniya</a></p>
+                                <p class="views">2,114,200 views</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div class="w3_agile_banner_bottom_grid">
+            <div id="owl-demo" class="owl-carousel owl-theme">
+                @foreach (var movie in Model.AllMovies)
+                {
+                    <div class="item">
+                        <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
+                            <a asp-action="Details" asp-route-id="@movie.Id" class="hvr-shutter-out-horizontal">
+                                <img src="@movie.CoverPath" title="@movie.Name" class="img-responsive img-fluid" alt="Movie Cover Path" />
+                            </a>
+                            <div class="mid-1 agileits_w3layouts_mid_1_home">
+                                <div class="w3l-movie-text">
+                                    <h6><a asp-action="Details" asp-route-id="@movie.Id">@movie.Name</a></h6>
+                                </div>
+                                <div class="mid-2 agile_mid_2_home">
+                                    <p>@movie.DateOfRelease.Year</p>
+                                    <form id="starRatingsForm" method="post"></form>
+                                    <div class="block-stars stars_ratings">
+                                        <ul class="w3l-ratings">
+                                            <li>
+                                                <a href="#@movie.Id" onclick="sendRating(@movie.Id, 1)">
+                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#@movie.Id" onclick="sendRating(@movie.Id, 2)">
+                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#@movie.Id" onclick="sendRating(@movie.Id, 3)">
+                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#@movie.Id" onclick="sendRating(@movie.Id, 4)">
+                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#@movie.Id" onclick="sendRating(@movie.Id, 5)">
+                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <div id="starRatingsSum_@movie.Id">(@movie.StarRatingsSum)</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            @if (movie.DateOfRelease.CompareTo(DateTime.UtcNow) > 0)
+                            {
+                                <div class="ribben">
+                                    <p>NEW</p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/js/simplePlayer.js"></script>
+    <script>
+        $("document").ready(function () {
+            $("#video").simplePlayer();
+        });
+    </script>
+    <script type="text/javascript" src="~/js/rating.js"></script>
+
+    <script>
+        function showAddCommentForm(parentId) {
+            $("#AddCommentForm input[name='ParentId']").val(parentId);
+            $("#AddCommentForm").show();
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $("#AddCommentForm").offset().top
+            }, 1000);
+        }
+    </script>
+}

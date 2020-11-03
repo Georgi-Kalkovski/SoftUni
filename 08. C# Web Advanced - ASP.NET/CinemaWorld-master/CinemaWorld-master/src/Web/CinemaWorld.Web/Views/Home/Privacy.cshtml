@@ -1,0 +1,12 @@
+﻿@using CinemaWorld.Models.ViewModels.Privacy
+@model PrivacyDetailsViewModel
+@{
+    this.ViewData["Title"] = "Privacy Policy";
+}
+
+<div class="faq">
+    <h4 class="latest-text w3_faq_latest_text w3_latest_text">Privacy</h4>
+    <div class="container">
+        @Html.Raw(Model.SanitizedPageContent)
+    </div>
+</div>

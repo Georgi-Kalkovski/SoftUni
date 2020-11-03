@@ -1,0 +1,251 @@
+﻿@using CinemaWorld.Models.ViewModels.Schedule
+@model ScheduleDetailsViewModel
+@{
+    ViewData["Title"] = "Schedule";
+    var cinemas = Model.Cinemas.Select(x => new SelectListItem(x.Name, x.Name.ToString()));
+}
+
+@{
+    var prevDisabled = !Model.MovieProjections.HasPreviousPage ? "disabled" : "";
+    var prevPage = !Model.MovieProjections.HasPreviousPage ? "1" : (Model.MovieProjections.PageIndex - 1).ToString();
+    var nextDisabled = !Model.MovieProjections.HasNextPage ? "disabled" : "";
+    var nextPage = !Model.MovieProjections.HasNextPage ? "1" : (Model.MovieProjections.PageIndex + 1).ToString();
+}
+
+<div class="faq">
+    <div class="container">
+        <div class="agileits-news-top">
+            <ol class="breadcrumb">
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li class="active">Schedule</li>
+            </ol>
+        </div>
+        <div class="agileinfo-news-top-grids">
+            <div class="col-md-8 wthree-top-news-left">
+                <div class="wthree-news-left">
+                    <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                        <div class="w3ls-news-result">
+                            <h4>Total Count : <span>@Model.MovieProjections.Count()</span></h4>
+                        </div>
+                        <form asp-action="Index" method="get">
+                            <div class="w3ls-news-result">
+                                <p>
+                                    Show by cinema name:
+                                    <div class="form-group">
+                                        <div class="container">
+                                            <select asp-for="CinemaName" asp-items="cinemas" name="cinemaName" class="selectpicker">
+                                                <option selected="" disabled="">Select Cinema</option>
+                                            </select>
+                                            <input type="submit" value="Show" class="btn btn-sm btn-success" />
+                                        </div>
+                                    </div>
+                                </p>
+                            </div>
+                        </form>
+                        <div id="myTabContent" class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade in active" id="home1" aria-labelledby="home1-tab">
+                                @foreach (var movieProjection in Model.MovieProjections)
+                                {
+                                    <div class="wthree-news-top-left">
+                                        <div class="col-md-6 w3-agileits-news-left">
+                                            <div class="col-sm-5 wthree-news-img">
+                                                <a asp-controller="Movies" asp-action="Details" asp-route-id="@movieProjection.Movie.Id">
+                                                    <img src="@movieProjection.Movie.CoverPath" alt="Image" />
+                                                </a>
+                                            </div>
+                                            <div class="col-sm-7 wthree-news-info">
+                                                <h5>
+                                                    <a asp-controller="Movies" asp-action="Details" asp-route-id="@movieProjection.Movie.Id">
+                                                        @movieProjection.Movie.Name
+                                                    </a>
+                                                </h5>
+                                                <p>@movieProjection.Movie.ShortDescription</p>
+                                                <ul>
+                                                    <li><i class="fa fa-user-md"></i> @movieProjection.Movie.Director.FullName</li>
+                                                </ul>
+                                                <ul>
+                                                    <li><i class="fa fa-clock-o" aria-hidden="true"></i> Date of release: @movieProjection.Movie.OnlyDate</li>
+                                                </ul>
+                                                @foreach (var country in movieProjection.Movie.MovieCountries)
+                                                {
+                                                    <ul>
+                                                        <li>
+                                                            <i class="fa fa-flag" aria-hidden="true"> @country.Country.Name</i>
+                                                        </li>
+                                                    </ul>
+                                                }
+                                                @foreach (var genre in movieProjection.Movie.MovieGenres)
+                                                {
+                                                    <ul>
+                                                        <li>
+                                                            <i class="fa fa-film" aria-hidden="true"> @genre.Genre.Name</i>
+                                                        </li>
+                                                    </ul>
+                                                }
+                                                <ul>
+                                                    <li><i class="fa fa-star" aria-hidden="true"></i> IMDB rating: @movieProjection.Movie.Rating</li>
+                                                </ul>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                        <div class="col-md-6 w3-agileits-news-left">
+                                            <div class="col-sm-7 wthree-news-info">
+                                                <h5>
+                                                    Hall:
+                                                </h5>
+                                                <span>@movieProjection.Hall.Id</span>
+                                                <hr />
+                                                <h5>
+                                                    Time:
+                                                </h5>
+                                                <span>@movieProjection.Date.DayOfWeek @movieProjection.Date</span>
+                                                <hr />
+                                                <h5>
+                                                    Cinema:
+                                                </h5>
+                                                <span>@movieProjection.Cinema.Name</span>
+                                                <hr />
+                                                <h5>
+                                                    Duration:
+                                                </h5>
+                                                <span>@movieProjection.Movie.Length minutes</span>
+                                                <hr />
+                                                <h5>
+                                                    Language:
+                                                </h5>
+                                                <span>@movieProjection.Movie.Language</span>
+                                                <hr />
+                                                <h5>
+                                                    Category:
+                                                </h5>
+                                                <span>@movieProjection.Movie.CinemaCategory</span>
+                                                <hr />
+                                                <h5>
+                                                    Resolution:
+                                                </h5>
+                                                <span>@movieProjection.Movie.Resolution</span>
+                                                <hr />
+                                                <div class="w3ls_btn_submit">
+                                                    <a asp-controller="Tickets" asp-action="Book" asp-route-id="@movieProjection.Id">Book Ticket</a>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @if (Model.MovieProjections.TotalPages != 0)
+                {
+                    <div class="blog-pagenat-wthree">
+                        <ul class="pagination">
+                            <li>
+                                <a class="frist @prevDisabled" 
+                                   asp-action="Index" 
+                                   asp-route-pageNumber="@prevPage" 
+                                   asp-route-cinemaName="@ViewData["currentFilter"]">
+                                    Previous
+                                </a>
+                            </li>
+                            @for (int i = 1; i <= Model.MovieProjections.TotalPages; i++)
+                            {
+                                var active = i == Model.MovieProjections.PageIndex ? "active" : string.Empty;
+                                <li class="@active">
+                                    <a 
+                                       asp-action="Index" 
+                                       asp-route-pageNumber="@i" 
+                                       asp-route-cinemaName="@ViewData["currentFilter"]">@i
+                                    </a>
+                                </li>
+                            }
+                            <li>
+                                <a class="last @nextDisabled" 
+                                   asp-action="Index" 
+                                   asp-route-pageNumber="@nextPage" 
+                                   asp-route-cinemaName="@ViewData["currentFilter"]">
+                                    Next
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                }
+            </div>
+            <div class="col-md-4 wthree-news-right">
+                <!-- news-right-top -->
+                <div class="news-right-top">
+                    <div class="wthree-news-right-heading">
+                        <h3>Movie Reviews</h3>
+                    </div>
+                    <div class="wthree-news-right-top">
+                        <div class="news-grids-bottom">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <div class="w3l-latest-movies-grids">
+        <h4 class="latest-text w3_latest_text">Latest Movies</h4>
+        <div class="container">
+            <div class="browse-inner">
+                @foreach (var latestMovie in Model.LatestMovies)
+                {
+                    <div class="col-md-2 w3l-movie-gride-agile">
+                        <a asp-controller="Movies" asp-action="Details" asp-route-id="@latestMovie.Id" class="hvr-shutter-out-horizontal">
+                            <img src="@latestMovie.CoverPath" title="@latestMovie.Name" class="img-responsive" alt="Movie Cover Path" />
+                            <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                        </a>
+                        <div class="mid-1">
+                            <div class="w3l-movie-text">
+                                <h6><a asp-controller="Movies" asp-action="Details" asp-route-id="@latestMovie.Id">@latestMovie.Name</a></h6>
+                            </div>
+                            <div class="mid-2">
+                                <p>@latestMovie.DateOfRelease.Year</p>
+                                <div class="block-stars stars_ratings movie_@latestMovie.Id">
+                                    <ul class="w3l-ratings">
+                                        <li>
+                                            <a><i class="fa fa-star-o" aria-hidden="true"></i></a>
+                                        </li>
+                                        <li>
+                                            <a><i class="fa fa-star-o" aria-hidden="true"></i></a>
+                                        </li>
+                                        <li>
+                                            <a><i class="fa fa-star-o" aria-hidden="true"></i></a>
+                                        </li>
+                                        <li>
+                                            <a><i class="fa fa-star-o" aria-hidden="true"></i></a>
+                                        </li>
+                                        <li>
+                                            <a><i class="fa fa-star-o" aria-hidden="true"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="starRatingsSum">(@latestMovie.StarRatingsSum)</div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        @if (latestMovie.DateOfRelease.CompareTo(DateTime.UtcNow) > 0)
+                        {
+                            <div class="ribben">
+                                <p>NEW</p>
+                            </div>
+                        }
+                    </div>
+                }
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript" src="~/js/rating.js"></script>
+}
+
+

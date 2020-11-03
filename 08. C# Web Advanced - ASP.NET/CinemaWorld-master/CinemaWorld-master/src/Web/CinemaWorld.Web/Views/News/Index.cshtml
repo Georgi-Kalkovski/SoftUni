@@ -1,0 +1,205 @@
+﻿@using CinemaWorld.Models.ViewModels.News
+@model NewsIndexViewModel
+@{
+    ViewData["Title"] = "News";
+}
+
+@{
+    var prevDisabled = !Model.News.HasPreviousPage ? "disabled" : "";
+    var prevPage = !Model.News.HasPreviousPage ? "1" : (Model.News.PageIndex - 1).ToString();
+    var nextDisabled = !Model.News.HasNextPage ? "disabled" : "";
+    var nextPage = !Model.News.HasNextPage ? "1" : (Model.News.PageIndex + 1).ToString();
+
+    int updatedSinceHourLimit = 12;
+}
+
+<div class="faq">
+    <div class="container">
+        <div class="agileits-news-top">
+            <ol class="breadcrumb">
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li class="active">News</li>
+            </ol>
+        </div>
+        <div class="agileinfo-news-top-grids">
+            <div class="col-md-8 wthree-top-news-left">
+                <div class="wthree-news-left">
+                    <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                        <ul id="myTab" class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#home1" id="home1-tab" role="tab" data-toggle="tab" aria-controls="home1" aria-expanded="true">Latest News</a></li>
+                            <li role="presentation"><a href="#w3bsd" role="tab" id="w3bsd-tab" data-toggle="tab" aria-controls="w3bsd">Movie News</a></li>
+                        </ul>
+                        <div class="w3ls-news-result">
+                            <h4>Total Count : <span>@Model.News.Count()</span></h4>
+                        </div>
+                        <div id="myTabContent" class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade in active" id="home1" aria-labelledby="home1-tab">
+                                @foreach (var news in Model.News)
+                                {
+                                    <div class="wthree-news-top-left">
+                                        <div class="col-md-7 w3-agileits-news-left">
+                                            <div class="col-sm-5 wthree-news-img">
+                                                <a asp-controller="News" asp-action="Details" asp-route-id="@news.Id">
+                                                    <img src="@news.ImagePath" alt="Image" />
+                                                </a>
+                                            </div>
+                                            <div class="col-sm-7 wthree-news-info">
+                                                <h5>
+                                                    <a asp-controller="News" asp-action="Details" asp-route-id="@news.Id">
+                                                        @news.Title
+                                                    </a>
+                                                </h5>
+                                                <p>@news.ShortDescription</p>
+                                                <ul>
+                                                    <li><i class="fa fa-user" aria-hidden="true"></i> @news.UserUserName</li>
+                                                    <li><i class="fa fa-eye" aria-hidden="true"></i> @news.ViewsCounter</li>
+                                                </ul>
+                                                <ul>
+                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> <time datetime="@news.CreatedOn.ToString("O")"></time></li>
+                                                </ul>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="w3bsd" aria-labelledby="w3bsd-tab">
+                            @*@for (int i = counter; i < Model.Count(); i++)
+                    {
+                        <div class="wthree-news-top-left">
+                            <div class="col-md-6 w3-agileits-news-left">
+                                <div class="col-sm-5 wthree-news-img">
+                                    <a asp-controller="News" asp-action="Details" asp-route-id="@Model[i].Id">
+                                        <img src="@Model[i].ImagePath" alt="Image" />
+                                    </a>
+                                </div>
+                                <div class="col-sm-7 wthree-news-info">
+                                    <h5>
+                                        <a asp-controller ="News" asp-action="Details" asp-route-id="@Model[i].Id">
+                                            @Model[i].Title
+                                        </a>
+                                    </h5>
+                                    <p>@Model[i].SanitizedShortDescription</p>
+                                    <ul>
+                                        <li><i class="fa fa-clock-o" aria-hidden="true"></i> @Model[i].CreationDate</li>
+                                        <li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    }*@
+                        </div>
+                    </div>
+                </div>
+                @if (Model.News.TotalPages != 0)
+                {
+                    <div class="blog-pagenat-wthree">
+                        <ul class="pagination">
+                            <li>
+                                <a class="frist @prevDisabled" asp-action="Index" asp-route-pageNumber="@prevPage">
+                                    Previous
+                                </a>
+                            </li>
+                            @for (int i = 1; i <= Model.News.TotalPages; i++)
+                            {
+                                var active = i == Model.News.PageIndex ? "active" : string.Empty;
+                                <li class="@active">
+                                    <a asp-action="Index" asp-route-pageNumber="@i">@i</a>
+                                </li>
+                            }
+                            <li>
+                                <a class="last @nextDisabled" asp-action="Index" asp-route-pageNumber="@nextPage">
+                                    Next
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                }
+            </div>
+            <div class="col-md-4 wthree-news-right">
+                <!-- news-right-top -->
+                <div class="news-right-top">
+                    <div class="wthree-news-right-heading">
+                        <h3>Updated News</h3>
+                    </div>
+                    <div class="wthree-news-right-top">
+                        <div class="news-grids-bottom">
+                            <div id="design" class="date">
+                                <div id="cycler">
+                                    @foreach (var updatedNewsItem in Model.UpdatedNews)
+                                    {
+                                        <div class="date-text">
+                                            <a asp-controller="News" asp-action="Details" asp-route-id="@updatedNewsItem.Id">
+                                                @if (updatedNewsItem.UpdatedSince <= updatedSinceHourLimit 
+                                                    && updatedNewsItem.UpdatedSince != null)
+                                                {
+                                                    <span class="blinking"><img src="images/new.png" alt="Blinking image" /></span>
+                                                }
+                                                @updatedNewsItem.CreationDate
+                                            </a>
+                                            <p>@updatedNewsItem.Title</p>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //news-right-top -->
+                <!-- news-right-bottom -->
+                <div class="news-right-bottom">
+                    <div class="wthree-news-right-heading">
+                        <h3>Top News</h3>
+                    </div>
+                    <div class="news-right-bottom-bg">
+                        <div class="news-grids-bottom">
+                            @foreach (var news in Model.TopNews)
+                            {
+                                <div class="top-news-grid">
+                                    <div class="top-news-grid-heading">
+                                        <a asp-controller="News" asp-action="Details" asp-route-id="@news.Id">
+                                            @news.Title
+                                        </a>
+                                    </div>
+                                    <div class="w3ls-news-t-grid top-t-grid">
+                                        <ul>
+                                            <li><i class="fa fa-clock-o"></i> @news.CreatedOnBefore h</li>
+                                            <li><i class="fa fa-user"></i> @news.UserUserName</li>
+                                            <li><i class="fa fa-eye" aria-hidden="true"></i> @news.ViewsCounter</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <!-- //news-right-bottom -->
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+        function blinker() {
+            $('.blinking').fadeOut(600);
+            $('.blinking').fadeIn(600);
+        }
+        setInterval(blinker, 1000);
+    </script>
+    <script>
+        function cycle($item, $cycler) {
+            setTimeout(cycle, 4000, $item.next(), $cycler);
+            $item.slideUp(1000, function () {
+                $item.appendTo($cycler).show();
+            });
+        }
+        cycle($('#cycler div:first'), $('#cycler'));
+    </script>
+}

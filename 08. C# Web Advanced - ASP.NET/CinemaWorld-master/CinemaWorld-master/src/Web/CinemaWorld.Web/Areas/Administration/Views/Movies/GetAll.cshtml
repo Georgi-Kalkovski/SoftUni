@@ -1,0 +1,105 @@
+﻿@using CinemaWorld.Models.ViewModels.Movies
+@model PaginatedList<MovieDetailsViewModel>
+@{
+    this.ViewData["Title"] = "All movies";
+    this.ViewData["ActivePage"] = MovieNavPages.Movies;
+}
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<link rel="stylesheet" type="text/css" href="~/list-css/table-style.css" />
+<link rel="stylesheet" type="text/css" href="~/list-css/basictable.css" />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <h4>Movies List</h4>
+            <hr />
+            <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                <div id="myTabContent" class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+                        <div class="agile-news-table">
+                            <div class="w3ls-news-result">
+                                <h4>Total Count : <span>@Model.Count()</span></h4>
+                            </div>
+                            <table id="table-breakpoint">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Movie Name</th>
+                                        <th>Movie Language</th>
+                                        <th>Length</th>
+                                        <th>Cinema category</th>
+                                        <th>Year</th>
+                                        <th>Resolution</th>
+                                        <th>Country</th>
+                                        <th>Genre</th>
+                                        <th>Director</th>
+                                        <th>Rating</th>
+                                        <th>Functions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var movie in Model)
+                                    {
+                                        <tr>
+                                            <td>@movie.Id</td>
+                                            <td><a href="@movie.TrailerPath"><strong>@movie.Name</strong></a></td>
+                                            <td>@movie.Language</td>
+                                            <td>@movie.Length</td>
+                                            <td>@movie.CinemaCategory</td>
+                                            <td>@movie.DateOfRelease.Year</td>
+                                            <td>@movie.Resolution</td>
+                                            <td class="w3-list-info">
+                                                @foreach (var movieCountry in movie.MovieCountries)
+                                                {
+                                                    <span>@movieCountry.Country.Name</span>
+                                                }
+                                            </td>
+                                            <td class="w3-list-info">
+                                                @foreach (var movieGenre in movie.MovieGenres)
+                                                {
+                                                    <span>@movieGenre.Genre.Name</span>
+                                                }
+                                            </td>
+                                            <td>@movie.Director.FullName</td>
+                                            <td>@movie.Rating</td>
+                                            <td>
+                                                <a class="badge badge-success" asp-action="Edit" asp-route-id="@movie.Id">Edit</a>
+                                                <a class="badge badge-danger" asp-action="Remove" asp-route-id="@movie.Id">Remove</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <a asp-action="GetAll" asp-route-pageNumber="@(Model.PageIndex - 1)" class="btn btn-primary @prevDisabled">
+                Previous
+            </a>
+            <a asp-action="GetAll" asp-route-pageNumber="@(Model.PageIndex + 1)" class="btn btn-primary @nextDisabled">
+                Next
+            </a>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript" src="~/list-js/jquery.basictable.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#table').basictable();
+
+            $('#table-breakpoint').basictable({
+                breakpoint: 768
+            });
+        });
+    </script>
+}

@@ -1,0 +1,42 @@
+﻿@using CinemaWorld.Common
+@using CinemaWorld.Data.Models
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<CinemaWorldUser> SignInManager
+@inject UserManager<CinemaWorldUser> UserManager
+
+<link href="~/css/spinner-loader.css" rel="stylesheet" asp-append-version="true">
+
+@if (this.SignInManager.IsSignedIn(this.User))
+{
+    <div class="nav-item">
+        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello, @(this.User.Identity.Name)!</a>
+    </div>
+    @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+    {
+        <div class="nav-item">
+            <a class="nav-link text-dark" asp-area="Administration" asp-controller="Movies" asp-action="Index" title="Admin">Admin Dashboard</a>
+        </div>
+    }
+    <div class="nav-item">
+        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@(this.Url.Action("Index", "Home", new { area = string.Empty }))">
+            <button type="submit" class="label label-primary">Logout</button>
+        </form>
+    </div>
+}
+else
+{
+    <partial name="_AjaxPartial" />
+    <script>
+        $('.toggle').click(function () {
+            // Switches the Icon
+            $(this).children('i').toggleClass('fa-pencil');
+            // Switches the forms
+            $('.form').animate({
+                height: "toggle",
+                'padding-top': 'toggle',
+                'padding-bottom': 'toggle',
+                opacity: "toggle"
+            }, "slow");
+        });
+    </script>
+}

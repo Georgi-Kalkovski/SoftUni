@@ -1,0 +1,15 @@
+﻿@{
+    this.ViewData["ActivePage"] = CinemaNavPages.Cinemas;
+    this.ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <ul class="nav nav-pills nav-stacked">
+                <li class="@CinemaNavPages.CreateCinemaNavClass(ViewContext)"><a asp-controller="Cinemas" asp-action="Create">Create cinema</a></li>
+                <li class="@CinemaNavPages.GetAllNavClass(ViewContext)"><a asp-controller="Cinemas" asp-action="GetAll">List cinemas</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
