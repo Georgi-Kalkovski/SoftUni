@@ -1,0 +1,105 @@
+﻿@model List<Stopify.Web.ViewModels.Home.Index.ProductHomeViewModel>
+@{
+    ViewData["Title"] = "Home Page"; 
+    
+    // TODO: Refactor this!
+    var criteria = new Dictionary<string, string>()
+    {
+        { "price-lowest-to-highest", "Price (lowest to highest)" },
+        { "price-highest-to-lowest", "Price (highest to lowest)" },
+        { "date-oldest-to-newest", "Date of Manufacturing (oldest to newest)" },
+        { "date-newest-to-oldest", "Date of Manufacturing (newest to oldest)" }
+    };
+}
+
+@if (!this.User.Identity.IsAuthenticated)
+{
+    <div class="jumbotron bg-primary mt-3 mb-3">
+        <h1 class="font-weight-bold text-white">Stopify Web Shop</h1>
+        <hr class="bg-white hr-2" />
+        <h3 class="text-white">Have a nice shopping experience!</h3>
+    </div>
+}
+else
+{
+    <div class="d-flex justify-content-between">
+        <div id="products-search-bar-holder" class="form-group d-flex justify-content-between w-50">
+            <input type="text" class="form-control text-primary" id="products-search-bar" name="search" placeholder="Search..." />
+        </div>
+        <div id="sort-holder" class="form-group w-40 d-flex justify-content-between">
+            <label for="sort" class="text-primary font-weight-bold w-30 h4 mt-1 text-right">Order By: </label>
+            <form id="order-form" action="/" method="get">
+                <select id="sort" class="form-control text-primary pl-2 ml-3 w-70" name="criteria">
+                    @if (this.ViewData["criteria"] == null)
+                    {
+                        <option selected>None</option>
+                    }
+                    else
+                    {
+                        <option>None</option>
+                    }
+
+                    @foreach (var elem in criteria)
+                    {
+                        if (elem.Key == (string)this.ViewData["criteria"])
+                        {
+                            <option value="@elem.Key" selected>@elem.Value</option>
+                        }
+                        else
+                        {
+                            <option value="@elem.Key">@elem.Value</option>
+                        }
+                    }
+                </select>
+            </form>
+        </div>
+    </div>
+    <hr class="hr-2 bg-primary">
+    <div id="products" class="mt-3">
+        @for (int i = 0; i < Model.Count; i += 5)
+        {
+            <div class="products-row row d-flex justify-content-around my-5">
+                @for (int j = i; j < i + 5; j++)
+                {
+                    if (j < Model.Count)
+                    {
+                        <div class="product col-md-2">
+                            <div class="image-holder d-flex justify-content-center">
+                                <a href="/Product/Details/@Model[j].Id">
+                                    <img class="img-thumbnail product-image" src="@Model[j].Picture" alt="...">
+                                </a>
+                            </div>
+                            <h5 class="text-primary text-center mt-3">@Model[j].Name</h5>
+                            <h5 class="text-primary text-center mt-3">Price: $@Model[j].Price.ToString("F2")</h5>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="product col-md-2 empty">
+                        </div>
+                    }
+                }
+            </div>
+        }
+    </div>
+
+    <script>
+        $('#sort').change(function () {
+            $('#order-form').submit();
+        });
+
+        $('#products-search-bar').on("change paste keyup", function () {
+            $('.product').show();
+
+            let searchValue = $('#products-search-bar').val();
+
+            for (let elem of $('.product')) {
+                let productName = $($(elem).children()[1]).text();
+
+                if (!productName.toLowerCase().includes(searchValue.toLowerCase())) {
+                    $(elem).hide();
+                }
+            }
+        });
+    </script>
+}
