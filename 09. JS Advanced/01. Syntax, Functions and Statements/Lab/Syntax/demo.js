@@ -9,3 +9,9 @@ function printStars(count){
 }
 
 printStars(5);
+
+if (true) {
+    console.log('its true');
+} else {
+    console.log('its false')
+}
