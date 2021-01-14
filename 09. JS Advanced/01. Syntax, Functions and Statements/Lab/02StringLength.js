@@ -1,4 +1,4 @@
-function stringLength(a, b, c){
+function stringLength(a, b, c) {
     let total = 0;
     total += a.length;
     total += b.length;
@@ -10,4 +10,4 @@ function stringLength(a, b, c){
 }
 
 stringLength('chocolate', 'ice cream', 'cake');
-stringLength('pasta','5','22.3');
+stringLength('pasta', '5', '22.3');
