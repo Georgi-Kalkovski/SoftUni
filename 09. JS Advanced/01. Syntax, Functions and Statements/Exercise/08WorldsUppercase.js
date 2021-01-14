@@ -1,8 +1,7 @@
-function WordsUppercase(input){
-let letters = input.toUpperCase();
-letters = letters.replace(/[-!$%^&*()_+|~=`{}\[\]:";'<>?,\/]+/g, '');
-letters = letters.replace(/[. ]+/g, ', ');
-console.log(letters);
+function WordsUppercase(input) {
+ 
+    console.log(input.split(/[\W]+/).filter(w => w != '').map(w => w.toUpperCase()).join(', '));
+ 
 }
 
 WordsUppercase('Hi, how are you?');
