@@ -1,5 +1,24 @@
-function AddRemoveElements() {
+function AddRemoveElements(arr) {
+    let myArr = [];
+    let number = 1;
 
+    for (let i = 0; i < arr.length; i++) {
+
+        if (arr[i] == 'add') {
+            myArr.push(number);
+        }
+        else {
+            myArr.splice(-1, 1);
+        }
+        number += 1;
+    }
+    
+    if (myArr.length == 0) {
+        return 'Empty';
+    }
+    else {
+        return myArr.join('\n');
+    }
 }
 
 console.log(AddRemoveElements(['add', 'add', 'add', 'add']));
