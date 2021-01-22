@@ -1,4 +1,4 @@
-function stringLength(a, b, c) {
+function StringLength(a, b, c) {
     let total = 0;
     total += a.length;
     total += b.length;
@@ -9,5 +9,5 @@ function stringLength(a, b, c) {
     console.log(average);
 }
 
-stringLength('chocolate', 'ice cream', 'cake');
-stringLength('pasta', '5', '22.3');
+StringLength('chocolate', 'ice cream', 'cake');
+StringLength('pasta', '5', '22.3');

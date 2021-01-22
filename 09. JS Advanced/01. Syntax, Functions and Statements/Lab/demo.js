@@ -4,11 +4,11 @@
 
 // const - after declaring cannot be changed
 
-function printStars(count){
+function PrintStars(count){
     console.log('*'.repeat(count));
 }
 
-printStars(5);
+PrintStars(5);
 
 if (true) {
     console.log('its true');
