@@ -8,17 +8,19 @@ function AddRemoveElements(arr) {
             myArr.push(number);
         }
         else {
-            myArr.splice(-1, 1);
+            myArr.pop();
+            //myArr.splice(-1, 1);
         }
         number += 1;
     }
     
-    if (myArr.length == 0) {
-        return 'Empty';
-    }
-    else {
-        return myArr.join('\n');
-    }
+    return myArr.length != 0 ? result.join('\n') : 'Empty';
+    //if (myArr.length == 0) {
+    //    return 'Empty';
+    //}
+    //else {
+    //    return myArr.join('\n');
+    //}
 }
 
 console.log(AddRemoveElements(['add', 'add', 'add', 'add']));
