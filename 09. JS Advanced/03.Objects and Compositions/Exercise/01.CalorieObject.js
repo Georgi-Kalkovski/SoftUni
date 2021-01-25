@@ -1,9 +1,8 @@
 function CalorieObject(arr) {
     let element = {};
 
-    for (let i = 0; i < arr.length - 1; i+=2) {
-            element.name.grams = arr[i];
-            element.grams = arr[i + 1] * 100;
+    for (let i = 0; i < arr.length; i+=2) {
+            element[arr[i]] = Number(arr[i + 1]);
     }
 
     return element;
