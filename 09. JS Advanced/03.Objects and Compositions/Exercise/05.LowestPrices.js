@@ -1,24 +1,29 @@
 function LowestPrices(input) {
 
-    let arr = [];
+    let obj = {};
 
-    for (let i = 0; i < input.length; i++) {
-        let current = input[i].split(' | ');
-        if (arr.includes(current[0] && arr.includes(current[1]))) {
+    for (const element of input) {
+        let current = element.split(' | ');
+        const [town, product, price] = current;
+
+        if (obj.hasOwnProperty(product)) {
+            if (obj[product][0] > Number(price)) {
+                obj[product][0] = price;
+                obj[product][1] = town;
+            }
+            if (obj[product][1] === town) {
+                obj[product][0] = price;
+            }
         } else {
-            arr.push(current);
+            obj[product] = [Number(price), town];
         }
     }
 
+    let output = Object.entries(obj);
 
-
-    let result = [];
-    for (const key of arr) {
-        result.push(
-            console.log(`${key[1]} -> ${key[2]} (${key[0]})`));
+    for (let i = 0; i < output.length; i++) {
+        console.log(`${output[i][0]} -> ${output[i][1][0]} (${output[i][1][1]})`)
     }
-
-    return result;
 }
 
 LowestPrices(
@@ -30,3 +35,15 @@ LowestPrices(
         'New York | Sample Product | 1000.1',
         'New York | Burger | 10']
 );
+LowestPrices(
+    ['Sofia City | Audi | 100000',
+        'Sofia City | BMW | 100000',
+        'Sofia City | Mitsubishi | 10000',
+        'Sofia City | Mercedes | 10000',
+        'Sofia City | NoOffenseToCarLovers | 0',
+        'Mexico City | Audi | 1000',
+        'Mexico City | BMW | 99999',
+        'New York City | Mitsubishi | 10000',
+        'New York City | Mitsubishi | 1000',
+        'Mexico City | Audi | 100000',
+        'Washington City | Mercedes | 1000']);
