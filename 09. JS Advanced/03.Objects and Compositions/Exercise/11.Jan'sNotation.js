@@ -1,34 +1,37 @@
-function JansNotations(arr) {
-    let number1 = 0;
-    let number2 = 0;
-    let operator = '';
-
-    while (arr.length != 1) {
-        for (const element of arr) {
-            let index = arr.findIndex(element, 1);
-            if (Number(element)) {
-                number1 = Number(element);
-                continue;
-            }
-            arr.splice(index);
-            break;
+function JansNotation(input){
+    let operators = {
+        '+' : (a,b)=>a+b,
+        '-' : (a,b)=>a-b,
+        '*' : (a,b)=>a*b,
+        '/' : (a,b)=>a/b,
+    }
+    let arr = [];
+    let error = false;
+    for (const el of input) {
+        if(Number.isInteger(el)){
+            arr.push(el);
         }
-        for (const element of arr) {
-            if (element === Number) {
-                number2 = Number(element)
+        else{
+            if(arr.length<2){
+                console.log('Error: not enough operands!');
+                error = true;
+
             }
-            else if (element === String) {
-                if (element == '+') { number1 + number2 }
-                else if (element == '-') number1 - number2
-            }
-            else if (element == '/') { number1 / number2 }
-            else if (element == '*') { number1 * number2 }
+            let first = arr.pop();
+            let second = arr.pop();
+            arr.push(operators[el](second,first));
+
         }
     }
-    return arr;
+    if(arr.length===1 && error === false){
+       console.log(arr[0]);
+    }else if (error === false){
+        console.log('Error: too many operands!');
+    }
 }
 
-//console.log(JansNotations([3, 4, '+']));
-console.log(JansNotations([5, 3, 4, '*', '-']));
-console.log(JansNotations([7, 33, 8, '-']));
-console.log(JansNotations([15, '/']));
+JansNotation([3, 4, '+']);
+JansNotation([5, 3, 4, '*', '-']);
+JansNotation([7, 33, 8, '-']);
+JansNotation([15, '/']);
+JansNotation([31,2,'+',11,'/',]);
