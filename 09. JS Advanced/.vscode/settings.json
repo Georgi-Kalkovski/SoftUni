@@ -1,4 +1,12 @@
 {
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+    "editor.detectIndentation": false,
+    "explorer.confirmDragAndDrop": false,
+    "extensions.ignoreRecommendations": false,
+    "explorer.confirmDelete": false,
+    "breadcrumbs.symbolSortOrder": "type",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection" : "automaticallyOcerrodeDefaultValue",
     "eslint.options": {
         "envs": [
             "es6",
