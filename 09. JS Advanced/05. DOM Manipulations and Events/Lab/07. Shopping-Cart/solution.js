@@ -1,13 +1,33 @@
 function solve() {
-    let products = document.querySelector("body > div").children;
-    let textarea = document.querySelector("body > div > textarea")
-    for (const product of products) {
-        if (product.className == 'product') {
-            let button = product.children[2].children[0];
-            name = product.children[1].children[0].textContent;
-            price = Number(product.children[3].textContent);
 
-            console.log(`Added ${name} for $${price.toFixed(2)} to the cart.` + '\n');
+    const textarea = document.querySelector("body > div > textarea");
+    const names = [];
+    let priceSum = 0;
+    let buttonsDisabled = false;
+
+    Array.from(document.querySelectorAll('body > div > div > .product-add'))
+    .forEach(button => {
+        button.addEventListener('click', onAddClick);
+    });
+
+    function onAddClick(e) {
+        if (buttonsDisabled == false) {
+            const name = e.target.parentNode.parentNode.children[1].children[0].textContent;
+            if (!names.includes(name)) {
+                names.push(name);
+            }
+            const price = Number(e.target.parentNode.parentNode.children[3].textContent);
+            priceSum += price;
+            textarea.textContent += `Added ${name} for ${price.toFixed(2)} to the cart.\n`;
         }
     }
-}
+
+    document.querySelector("body > div > button").addEventListener('click', onCheckoutClick);
+    
+    function onCheckoutClick() {
+        if (buttonsDisabled == false) {
+            textarea.textContent += `You bought ${names.join(', ')} for ${priceSum.toFixed(2)}.`;
+            buttonsDisabled = true;
+        }
+    }
+} 
