@@ -1,21 +1,24 @@
 function RequestValidator(input) {
 
-    let validMethod = ['GET', 'POST', 'DELETE', 'CONNECT'];
-    let validUri = /^[a-zA-Z0-9.]+$|^\*$/g;
-    let validVersion = ['HTTP/0.9', 'HTTP/1.0', 'HTTP/1.1', 'HTTP/2.0'];
-    let validMessage = /^[^<>\\&'"]*$/g;
+    let validMethods = ['GET', 'POST', 'DELETE', 'CONNECT'];
+    let uriRegex = /^[a-zA-Z0-9.]+$|^\*$/g;
+    let validVersions = ['HTTP/0.9', 'HTTP/1.0', 'HTTP/1.1', 'HTTP/2.0'];
+    let message = /^[^<>\\&'"]*$/g;
 
-    if (!validMethod.includes(input.method)) {
+    if (!validMethods.includes(input.method)) {
         throw new Error('Invalid request header: Invalid Method');
     }
-    if (!input.uri.match(validUri) || !input.hasOwnProperty('uri')) {
-        throw new Error('Invalid request header: Invalid URI');
+
+    if (!input.hasOwnProperty('uri') || !input.uri.match(uriRegex)) {
+        throw new Error("Invalid request header: Invalid URI");
     }
-    if (!validVersion.includes(input.version)) {
+
+    if (!validVersions.includes(input.version)) {
         throw new Error('Invalid request header: Invalid Version');
     }
-    if (!input.message.match(validMessage) || !input.hasOwnProperty('message')) {
-        throw new Error('Invalid request header: Invalid Message');
+
+    if (!input.hasOwnProperty('message') || !input.message.match(message)) {
+        throw new Error("Invalid request header: Invalid Message");
     }
 
     return input;
