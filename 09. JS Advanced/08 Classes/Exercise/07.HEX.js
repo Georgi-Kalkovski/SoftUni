@@ -9,10 +9,10 @@ class Hex {
         return `0x${this.value.toString(16).toUpperCase()}`;
     }
     plus(number) {
-        return new Hex(this.value + Number(number.valueOf()));
+        return new Hex(this.value + number);
     }
     minus(number) {
-        return new Hex(this.value - Number(number.valueOf()));
+        return new Hex(this.value - number);
     }
     parse(string) {
         return parseInt(string, 16)

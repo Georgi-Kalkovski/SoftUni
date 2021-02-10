@@ -3,12 +3,12 @@ function JuiceFlavours(inputJuices) {
     let bottles = {};
 
     inputJuices.forEach(el => {
-        let [name, quantity] = el.split(' => ');
+        let [name, qty] = el.split(' => ');
 
         if (!juices[name]) {
-            juices[name] = Number(quantity);
+            juices[name] = Number(qty);
         } else {
-            juices[name] += Number(quantity);
+            juices[name] += Number(qty);
         }
 
         while (juices[name] >= 1000) {
@@ -23,7 +23,7 @@ function JuiceFlavours(inputJuices) {
     });
 
     let result = '';
-    for (const [key, value] of Object.entries(bottles)) {
+    for (const key of Object.entries(bottles)) {
         result += `${key} => ${value}\n`;
     }
     return result;
