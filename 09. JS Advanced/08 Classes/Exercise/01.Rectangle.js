@@ -14,3 +14,4 @@ console.log(rect.width);
 console.log(rect.height);
 console.log(rect.color);
 console.log(rect.calcArea());
+ 
