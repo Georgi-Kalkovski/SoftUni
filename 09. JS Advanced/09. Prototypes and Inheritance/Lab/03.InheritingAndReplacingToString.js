@@ -40,11 +40,6 @@ function toStringExtension() {
             return `Student (name: ${name}, email: ${email}, course: ${course})`;
         }
     }
-    if (Person) {
-        toString() {
-            return `Person (name: ${name}, email: ${email})`;
-        }
-    }
     return {
         Person,
         Teacher,
