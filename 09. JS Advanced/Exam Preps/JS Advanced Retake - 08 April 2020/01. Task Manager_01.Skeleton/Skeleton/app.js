@@ -4,17 +4,14 @@ function solve() {
     const description = document.getElementById('description');
     const date = document.getElementById('date');
 
-    const add = document.getElementById('add');
     const open = document.querySelector('section:nth-child(2)').children[1];
     const inProgress = document.querySelector('section:nth-child(3)').children[1];
     const completed = document.querySelector('section:nth-child(4)').children[1];
 
+    document.getElementById('add')
+        .addEventListener('click', onClick);
 
-    add.addEventListener('click', onAddTask);
-    open.addEventListener('click', onOpen);
-    inProgress.addEventListener('click', onInProgress);
-
-    function onAddTask(e) {
+    function onClick(e) {
         e.preventDefault();
         if (task.value === '' ||
             description.value === '' ||
@@ -53,14 +50,14 @@ function solve() {
         open.appendChild(article);
     }
 
-    function onOpen(e) {
+    open.addEventListener('click', function (e) {
         if (e.target.className === 'red') {
             e.target.parentNode.parentNode.remove();
         } else if (e.target.className === 'green') {
             const button1 = e.target.parentNode.children[0];
             button1.className = 'red';
             button1.textContent = 'Delete';
-
+            
             const button2 = e.target.parentNode.children[1];
             button2.className = 'orange';
             button2.textContent = 'Finish';
@@ -68,15 +65,15 @@ function solve() {
             const article = e.target.parentNode.parentNode;
 
             e.target.parentNode.parentNode.remove();
-
+            
             inProgress.appendChild(article);
         }
-    };
+    });
 
-    function onInProgress(e) {
+    inProgress.addEventListener('click', function (e) {
         if (e.target.className === 'red') {
             e.target.parentNode.parentNode.remove();
-        }
+        } 
         else if (e.target.className === 'orange') {
             const article = e.target.parentNode.parentNode;
 
@@ -85,5 +82,5 @@ function solve() {
 
             completed.appendChild(article);
         }
-    };
+    });
 }
