@@ -1,0 +1,15 @@
+  {
+    "name": "tests",
+    "version": "1.0.0",
+    "description": "",
+    "main": "01. SubSum.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "chai": "^4.2.0",
+      "mocha": "^8.2.1"
+    }
+  }
