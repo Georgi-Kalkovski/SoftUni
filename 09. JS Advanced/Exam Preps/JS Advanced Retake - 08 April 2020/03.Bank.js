@@ -4,29 +4,23 @@ class Bank {
         this.allCustomers = [];
         this.transactions = [];
     }
-
-    personCheck(personalId){
-        let personFound = this.allCustomers.find(e => e.personalId == personalId);
-        if (!personFound) {
-            throw new Error(`We have no customer with this ID!`);
-        }
-    }
-
     newCustomer(customer) {
         let newCustomer = {
             firstName: customer.firstName,
             lastName: customer.lastName,
             personalId: customer.personalId
         }
-        let customerCheck = this.allCustomers.find(e => e.personalId == newCustomer.personalId);
-        if (customerCheck) {
+        if (this.allCustomers.includes(newCustomer)) {
             throw new Error(`${newCustomer.firstName} ${newCustomer.lastName} is already our customer!`)
         }
         this.allCustomers.push(newCustomer)
         return newCustomer;
     }
     depositMoney(personalId, amount) {
-        personCheck(personalId);
+        let personFound = this.allCustomers.find(e => e.personalId == personalId);
+        if (!personFound) {
+            throw new Error(`We have no customer with this ID!`);
+        }
         if (!personFound.totalMoney) {
             personFound.totalMoney = Number(0);
         }
@@ -35,7 +29,10 @@ class Bank {
         return `${personFound.totalMoney}$`;
     }
     withdrawMoney(personalId, amount) {
-        personCheck(personalId);
+        let personFound = this.allCustomers.find(e => e.personalId == personalId);
+        if (!personFound) {
+            throw new Error(`We have no customer with this ID!`);
+        }
         if (personFound.totalMoney < amount) {
             throw new Error(`${personFound.firstName} ${personFound.lastName} does not have enough money to withdraw that amount!`);
         }
@@ -44,12 +41,15 @@ class Bank {
         return `${personFound.totalMoney}$`;
     }
     customerInfo(personalId) {
-        personCheck(personalId);
+        let personFound = this.allCustomers.find(e => e.personalId == personalId);
+        if (!personFound) {
+            throw new Error(`We have no customer with this ID!`);
+        }
         let result = `Bank name: ${this.bankName}\n` +
             `Customer name: ${personFound.firstName} ${personFound.lastName}\n` +
             `Customer ID: ${personFound.personalId}\n` +
             `Total Money: ${personFound.totalMoney}$\n` +
-            `Transactions:\n`
+            `Transactions:`
         let counter = 0;
         for (const transaction of this.transactions) {
             if (transaction[0] == personFound.firstName && transaction[1] == personFound.lastName) {
@@ -58,7 +58,7 @@ class Bank {
         }
         for (const transaction of this.transactions.reverse()) {
             if (transaction[0] == personFound.firstName && transaction[1] == personFound.lastName) {
-                result += `${counter}. ${transaction[0]} ${transaction[1]} ${transaction[2]} ${transaction[3]}$!\n`;
+                result += `\n${counter}. ${transaction[0]} ${transaction[1]} ${transaction[2]} ${transaction[3]}$!`;
                 counter--;
             }
         }
