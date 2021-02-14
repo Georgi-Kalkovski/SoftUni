@@ -38,7 +38,7 @@ class Parking {
         if (!car) {
             throw new Error(`${carNumber} is not in the parking lot.`);
         }
-        if (car.payed == true) {
+        if (car.payed) {
             throw new Error(`${carNumber}'s driver has already payed his ticket.`);
         }
         car.payed = true;
@@ -46,7 +46,13 @@ class Parking {
     }
     getStatistics(carNumber) {
         if (!carNumber) {
+            //return [
+            //    rows
+            //].join('\n');     // does \n to every row
+
             let result = `The Parking Lot has ${this.capacity} empty spots left.`
+            // this.vehicles.sort((a, b) => a.carModel.localeCompare(b.carModel))       // does equal sort like the one below
+            // .map(car => `${car.carModel} == ${car.carNumber} - ${car.payed == true ? "Has payed" : "Not payed"}`)     //  like the forof below
             this.vehicles.sort(function (a, b) {
                 if (a.carModel < b.carModel) { return -1; }
                 if (a.carModel > b.carModel) { return 1; }
@@ -58,7 +64,7 @@ class Parking {
             return result;
         }
 
-        let car = this.vehicles.find(c=>c.carNumber == carNumber);
+        let car = this.vehicles.find(c => c.carNumber == carNumber);
         return `${car.carModel} == ${car.carNumber} - ${car.payed == true ? "Has payed" : "Not payed"}`;
     }
 }
