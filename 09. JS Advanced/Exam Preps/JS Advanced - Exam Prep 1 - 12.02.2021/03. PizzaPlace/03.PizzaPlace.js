@@ -39,3 +39,5 @@ let pizzUni = {
         }
     }
 }
+
+module.exports = pizzUni;
