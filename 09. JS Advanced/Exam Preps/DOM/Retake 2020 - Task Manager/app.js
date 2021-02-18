@@ -1,18 +1,23 @@
 function solve() {
-
-    const task = document.getElementById('task');
-    const description = document.getElementById('description');
-    const date = document.getElementById('date');
-
-    const open = document.querySelector('section:nth-child(2)').children[1];
-    const inProgress = document.querySelector('section:nth-child(3)').children[1];
-    const completed = document.querySelector('section:nth-child(4)').children[1];
+    
+    //const open = document.querySelectorAll('section:nth-child(2)').children[1];
+    //const inProgress = document.querySelector('section:nth-child(3)').children[1];
+    //const completed = document.querySelector('section:nth-child(4)').children[1];
+    const test = document.querySelectorAll('section');
+    const open = test[1].children[1];
+    const inProgress = test[2].children[1];
+    const completed = test[3].children[1];
 
     document.getElementById('add')
         .addEventListener('click', onClick);
 
     function onClick(e) {
         e.preventDefault();
+
+        const task = document.getElementById('task');
+        const description = document.getElementById('description');
+        const date = document.getElementById('date');
+
         if (task.value === '' ||
             description.value === '' ||
             date.value === '') {
@@ -28,6 +33,10 @@ function solve() {
 
         const p2 = document.createElement('p');
         p2.textContent = date.value;
+
+        task.value = '';
+        description.value = '';
+        date.value = '';
 
         const div = document.createElement('div');
         div.className = 'flex';
@@ -57,7 +66,7 @@ function solve() {
             const button1 = e.target.parentNode.children[0];
             button1.className = 'red';
             button1.textContent = 'Delete';
-            
+
             const button2 = e.target.parentNode.children[1];
             button2.className = 'orange';
             button2.textContent = 'Finish';
@@ -65,7 +74,7 @@ function solve() {
             const article = e.target.parentNode.parentNode;
 
             e.target.parentNode.parentNode.remove();
-            
+
             inProgress.appendChild(article);
         }
     });
@@ -73,7 +82,7 @@ function solve() {
     inProgress.addEventListener('click', function (e) {
         if (e.target.className === 'red') {
             e.target.parentNode.parentNode.remove();
-        } 
+        }
         else if (e.target.className === 'orange') {
             const article = e.target.parentNode.parentNode;
 
