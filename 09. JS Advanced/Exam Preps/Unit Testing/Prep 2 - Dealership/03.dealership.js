@@ -37,7 +37,4 @@ let dealership = {
     }
 }
 
-
-
-
 module.exports = dealership;
