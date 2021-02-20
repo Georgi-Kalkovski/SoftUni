@@ -79,6 +79,7 @@ class ChristmasMovies {
         }
     }
 }
+module.exports = ChristmasMovies;
 
 let christmas = new ChristmasMovies();
 christmas.buyMovie('Home Alone', ['Macaulay Culkin', 'Joe Pesci', 'Daniel Stern']);
@@ -96,5 +97,3 @@ christmas.watchMovie('Last Christmas');
 christmas.discardMovie('The Grinch');
 christmas.favouriteMovie();
 christmas.mostStarredActor();
-
-module.exports = ChristmasMovies;

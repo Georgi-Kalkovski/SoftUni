@@ -1,95 +1,69 @@
 function solve() {
-    
-    //const open = document.querySelectorAll('section:nth-child(2)').children[1];
-    //const inProgress = document.querySelector('section:nth-child(3)').children[1];
-    //const completed = document.querySelector('section:nth-child(4)').children[1];
-    const test = document.querySelectorAll('section');
-    const open = test[1].children[1];
-    const inProgress = test[2].children[1];
-    const completed = test[3].children[1];
+  let task = document.querySelector("#task");
+  let description = document.querySelector("#description");
+  let date = document.querySelector("#date");
+  let addButton = document.querySelector("#add");
+  let section = document.querySelectorAll("section");
 
-    document.getElementById('add')
-        .addEventListener('click', onClick);
+  let openDiv = section.item(1).querySelectorAll("div").item(1);
+  let progresDiv = section.item(2).querySelectorAll("div").item(1);
+  let finishDiv = section.item(3).querySelectorAll("div").item(1);
 
-    function onClick(e) {
-        e.preventDefault();
+  addButton.addEventListener("click", function (e) {
+    e.preventDefault();
 
-        const task = document.getElementById('task');
-        const description = document.getElementById('description');
-        const date = document.getElementById('date');
+    let taskInput = task.value;
+    let descriptionInput = description.value;
+    let dateInput = date.value;
 
-        if (task.value === '' ||
-            description.value === '' ||
-            date.value === '') {
-            return;
-        }
-        const article = document.createElement('article');
+    if (taskInput !== "" && descriptionInput !== "" && dateInput !== "") {
+      let article = document.createElement("article");
 
-        const h3 = document.createElement('h3');
-        h3.textContent = task.value;
+      let h3 = ce("h3", taskInput);
+      let p1 = ce("p", `Description: ${descriptionInput}`);
+      let p2 = ce("p", `Due Date: ${dateInput}`);
+      let div = ce("div", "", "flex");
 
-        const p1 = document.createElement('p');
-        p1.textContent = description.value;
+      let startBtn = ce("button", "Start", "green");
+      let deleteBtn = ce("button", "Delete", "red");
+      let finishBtn = ce("button", "Finish", "orange");
 
-        const p2 = document.createElement('p');
-        p2.textContent = date.value;
+      div.appendChild(startBtn);
+      div.appendChild(deleteBtn);
+      article.appendChild(h3);
+      article.appendChild(p1);
+      article.appendChild(p2);
+      article.appendChild(div);
+      openDiv.appendChild(article);
 
-        task.value = '';
-        description.value = '';
-        date.value = '';
+      startBtn.addEventListener("click", function () {
+        progresDiv.appendChild(article);
+        startBtn.remove();
+        div.appendChild(finishBtn);
+      });
 
-        const div = document.createElement('div');
-        div.className = 'flex';
+      deleteBtn.addEventListener("click", function () {
+        article.remove();
+      });
 
-        const button1 = document.createElement('button');
-        button1.className = 'green';
-        button1.textContent = 'Start';
-
-        const button2 = document.createElement('button');
-        button2.className = 'red';
-        button2.textContent = 'Delete';
-
-        div.appendChild(button1);
-        div.appendChild(button2);
-        article.appendChild(h3);
-        article.appendChild(p1);
-        article.appendChild(p2);
-        article.appendChild(div);
-
-        open.appendChild(article);
+      finishBtn.addEventListener("click", function () {
+        finishDiv.appendChild(article);
+        div.remove();
+      });
     }
+  });
 
-    open.addEventListener('click', function (e) {
-        if (e.target.className === 'red') {
-            e.target.parentNode.parentNode.remove();
-        } else if (e.target.className === 'green') {
-            const button1 = e.target.parentNode.children[0];
-            button1.className = 'red';
-            button1.textContent = 'Delete';
-
-            const button2 = e.target.parentNode.children[1];
-            button2.className = 'orange';
-            button2.textContent = 'Finish';
-
-            const article = e.target.parentNode.parentNode;
-
-            e.target.parentNode.parentNode.remove();
-
-            inProgress.appendChild(article);
-        }
-    });
-
-    inProgress.addEventListener('click', function (e) {
-        if (e.target.className === 'red') {
-            e.target.parentNode.parentNode.remove();
-        }
-        else if (e.target.className === 'orange') {
-            const article = e.target.parentNode.parentNode;
-
-            e.target.parentNode.parentNode.remove();
-            article.children[3].remove();
-
-            completed.appendChild(article);
-        }
-    });
+  function ce(el, text, className, id) {
+    let e = document.createElement(el);
+    if (text) {
+      e.textContent = text;
+    }
+    if (className) {
+      e.classList = className;
+    }
+    if (id) {
+      e.id = id;
+    }
+    return e;
+  }
 }
