@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Game</title>
+    <link rel="stylesheet" href="style/site.css">
+    <link rel="stylesheet" href="style/encounter.css">
+    <link rel="stylesheet" href="style/map.css">
+</head>
+
+<body>
+    <div id="game">
+        <div id="top-controls"></div>
+        <div id="view">
+            <div id="main">
+                <div id="arena">
+                    <div id="enemies" class="slot"></div>
+                    <div id="player" class="slot"></div>
+                </div>
+                <div id="map" style="display: none;"></div>
+                <button id="toggleMap">Map</button>
+            </div>
+            <div id="side">
+                <textarea id="log" disabled></textarea>
+            </div>
+        </div>
+        <div id="bottom-controls"></div>
+    </div>
+
+
+    <div id="dungeon">
+    </div>
+
+</body>
+
+</html>

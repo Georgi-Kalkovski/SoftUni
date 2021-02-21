@@ -1,0 +1,73 @@
+#game, #view, #arena {
+    position: relative;
+}
+
+#game div {
+    margin: 0;
+    padding: 0;
+}
+
+#log {
+    position: absolute;
+    height: 300px;
+    resize: none;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: block;
+}
+
+#top-controls, #bottom-controls {
+    border: 8px solid #575757;
+    background-color: #dadada;
+    text-align: center;
+    height: 150px;
+}
+
+#arena {
+    display: inline-block;
+    width: 900px;
+    border: 8px solid #575757;
+    background-color: #dadada;
+}
+
+#main, #side {
+    display: inline-block;
+}
+
+#side {
+    border: 8px solid #575757;
+    background-color: #dadada;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 900px;
+    position: absolute;
+}
+
+.slot {
+    text-align: center;
+}
+
+#toggleMap {
+    position: absolute;
+    left: 850px;
+    top: 8px;
+}
+
+#arena, #map {
+    min-height: 400px;
+}
+
+#controls {
+    display: inline-block;
+}
+
+#controls button {
+    display: block;
+    width: 100%;
+}
+
+#dungeon {
+    display: none;
+}

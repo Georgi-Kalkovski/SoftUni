@@ -1,0 +1,129 @@
+.travel-choice {
+    display: inline-block;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    height: 150px;
+}
+
+.travel-choice img {
+    max-height: 150px;
+}
+
+.travel-choice.active:hover::after {
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 120px;
+    line-height: 150px;
+    cursor: pointer;
+}
+
+.travel-choice.active.forward:hover::after {
+    content: '\021D1';
+}
+
+.travel-choice.active.back:hover::after {
+    content: '\021D3';
+}
+
+#map {
+    display: inline-block;
+    width: 900px;
+    border: 8px solid #575757;
+}
+
+#map section, #map div {
+    line-height: 8px;
+    box-sizing: border-box;
+    padding: 16px;
+    padding-top: 0;
+    margin: 8px;
+    margin-top: 0;
+    position: relative;
+}
+
+#map section {
+    display: inline-block;
+}
+
+#map div {
+    display: inline-block;
+}
+
+#map div.visited {
+    display: inline-block;
+}
+
+#map div.visited.corridor {
+    border-color: #bdbdbd;
+}
+
+#map div.visited.transit::after {
+    background-color: #bdbdbd;
+}
+
+#map div.visited.room {
+    background-color: #bdbdbd;
+}
+
+#map .visited::before {
+    background-color: #bdbdbd;
+}
+
+#map section {
+    background-color: grey;
+    padding-top: 16px;
+}
+
+#map .corridor {
+    border-bottom: 8px solid grey;
+}
+
+#map .transit {
+    padding: 0 0 48px 0;
+}
+
+#map .transit::after {
+    content: "";
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-color: grey;
+    left: 50%;
+    bottom: 0;
+}
+
+#map .room {
+    width: 32px;
+    height: 32px;
+    background-color: grey;
+    padding: 0;
+    vertical-align: bottom;
+}
+
+#map *::before {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 32px;
+    background-color:grey;
+    left: 50%;
+    bottom: -32px;
+}
+
+#map div.visited.current-corridor {
+    border-color: #199e24;
+}
+
+#map div.visited.current-transit::after {
+    background-color: #199e24;
+}
+
+#map div.visited.current-room {
+    background-color: #199e24;
+}
