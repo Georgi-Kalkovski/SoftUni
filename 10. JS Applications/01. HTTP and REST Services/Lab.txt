@@ -1,0 +1,26 @@
+-----------------------------------
+Install JSONView in Google Chrome browser to view the JSON code stylized
+-----------------------------------
+Install Postman (in Google "Postman download" > download 64-bit > install)
+Open Postman > Workspaces > My Workspace
+-----------------------------------
+https://api.github.com/repos/testnakov/test-nakov-repo/issues/:id
+-----------------------------------
+Post > Body > raw > write body code
+-----------------------------------
+
+---Problem 1---
+
+https://restcountries.eu/rest/v2/name/Bulgaria
+
+---Problem 2---
+
+https://api.github.com/repos/testnakov/test-nakov-repo/issues/1
+
+---Problem 3---
+
+{
+"title" : "I have created an issue",
+"body" : "Minor bug",
+"labels" : ["bug", "minor"]
+}

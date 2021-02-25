@@ -1,0 +1,35 @@
+-----------------------------------
+https://restcountries.eu/rest/v2/{service}?fields={field};{field};{field}
+==
+https://restcountries.eu/rest/v2/all?fields=name;capital;currencies
+-----------------------------------
+http://localhost:3030/jsonstore/bus/businfo/:stopID
+
+stopID: {
+name: stopName,
+buses: { busId: time, … }
+}
+-----------------------------------
+
+---Problem 1---
+
+1.
+GET /rest/v2/name/Bulgaria HTTP/1.1
+Host: restcountries.eu
+
+2.
+https://restcountries.eu/rest/v2/name/Bulgaria
+
+3.
+https://restcountries.eu/rest/v2/name/Italy?fields=name;capital;region;population
+
+4.
+https://restcountries.eu/rest/v2/name/Germany
+https://restcountries.eu/rest/v2/lang/de?fields=name
+
+---Problem 2---
+
+http://localhost:3030/jsonstore/bus/businfo/1287
+http://localhost:3030/jsonstore/bus/businfo/1308
+http://localhost:3030/jsonstore/bus/businfo/1327
+http://localhost:3030/jsonstore/bus/businfo/2334
