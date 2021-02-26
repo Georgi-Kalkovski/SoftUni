@@ -6,9 +6,9 @@ https://restcountries.eu/rest/v2/all?fields=name;capital;currencies
 http://localhost:3030/jsonstore/bus/businfo/:stopID
 
 stopID: {
-name: stopName,
-buses: { busId: time, … }
-}
+    name: stopName,
+    buses: { busId: time, … }
+    }
 -----------------------------------
 
 ---Problem 1---
@@ -33,3 +33,52 @@ http://localhost:3030/jsonstore/bus/businfo/1287
 http://localhost:3030/jsonstore/bus/businfo/1308
 http://localhost:3030/jsonstore/bus/businfo/1327
 http://localhost:3030/jsonstore/bus/businfo/2334
+
+---Problem 3---
+
+http://localhost:3030/jsonstore/phonebook/phonebook/i1
+http://localhost:3030/jsonstore/phonebook/phonebook/i2
+http://localhost:3030/jsonstore/phonebook/phonebook/i3
+
+---Problem 4---
+
+POST
+http://localhost:3030/jsonstore/phonebook/phonebook/
+
+{
+    "person" : "Peter",
+    "phone" : "+1-555-9322"
+}
+{
+    "person" : "Steve",
+    "phone" : "+1-555-1234"
+}
+
+---Problem 5---
+
+1. GET
+http://dummy.restapiexample.com/api/v1/employee/15
+
+2. POST
+http://dummy.restapiexample.com/api/v1/create
+{
+    "id": 15,
+    "employee_name": "Peter Jackson",
+    "employee_salary": 5453523,
+    "employee_age": 89,
+    "profile_image": ""
+}
+
+3. PUT
+http://dummy.restapiexample.com/api/v1/update/15
+
+{
+    "id": 15,
+    "employee_name": "Tatyana Fitzpatrick",
+    "employee_salary": 390750,
+    "employee_age": 19,
+    "profile_image": ""
+}
+
+4. DELETE
+http://dummy.restapiexample.com/api/v1/delete/15
