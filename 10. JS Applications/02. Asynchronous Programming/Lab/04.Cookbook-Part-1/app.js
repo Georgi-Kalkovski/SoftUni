@@ -2,6 +2,7 @@ async function getRecipeList() {
     const url = 'http://localhost:3030/jsonstore/cookbook/recipes';
 
     const main = document.querySelector('main');
+    
     try {
         const response = await fetch(url);
 
@@ -12,7 +13,8 @@ async function getRecipeList() {
         const recipes = await response.json();
         main.innerHTML = '';
         Object.values(recipes).map(createPreview).forEach(r => main.appendChild(r));
-    } catch (error) {
+    }
+    catch (error) {
         alert(error.message);
     }
 
@@ -52,7 +54,7 @@ async function getRecipeDetails(id, preview) {
     const data = await response.json();
 
     const result = e('article', {},
-        e('h2', {}, data.name),
+        e('h2', { onClick: toggleCard }, data.name),
         e('div', { className: 'band' },
             e('div', { className: 'thumb' }, e('img', { src: data.img })),
             e('div', { className: 'ingredients' },
@@ -68,6 +70,10 @@ async function getRecipeDetails(id, preview) {
 
     //preview.parentNode.replaceChild(result, preview);
     preview.replaceWith(resilt);
+
+    function toggleCard() {
+        result.replaceWith(preview)
+    }
 }
 
 window.addEventListener('load', () => {
