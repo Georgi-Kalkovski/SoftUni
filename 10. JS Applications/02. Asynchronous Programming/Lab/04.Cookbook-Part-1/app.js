@@ -66,7 +66,8 @@ async function getRecipeDetails(id, preview) {
         )
     );
 
-    preview.parentNode.replaceChild(result, preview);
+    //preview.parentNode.replaceChild(result, preview);
+    preview.replaceWith(resilt);
 }
 
 window.addEventListener('load', () => {
