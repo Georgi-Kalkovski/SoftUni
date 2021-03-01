@@ -1,54 +1,78 @@
-function lockedProfile() {
+async function lockedProfile() {
 
-    [...document.querySelectorAll('#main div button')].forEach(button => {
-        button.addEventListener('click', show);
-    })
-
-    let usersId = [];
-
-    getId(usersId);
-}
-
-async function getId(usersId) {
-
-    const url = 'http://localhost:3030/jsonstore/advanced/profiles';
+    const url = `http://localhost:3030/jsonstore/advanced/profiles`;
     const response = await fetch(url);
     const data = await response.json();
-    for (const user in data) {
-        const info = data[user];
-        usersId.push(info._id);
-    }
-    for (const id of usersId) {
-        const url = 'http://localhost:3030/jsonstore/advanced/profiles/' + id;
-        const response = await fetch(url);
-        const data = await response.json();
-        const profile = document.querySelector("main div").cloneNode(true);
-        profile.childNodes[5].name = 'Locked ' + id;
-        profile.childNodes[9].name = 'Unlocked ' + id;
-        profile.childNodes[16].name = 'Username ' + id;
-        profile.childNodes[18].id = 'HiddenFields ' + id;
-        profile.childNodes[18].childNodes[5].name = 'Email ' + id;
-        profile.childNodes[18].childNodes[9].name = 'Age ' + id;
-        //console.log(profile.childNodes[5].name = id)
-        document.querySelector('#main').appendChild(profile);
 
-    }
+    const main = document.getElementById('main');
+    main.innerHTML = '';
 
-    document.querySelector('#main').children[0].remove();
-    const main = document.querySelector('main');
-    for (const prof of Object.values(main)) {
-        console.log(prof)
-    }
+    Object.values(data).forEach((user, i) => {
 
+        i = i + 1;
 
+        const profile =
+            e('div', { class: 'profile' }, '',
+                e('img', { src: './iconProfile2.png', class: 'userIcon' }),
+                e('label', {}, 'Lock'),
+                e('input', { type: 'radio', name: `user${i}Locked`, value: 'lock', checked: '' }),
+                e('label', {}, 'Unlock'),
+                e('input', { type: 'radio', name: `user${i}Locked`, value: 'unlock' }),
+                e('br'),
+                e('hr'),
+                e('label', {}, `Username`),
+                e('input', { type: 'text', name: `user${i}Username`, value: `${user.username}`, disabled: ``, randomly: `` }),
+                e('div', { id: `user${i}HiddenFields` }, '',
+                    e('hr'),
+                    e('label', {}, 'Email:'),
+                    e('input', { type: 'email', name: `user${i}Email`, value: `${user.email}`, disabled: '', randomly: '' }),
+                    e('label', {}, 'Age'),
+                    e('input', { type: 'email', name: `user${i}Age`, value: `${user.age}`, disabled: '', randomly: '' })),
+                e('button', {}, 'Show More'));
+
+        main.appendChild(profile);
+
+        document.querySelector(`#user${i}HiddenFields`).style.display = 'none';
+    });
+    Array.from(document.querySelectorAll('button'))
+        .forEach(e => e.addEventListener('click', onClick));
 }
 
-function show(e) {
-    if (e.target.parentNode.children[4].checked && e.target.textContent === 'Show more') {
-        e.target.parentNode.children[9].style.display = 'block';
-        e.target.textContent = 'Hide it';
-    } else if (e.target.parentNode.children[4].checked) {
-        e.target.parentNode.children[9].style.display = 'none';
-        e.target.textContent = 'Show more';
+function onClick(e) {
+
+    if (!e.target.parentNode.querySelector('input[value="lock"]:checked') &&
+        e.target.parentNode.querySelector('div').style.display == 'block') {
+
+        e.target.parentNode.querySelector('div').style.display = 'none';
+        e.target.textContent = 'Show More';
     }
+    else if (!e.target.parentNode.querySelector('input[value="lock"]:checked')) {
+
+        e.target.parentNode.querySelector('div').style.display = 'block';
+        e.target.textContent = 'Hide it';
+    };
+}
+
+function e(type, attribute, text, ...params) {
+
+    let element = document.createElement(type);
+
+    if (attribute != {} && attribute != undefined) {
+
+        Object.entries(attribute).forEach(([name, value]) => {
+            element.setAttribute(`${name}`, `${value}`);
+        });
+    }
+    if (text != undefined && text != '') {
+
+        element.innerHTML = text;
+    };
+    if (params != undefined && params.length != 0) {
+
+        params.forEach(e => {
+            element.appendChild(e);
+        });
+    };
+
+    return element;
 }
