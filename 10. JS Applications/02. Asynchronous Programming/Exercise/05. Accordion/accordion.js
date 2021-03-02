@@ -3,58 +3,71 @@ async function solution() {
     const url = 'http://localhost:3030/jsonstore/advanced/articles/list';
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data)
 
     innerSolution(data);
 }
 
 solution();
 
+
 async function innerSolution(outerData) {
+
+    const main = document.getElementById('main');
+
     for (const element in outerData) {
-        const e = outerData[element];
-        const id = e._id;
-        const title = e.title;
+        const elem = outerData[element];
+        const id = elem._id;
+        const title = elem.title;
         const url = 'http://localhost:3030/jsonstore/advanced/articles/details/' + id;
-        const inner = await fetch(url);
-        const data = await inner.json();
+        const response = await fetch(url);
+        const data = await response.json();
         const content = data.content;
-        console.log(id);
-        console.log(title);
-        console.log(content);
 
-        const main = document.getElementById('main');
-
+        const outerDiv = e('div', '', 'accordion');
+        const innerDiv1 = e('div', '', 'head');
+        const span = e('span', title);
+        const button = e('button', 'More', 'button', id);
+        const innerDiv2 = e('div', '', 'extra')
+        innerDiv2.style.display = 'none';
         const p = e('p', content);
-        const outerDiv2 = e('div', {}, 'extra');
-        const outerDiv1 = e('div', {}, 'extra');
-        const button = e('button', )
 
+        innerDiv1.appendChild(span);
+        innerDiv1.appendChild(button);
+        outerDiv.appendChild(innerDiv1);
 
+        innerDiv2.appendChild(p);
+        outerDiv.appendChild(innerDiv2);
 
+        main.appendChild(outerDiv);
     }
+    toggle();
 }
 
-function toggle() {
-    if (document.getElementById("extra").style.display == "none") {
-        document.getElementById("extra").style.display = "block"
-        document.getElementsByClassName("button")[0].textContent = "Less"
-    } else {
-        document.getElementById("extra").style.display = "none";
-        document.getElementsByClassName("button")[0].textContent = "More";
-    }
-}
-
-function e(type, text, style) {
+function e(type, text, style, id) {
     let element = document.createElement(type);
-
     if (text) {
         element.textContent = text;
     }
-
     if (style) {
         element.className = style;
     }
-
+    if (id) {
+        element.id = id;
+    }
     return element;
+}
+
+function toggle() {
+    document.querySelectorAll('.button')
+        .forEach((btn) => btn.addEventListener('click', (event) => {
+            const extra = event.target.parentNode.parentNode.children[1];
+            const button = event.target;
+            if (extra.style.display == "none") {
+                extra.style.display = "block";
+                button.textContent = "Less";
+            } else {
+                extra.style.display = "none";
+                button.textContent = "More";
+            }
+        }));
 }
