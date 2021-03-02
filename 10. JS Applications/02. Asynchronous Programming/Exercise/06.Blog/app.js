@@ -27,17 +27,20 @@ async function view() {
     const dataComments = await data(urlComments);
 
     const commetns = [];
+
     for (const key in dataComments) {
         if (dataComments[key].postId === id) {
             commetns.push(dataComments[key].text);
         }
     }
+    
     document.getElementById('post-title').textContent = '';
     document.getElementById('post-body').textContent = '';
     document.getElementById('post-comments').innerHTML = '';
 
     document.getElementById('post-title').textContent = dataPosts.title;
     document.getElementById('post-body').textContent = dataPosts.body;
+
     const ul = document.getElementById('post-comments');
 
     for (const element of commetns) {
@@ -50,12 +53,13 @@ async function view() {
 async function data(url) {
     const response = await fetch(url);
     const data = await response.json();
-
     return data;
 }
 
 function e(type, text, val) {
+
     const element = document.createElement(type);
+
     if (text) {
         element.textContent = text;
     }

@@ -15,6 +15,7 @@ async function innerSolution(outerData) {
     const main = document.getElementById('main');
 
     for (const element in outerData) {
+
         const elem = outerData[element];
         const id = elem._id;
         const title = elem.title;
@@ -44,7 +45,9 @@ async function innerSolution(outerData) {
 }
 
 function e(type, text, style, id) {
-    let element = document.createElement(type);
+
+    const element = document.createElement(type);
+    
     if (text) {
         element.textContent = text;
     }
@@ -62,6 +65,7 @@ function toggle() {
         .forEach((btn) => btn.addEventListener('click', (event) => {
             const extra = event.target.parentNode.parentNode.children[1];
             const button = event.target;
+
             if (extra.style.display == "none") {
                 extra.style.display = "block";
                 button.textContent = "Less";

@@ -1,6 +1,6 @@
 async function lockedProfile() {
 
-    const url = `http://localhost:3030/jsonstore/advanced/profiles`;
+    const url = 'http://localhost:3030/jsonstore/advanced/profiles';
     const response = await fetch(url);
     const data = await response.json();
 
@@ -54,8 +54,8 @@ function onClick(e) {
 }
 
 function e(type, attribute, text, ...params) {
-
-    let element = document.createElement(type);
+    
+    const element = document.createElement(type);
 
     if (attribute != {} && attribute != undefined) {
 

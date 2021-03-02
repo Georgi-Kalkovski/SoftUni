@@ -2,7 +2,6 @@ async function getInfo() {
     try {
         const id = document.getElementById('stopId').value;
         const url = 'http://localhost:3030/jsonstore/bus/businfo/' + id;
-
         const response = await fetch(url);
         const data = await response.json();
 
@@ -20,4 +19,6 @@ async function getInfo() {
     } catch {
         document.getElementById('stopName').textContent = 'Error';
     }
+    
+    document.getElementById('stopId').value = '';
 }
