@@ -2,11 +2,8 @@ const form = document.querySelector('form');
 
 form.addEventListener('submit', (ev => {
     ev.preventDefault();
-    new FormData(ev.target);
-}));
-
-form.addEventListener('formdata', (ev => {
-    onSubmit([...ev.formData.entries()].reduce((p, [k, v]) => Object.assign(p, { [k]: v }), {}));
+    const formData = new FormData(ev.target);
+    onSubmit([...formData.entries()].reduce((p, [k, v]) => Object.assign(p, { [k]: v }), {}));
 }));
 
 async function onSubmit(data) {
@@ -16,7 +13,7 @@ async function onSubmit(data) {
     });
 
     try {
-        const response = await fetch('http://localhost:5000/users/login', {
+        const response = await fetch('http://localhost:3030/users/login', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
