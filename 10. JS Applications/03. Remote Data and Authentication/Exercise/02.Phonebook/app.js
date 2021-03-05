@@ -29,8 +29,6 @@ async function getPhonebook(link) {
     const response = await fetch(link);
     const data = await response.json();
 
-    console.log(data)
-
     const phonebook = document.getElementById('phonebook');
     phonebook.textContent = '';
 
@@ -51,7 +49,7 @@ async function getPhonebook(link) {
 }
 
 async function createPerson(link, person) {
-    const response = await fetch(link, {
+    await fetch(link, {
         method: 'post',
         headers: { 'Content-type': 'application/json' },
         body: JSON.stringify(person),
@@ -60,7 +58,7 @@ async function createPerson(link, person) {
 }
 
 async function deletePerson(link, id) {
-    const response = await fetch(link + id, {
+    await fetch(link + id, {
         method: 'delete',
     });
     getPhonebook(link);
