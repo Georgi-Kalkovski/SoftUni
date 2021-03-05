@@ -40,7 +40,7 @@ function CRUD(link) {
         console.log(result);
     }
 
-    async function updateData(id) {
+    async function deleteData(id) {
         const response = await fetch(link + id, {
             method: 'delete'
         });
