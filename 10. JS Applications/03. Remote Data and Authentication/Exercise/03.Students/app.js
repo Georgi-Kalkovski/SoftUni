@@ -1,37 +1,135 @@
 function attachEvents() {
 
-    getStudents();
-}
+    const link = 'http://localhost:3030/jsonstore/collections/students';
+    getStudentsTable(link);
+    studentForm();
 
+    document.querySelector('button').addEventListener('click', () => {
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const facultyNumber = document.getElementById('facultyNumber').value;
+        const grade = document.getElementById('grade').value;
+
+        studentFormTypeCheck(firstName, lastName, facultyNumber, grade);
+        createStudent(link, { firstName, lastName, facultyNumber, grade });
+        getStudentsTable(link);
+    });
+}
 attachEvents();
 
-async function getStudents() {
-    const response = await fetch('http://localhost:3030/jsonstore/collections/students');
+async function getStudentsTable(link) {
+    const response = await fetch(link);
     const data = await response.json();
 
     const body = document.querySelector('#results tbody');
+    body.innerHTML = '';
 
     for (const key in data) {
         const id = key;
         const token = data[key];
-        const tr = document.createElement('tr')
+        const tr = e('tr')
         tr.id = id;
-        tr.appendChild(td(token.firstName));
-        tr.appendChild(td(token.lastName));
-        tr.appendChild(td(token.facultyNumber));
-        tr.appendChild(td(token.grade));
+        tr.appendChild(e('td', token.firstName));
+        tr.appendChild(e('td', token.lastName));
+        tr.appendChild(e('td', token.facultyNumber));
+        tr.appendChild(e('td', token.grade));
         body.appendChild(tr);
     }
-    
-    const tFoot = document.createElement('tfoot');
-    tFoot.style.backgroundColor = 'black'
-    const lowerTr = document.createElement('tr');
-    tFoot.appendChild(lowerTr);
-    document.querySelector('#results').appendChild(tFoot);
 }
 
-function td(input) {
-    const td = document.createElement('td');
-    td.textContent = input;
-    return td;
+function studentForm() {
+
+    const form = e('tfoot');
+
+    // Name Row
+    const nameRow = e('tr');
+    const name = e('th', 'FORM');
+    name.style.textAlign = 'center';
+    nameRow.appendChild(e('td'));
+    nameRow.appendChild(name);
+    nameRow.appendChild(e('td'));
+    nameRow.appendChild(e('td'));
+    form.appendChild(nameRow);
+
+    // Input Row
+    const inputRow = e('tr');
+    const inputFirstName = e('input', '', 'firstName', 'First Name...');
+    const inputLastName = e('input', '', 'lastName', 'Last Name...');
+    const inputFacultyNumber = e('input', '', 'facultyNumber', 'Faculty Number...');
+    const inputGrade = e('input', '', 'grade', 'Grade...');
+    td(inputRow, inputFirstName);
+    td(inputRow, inputLastName);
+    td(inputRow, inputFacultyNumber);
+    td(inputRow, inputGrade);
+    form.appendChild(inputRow);
+
+    // Button Row
+    const buttonRow = e('tr');
+    const submitBtn = e('button');
+    submitBtn.textContent = 'Submit';
+    buttonRow.appendChild(e('td'));
+    buttonRow.appendChild(e('td'));
+    buttonRow.appendChild(e('td'));
+    buttonRow.appendChild(submitBtn);
+    form.appendChild(buttonRow);
+
+    document.querySelector('#results').appendChild(form);
+}
+
+async function createStudent(link, student) {
+    await fetch(link, {
+        method: 'post',
+        headers: { 'Content-type': 'application/json' },
+        body: JSON.stringify(student),
+    });
+}
+
+
+function studentFormTypeCheck(firstName, lastName, facultyName, grade) {
+
+    const isTrue = true;
+    if (!String(firstName)) {
+        alert('First Name must be string!')
+        isTrue = false;
+    }
+    if (!String(lastName)) {
+        alert('Last Name must be string!')
+        isTrue = false;
+    } if (!Number(facultyName)) {
+        alert('Faculty Number must be number!')
+        isTrue = false;
+    } if (!Number(grade)) {
+        alert('Grade must be number!')
+        isTrue = false;
+    } if (Number(grade) > 6) {
+        alert('Grade cannot be more than 6.00!')
+        isTrue = false;
+    }
+    if (Number(grade) < 0) {
+        alert('Grade cannot be negative number!')
+        isTrue = false;
+    }
+
+    if (isTrue) { return; }
+    else { throw new Error('Wrong input. Try again.') }
+}
+
+function e(type, text, id, placeholder) {
+    const element = document.createElement(type);
+    if (type == 'input') {
+        element.placeholder = placeholder;
+    }
+    if (text) {
+        element.textContent = text;
+    }
+    if (id) {
+        element.id = id;
+    }
+    return element;
+}
+
+function td(target, input) {
+    const td = e('td');
+    td.appendChild(input);
+    target.appendChild(td);
 }
