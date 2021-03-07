@@ -2,10 +2,12 @@ function attachEvents() {
 
     const link = 'http://localhost:3030/jsonstore/phonebook/';
 
+    // Event listener for Load Button
     document.getElementById('btnLoad').addEventListener('click', () => {
         getPhonebook(link);
     });
 
+    // Event listener for the Create Button
     document.getElementById('btnCreate').addEventListener('click', () => {
         const person = document.getElementById('person').value;
         const phone = document.getElementById('phone').value;
@@ -16,6 +18,7 @@ function attachEvents() {
         phone.value = '';
     });
 
+    // Event listener for the Delete Buttons
     document.querySelectorAll('#phonebook').forEach(btn => btn.addEventListener('click', (e) => {
         if (e.target.value != ' ') {
             deletePerson(link, e.target.parentNode.id);
@@ -25,6 +28,7 @@ function attachEvents() {
 
 attachEvents();
 
+// Load Phonebook
 async function getPhonebook(link) {
     const response = await fetch(link);
     const data = await response.json();
@@ -48,6 +52,7 @@ async function getPhonebook(link) {
     }
 }
 
+// Create Person
 async function createPerson(link, person) {
     await fetch(link, {
         method: 'post',
@@ -57,6 +62,7 @@ async function createPerson(link, person) {
     getPhonebook(link);
 }
 
+// Delete Person
 async function deletePerson(link, id) {
     await fetch(link + id, {
         method: 'delete',

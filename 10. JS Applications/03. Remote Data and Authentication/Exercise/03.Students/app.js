@@ -1,9 +1,14 @@
 function attachEvents() {
 
     const link = 'http://localhost:3030/jsonstore/collections/students';
+
+    // Getting student table
     getStudentsTable(link);
+
+    // Getting student form
     studentForm();
 
+    // Event listener dealing with the submit
     document.querySelector('button').addEventListener('click', () => {
         const firstName = document.getElementById('firstName').value;
         const lastName = document.getElementById('lastName').value;
@@ -15,8 +20,10 @@ function attachEvents() {
         getStudentsTable(link);
     });
 }
+
 attachEvents();
 
+// Student Table
 async function getStudentsTable(link) {
     const response = await fetch(link);
     const data = await response.json();
@@ -37,6 +44,7 @@ async function getStudentsTable(link) {
     }
 }
 
+// Student Form
 function studentForm() {
 
     const form = e('tfoot');
@@ -76,6 +84,7 @@ function studentForm() {
     document.querySelector('#results').appendChild(form);
 }
 
+// Creating Student
 async function createStudent(link, student) {
     await fetch(link, {
         method: 'post',
@@ -84,15 +93,14 @@ async function createStudent(link, student) {
     });
 }
 
-
+// Student Form Type Check
 function studentFormTypeCheck(firstName, lastName, facultyName, grade) {
-
     const isTrue = true;
+
     if (!String(firstName)) {
         alert('First Name must be string!')
         isTrue = false;
-    }
-    if (!String(lastName)) {
+    }if (!String(lastName)) {
         alert('Last Name must be string!')
         isTrue = false;
     } if (!Number(facultyName)) {
@@ -101,11 +109,10 @@ function studentFormTypeCheck(firstName, lastName, facultyName, grade) {
     } if (!Number(grade)) {
         alert('Grade must be number!')
         isTrue = false;
-    } if (Number(grade) > 6) {
+    }  if (Number(grade) > 6) {
         alert('Grade cannot be more than 6.00!')
         isTrue = false;
-    }
-    if (Number(grade) < 0) {
+    } if (Number(grade) < 0) {
         alert('Grade cannot be negative number!')
         isTrue = false;
     }
@@ -114,6 +121,7 @@ function studentFormTypeCheck(firstName, lastName, facultyName, grade) {
     else { throw new Error('Wrong input. Try again.') }
 }
 
+// Function dealing with elements
 function e(type, text, id, placeholder) {
     const element = document.createElement(type);
     if (type == 'input') {
@@ -128,6 +136,7 @@ function e(type, text, id, placeholder) {
     return element;
 }
 
+// Function that makes 'td' element
 function td(target, input) {
     const td = e('td');
     td.appendChild(input);

@@ -8,6 +8,7 @@
     <title>Biggest Catch</title>
     <link rel="stylesheet" href="/static/styles.css">
     <link rel="stylesheet" href="/static/login.css">
+    <script defer src="/login.js"></script>
 </head>
 
 <body>
@@ -28,18 +29,18 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <h2>Register</h2>
-                                <form action="/register" method="post">
+                                <form id="registerForm">
                                     <label>E-mail: <input type="text" name="email"></label>
                                     <label>Password: <input type="password" name="password"></label>
                                     <label>Repeat: <input type="password" name="rePass"></label>
-                                    <button>Register</button>
+                                    <button type="submit">Register</button>
                                 </form>
                                 <hr>
                                 <h2>Login</h2>
-                                <form action="/login" method="post">
+                                <form id="loginForm">
                                     <label>E-mail: <input type="text" name="email"></label>
                                     <label>Password: <input type="password" name="password"></label>
-                                    <button>Login</button>
+                                    <button type="submit">Login</button>
                                 </form>
                             </div>
                         </div>

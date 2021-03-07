@@ -1,7 +1,9 @@
 function attachEvents() {
 
+    // Load Messages
     getMessages();
 
+    // Event listener for the Send Button
     document.getElementById('submit')
         .addEventListener('click', () => {
             const author = document.getElementById('author').value;
@@ -12,12 +14,14 @@ function attachEvents() {
             document.getElementById('content').value = '';
         });
 
+    // Event listener for the Refresh Button
     document.getElementById('refresh')
         .addEventListener('click', () => { getMessages() });
 }
 
 attachEvents();
 
+// Load Messages
 async function getMessages() {
     const response = await fetch('http://localhost:3030/jsonstore/messenger');
     const data = await response.json();
@@ -26,6 +30,7 @@ async function getMessages() {
     document.getElementById('messages').value = messages;
 }
 
+// Send Message
 async function sendMessage(message) {
     const response = await fetch('http://localhost:3030/jsonstore/messenger', {
         method: 'post',

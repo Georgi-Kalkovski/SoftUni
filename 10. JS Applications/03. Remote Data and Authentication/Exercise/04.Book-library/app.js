@@ -2,10 +2,12 @@ function attachEvents() {
 
     const link = 'http://localhost:3030/jsonstore/collections/books/';
 
+    // Event listene for the LOAD ALL BOOKS button
     document.getElementById('loadBooks').addEventListener('click', () => {
         getBooks(link);
     });
 
+    // Event listene for the Submit button
     document.querySelector('form button').addEventListener('click', (event) => {
         event.preventDefault();
         if (event.target.textContent == 'Submit') {
@@ -15,6 +17,7 @@ function attachEvents() {
         }
     });
 
+    // Event listener for Edit/Delete buttons
     document.querySelectorAll('tbody').forEach((btn) => btn.addEventListener('click', (event) => {
         event.preventDefault();
 
@@ -42,6 +45,7 @@ function attachEvents() {
 
 attachEvents();
 
+// Load all books
 async function getBooks(link) {
     const response = await fetch(link);
     const data = await response.json();
@@ -69,6 +73,7 @@ async function getBooks(link) {
     }
 }
 
+// Submit book
 async function postBook(link, title, author) {
     if (title == '') {
         alert('Write Title name');
@@ -91,6 +96,7 @@ async function postBook(link, title, author) {
     }
 }
 
+// Edit book
 async function updateBook(link, id, title, author) {
     if (title == '') {
         alert('Write Title name');
@@ -112,15 +118,19 @@ async function updateBook(link, id, title, author) {
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify(data),
         });
+        getBooks(link);
     }
 }
 
+// Delete book
 async function deleteData(link, id) {
     await fetch(link + id, {
         method: 'delete',
     });
+    getBooks(link);
 }
 
+// Function dealing with elements
 function e(type, text) {
     const element = document.createElement(type);
     element.textContent = text;
