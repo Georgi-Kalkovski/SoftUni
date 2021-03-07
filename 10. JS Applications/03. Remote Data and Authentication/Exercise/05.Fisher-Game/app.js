@@ -201,4 +201,3 @@ function nullCheck(angler, weight, species, location, bait, captureTime) {
         throw new Error('Empty input');
     }
 }
-
