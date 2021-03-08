@@ -25,7 +25,7 @@ async function onLogin(data) {
     });
 
     try {
-        const response = await fetch('http://localhost:3030/users/login', {
+        const response = await fetch('http://localhost:3030/users/login/', {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
             body
@@ -54,7 +54,7 @@ async function onRegister(data) {
     });
 
     try {
-        const response = await fetch('http://localhost:3030/users/register', {
+        const response = await fetch('http://localhost:3030/users/register/', {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
             body

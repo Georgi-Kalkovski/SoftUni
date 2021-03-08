@@ -72,32 +72,21 @@ async function getCatches(link, tokenBtn) {
         const updateBtn = e('button', 'update', 'Update', tokenBtn);
         const deleteBtn = e('button', 'delete', 'Delete', tokenBtn);
 
-        catchDiv.appendChild(labelAngler);
-        catchDiv.appendChild(inputAngler);
-        catchDiv.appendChild(e('hr'));
-        catchDiv.appendChild(labelWeigth);
-        catchDiv.appendChild(inputWeigth);
-        catchDiv.appendChild(e('hr'));
-        catchDiv.appendChild(labelSpecies);
-        catchDiv.appendChild(inputSpecies);
-        catchDiv.appendChild(e('hr'));
-        catchDiv.appendChild(labelLocation);
-        catchDiv.appendChild(inputLocation);
-        catchDiv.appendChild(e('hr'));
-        catchDiv.appendChild(labelBait);
-        catchDiv.appendChild(inputBait);
-        catchDiv.appendChild(e('hr'));
-        catchDiv.appendChild(labelCaptureTime);
-        catchDiv.appendChild(inputCaptureTime);
-        catchDiv.appendChild(e('hr'));
-        catchDiv.appendChild(updateBtn);
-        catchDiv.appendChild(deleteBtn);
+        catchDiv.append(
+            labelAngler, inputAngler, e('hr'),
+            labelWeigth, inputWeigth, e('hr'),
+            labelSpecies, inputSpecies, e('hr'),
+            labelLocation, inputLocation, e('hr'),
+            labelBait, inputBait, e('hr'),
+            labelCaptureTime, inputCaptureTime, e('hr'),
+            updateBtn, deleteBtn);
         catches.appendChild(catchDiv);
     }
 }
 
 // Adding of a new Catch to the table
 async function postCatch(link, current, token) {
+
     const angler = current.children[2].value;
     const weight = current.children[4].value;
     const species = current.children[6].value;
@@ -109,12 +98,9 @@ async function postCatch(link, current, token) {
 
     await post(link, { angler, weight, species, location, bait, captureTime });
 
-    current.children[2].value = '';
-    current.children[4].value = '';
-    current.children[6].value = '';
-    current.children[8].value = '';
-    current.children[10].value = '';
-    current.children[12].value = '';
+    for (let i = 2; i <= 12; i += 2) {
+        current.children[i].value = '';
+    }
 
     async function post(link, data) {
         await fetch(link, {
@@ -181,23 +167,13 @@ function e(type, attribute1, attribute2, attribute3) {
 
 // Function dealing with null inputs
 function nullCheck(angler, weight, species, location, bait, captureTime) {
-    if (angler == '') {
-        alert('Write Angler');
-        throw new Error('Empty input');
-    } if (weight == '') {
-        alert('Write Weight');
-        throw new Error('Empty input');
-    } if (species == '') {
-        alert('Write Species');
-        throw new Error('Empty input');
-    } if (location == '') {
-        alert('Write Location');
-        throw new Error('Empty input');
-    } if (bait == '') {
-        alert('Write Bait');
-        throw new Error('Empty input');
-    } if (captureTime == '') {
-        alert('Write Capture Time');
+    if (angler == '' || weight == '' || species == '' || location == '' || bait == '' || captureTime == '') {
+        if (angler == '') { alert('Write Angler'); }
+        else if (weight == '') { alert('Write Weight'); }
+        else if (species == '') { alert('Write Species'); }
+        else if (location == '') { alert('Write Location'); }
+        else if (bait == '') { alert('Write Bait'); }
+        else if (captureTime == '') { alert('Write Capture Time'); }
         throw new Error('Empty input');
     }
 }

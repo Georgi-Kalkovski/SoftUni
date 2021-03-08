@@ -53,10 +53,7 @@ function studentForm() {
     const nameRow = e('tr');
     const name = e('th', 'FORM');
     name.style.textAlign = 'center';
-    nameRow.appendChild(e('td'));
-    nameRow.appendChild(name);
-    nameRow.appendChild(e('td'));
-    nameRow.appendChild(e('td'));
+    nameRow.append(e('td'), name, e('td'), e('td'));
     form.appendChild(nameRow);
 
     // Input Row
@@ -75,10 +72,7 @@ function studentForm() {
     const buttonRow = e('tr');
     const submitBtn = e('button');
     submitBtn.textContent = 'Submit';
-    buttonRow.appendChild(e('td'));
-    buttonRow.appendChild(e('td'));
-    buttonRow.appendChild(e('td'));
-    buttonRow.appendChild(submitBtn);
+    buttonRow.append(e('td'), e('td'), e('td'), submitBtn);
     form.appendChild(buttonRow);
 
     document.querySelector('#results').appendChild(form);
@@ -100,7 +94,7 @@ function studentFormTypeCheck(firstName, lastName, facultyName, grade) {
     if (!String(firstName)) {
         alert('First Name must be string!')
         isTrue = false;
-    }if (!String(lastName)) {
+    } if (!String(lastName)) {
         alert('Last Name must be string!')
         isTrue = false;
     } if (!Number(facultyName)) {
@@ -109,7 +103,7 @@ function studentFormTypeCheck(firstName, lastName, facultyName, grade) {
     } if (!Number(grade)) {
         alert('Grade must be number!')
         isTrue = false;
-    }  if (Number(grade) > 6) {
+    } if (Number(grade) > 6) {
         alert('Grade cannot be more than 6.00!')
         isTrue = false;
     } if (Number(grade) < 0) {

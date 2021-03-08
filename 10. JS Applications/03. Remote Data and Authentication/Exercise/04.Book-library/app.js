@@ -64,11 +64,8 @@ async function getBooks(link) {
         const deleteBtn = e('button', 'Delete');
         book.id = key;
 
-        buttons.appendChild(editBtn);
-        buttons.appendChild(deleteBtn);
-        book.appendChild(title);
-        book.appendChild(author);
-        book.appendChild(buttons);
+        buttons.append(editBtn, deleteBtn);
+        book.append(title, author, buttons);
         table.appendChild(book);
     }
 }
