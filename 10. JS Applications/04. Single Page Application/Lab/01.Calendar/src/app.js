@@ -4,30 +4,29 @@ const sections = [...document.querySelectorAll('section')].forEach((e) => {
 })
 let year;
 let month;
+var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
-var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const section = [...document.querySelectorAll('section')].forEach((e) => e.addEventListener('click', (current) => {
-    if (current.target.className == 'yearsCalendar' || current.target.className == 'months' || current.target.className == 'days') { return }
-    if (e.id == 'years' && current.target.tagName != 'CAPTION') {
-        year = current.target.textContent.trim();
-        e.style.display = 'none';
-        document.getElementById(`year-${year}`).style.display = 'block';
-        return;
-    } else if (e.id === `year-${year}` && current.target.tagName != 'CAPTION') {
-        month = current.target.textContent.trim();
-        e.style.display = 'none';
-        document.getElementById(`month-${year}-${months.indexOf(month) + 1}`).style.display = 'block';
-        return;
-    } else if (current.target.tagName == 'CAPTION') {
-        if (document.getElementById(`year-${year}`).style.display != 'block') {
+const section = [...document.querySelectorAll('section')].forEach((s) => s.addEventListener('click', (e) => {
+    if (s.id == 'years') {
+        if (e.target.className == 'day') {
+            year = e.target.textContent.trim();
             document.getElementById(`year-${year}`).style.display = 'block';
-            document.getElementById(`month-${year}-${months.indexOf(month) + 1}`).style.display = 'none';
-            return;
-        } else if (current.target.id != 'years') {
-            document.getElementById(`year-${year}`).style.display = 'none';
-            document.getElementById(`years`).style.display = 'block';
-            return;
+            s.style.display = 'none';
+        }
+    } else if (s.id == `year-${year}`) {
+        if (e.target.className == 'day') {
+            month = e.target.textContent.trim();
+            document.getElementById(`month-${year}-${months.indexOf(month) + 1}`).style.display = 'block';
+            s.style.display = 'none';
+        } else if (e.target.tagName == 'CAPTION') {
+            document.getElementById('years').style.display = 'block';
+            s.style.display = 'none';
+        }
+    } else if (s.id == `month-${year}-${months.indexOf(month) + 1}`) {
+        if (e.target.tagName == 'CAPTION') {
+            document.getElementById(`year-${year}`).style.display = 'block'
+            s.style.display = 'none';
+            console.log('CAPTION')
         }
     }
-}
-));
+}));
