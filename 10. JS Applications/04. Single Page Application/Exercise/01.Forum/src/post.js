@@ -56,6 +56,9 @@ export async function showPost(id) {
 async function getPost(id) {
     const result = await request('http://localhost:3030/jsonstore/collections/myboard/posts/' + id, {
         method: 'get',
+        headers: {
+            'Content-Type': 'application/json'
+        },
     });
     return result;
 }
@@ -79,7 +82,7 @@ function commentForm(postId) {
 
 }
 
-async function getComments(postId) {
+async function getComments() {
     const result = await request('http://localhost:3030/jsonstore/collections/myboard/comments');
     return result;
 }

@@ -21,8 +21,8 @@ export function e(type, attributes = {}, ...content) {
     return result;
 }
 
-export async function request(url, options) {
-    const response = await fetch(url, options);
+export async function request(link, options) {
+    const response = await fetch(link, options);
     if (response.ok == false) {
         const error = await response.json();
         alert(error.message);

@@ -1,4 +1,5 @@
 import { showPost, setupPost, addComment } from './post.js';
+import { request } from './dom.js';
 
 const newTopicDiv = document.querySelector('.container .new-topic-border');
 let form = document.querySelector('.container form');
@@ -129,15 +130,4 @@ function renderPosts(posts) {
     </div>`;
         container.innerHTML += postHTML;
     });
-}
-
-async function request(url, options) {
-    const response = await fetch(url, options);
-    if (response.ok == false) {
-        const error = await response.json();
-        alert(error.message);
-        throw new Error(error.message);
-    }
-    const data = await response.json();
-    return data;
 }
