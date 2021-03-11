@@ -1,5 +1,6 @@
 import { getPostById } from "./post.js";
 import {createPage, createCommentRow} from './dom.js';
+import {commentCheck} from './nullCheck.js'
 
 export async function createComment(e) {
   e.preventDefault();
@@ -8,12 +9,13 @@ export async function createComment(e) {
   const postText = formData.get("postText");
   const username = formData.get("username");
 
+  commentCheck(username);
+
   const newComment = {
     postText,
     username,
     topicId: document.querySelector('div .container').id,
   };
-
   const response = await fetch("http://localhost:3030/jsonstore/collections/myboard/comments", {
     method: "post",
     headers: { "Content-Type": "application/json" },
@@ -31,8 +33,6 @@ export async function createComment(e) {
 }
 
 export async function showComments(id) {
-  document.getElementsByTagName("main")[0].innerHTML = "";
-
   const topic = await getPostById(id);
   const response = await fetch("http://localhost:3030/jsonstore/collections/myboard/comments");
   const data = await response.json();
@@ -40,6 +40,7 @@ export async function showComments(id) {
   const comment = Object.values(data).filter(x => x.topicId == id).map(createCommentRow).join('');
   const view = createPage(topic, comment, id);
 
+  document.getElementsByTagName("main")[0].innerHTML = "";
   document.getElementsByTagName("main")[0].innerHTML = view;
   document.getElementById("commentCreate").addEventListener("submit", createComment);
 }
