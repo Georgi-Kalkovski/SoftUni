@@ -1,99 +1,61 @@
-import { request, e } from './dom.js';
+import { createRow } from './dom.js';
+import {postCheck} from './nullCheck.js'
 
-let main;
-let section;
+export async function createPost(e) {
+  e.preventDefault();
 
-export async function setupPost(mainTarget, sectionTarget) {
-    main = mainTarget;
-    section = sectionTarget;
+  const formData = new FormData(e.target);
+  const topicName = formData.get("topicName");
+  const username = formData.get("username");
+  const postText = formData.get("postText");
+
+  postCheck(topicName, username, postText);
+
+  const newPost = {
+    topicName,
+    username,
+    postText,
+    post: [],
+  };
+
+  const response = await fetch("http://localhost:3030/jsonstore/collections/myboard/posts", {
+    method: "post",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(newPost),
+  });
+
+  if (e.submitter.textContent == "Post") {
+    console.log("Post");
+  } else if (e.submitter.textContent == "Cancel") {
+    e.target.reset();
+    return;
+  }
+
+  if (response.ok) {
+    alert("Post successfully created");
+  } else {
+    const data = await response.json();
+    return alert(data.message);
+  }
+
+  e.target.reset();
+  showPosts();
 }
 
-export async function showPost(id) {
-    main.innerHTML = '';
-    let post = await getPost(id);
-    let postElement = e('div', { className: 'topic-title' }, '');
-    let postHTML = `
-    <div class="topic-title">
-        <div class="topic-name-wrapper">
-            <div class="topic-name">
-                <h2>${post.topicName}</h2>
-                <p>Date: <time>${post.date}</time></p>
-            </div>
-            <div class="subscribers">
-                <p>Subscribers: <span>${post.subscribes}</span></p>
-            </div>
-        </div>
-    </div>`;
-    postElement.innerHTML = postHTML;
-
-    let comments = await getComments(id);
-    Object.keys(comments).forEach(comment => {
-        if (comments[comment].postId == id) {
-            let commentHTML = `<div class="comment">
-            <header class="header">
-                <p><span>${comments[comment].username}</span> posted on <time>${comments[comment].date}</time></p>
-            </header>
-            <div class="comment-main">
-                <div class="userdetails">
-                    <img src="./static/profile.png" alt="avatar">
-                </div>
-                <div class="post-content">
-                    <p>${comments[comment].postText}</p>
-                </div>
-            </div>
-            <div class="footer">
-                <p><span>0</span> likes</p>
-            </div>
-        </div>`;
-            postElement.innerHTML += commentHTML;
-        }
-    });
-
-    postElement.innerHTML += commentForm(id);
-    main.appendChild(postElement);
+export async function getPosts() {
+  const response = await fetch("http://localhost:3030/jsonstore/collections/myboard/posts");
+  const data = await response.json();
+  return data;
 }
 
-async function getPost(id) {
-    const result = await request('http://localhost:3030/jsonstore/collections/myboard/posts/' + id, {
-        method: 'get',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-    });
-    return result;
+export async function getPostById(id) {
+  const response = await fetch("http://localhost:3030/jsonstore/collections/myboard/posts/" + id);
+  const data = await response.json();
+  return data;
 }
 
-function commentForm(postId) {
-    let formHTML = `<div class="answer-comment">
-    <p><span>currentUser</span> comment:</p>
-    <div class="answer">
-        <form>
-            <textarea name="postText" id="comment" cols="30" rows="10"></textarea>
-            <div>
-                <label for="username">Username <span class="red">*</span></label>
-                <input type="text" name="username" id="username">
-                <input type="hidden" name="postId" id="postId" value="${postId}">
-            </div>
-            <button>Post</button>
-        </form>
-    </div>
-</div>`;
-    return formHTML;
-
-}
-
-async function getComments() {
-    const result = await request('http://localhost:3030/jsonstore/collections/myboard/comments');
-    return result;
-}
-
-export async function addComment(postData) {
-    const result = await request('http://localhost:3030/jsonstore/collections/myboard/comments', {
-        method: 'post',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(postData)
-    });
-    return result;
+export async function showPosts() {
+  const posts = await getPosts();
+  const rows = Object.values(posts).map(createRow).join("");
+  document.getElementById("allTopics").innerHTML = rows;
 }
