@@ -3,3 +3,7 @@
 @import url("login.css");
 @import url("dashboard.css");
 @import url("ideas.css");
+
+#views {
+    display: none
+}
