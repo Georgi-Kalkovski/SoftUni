@@ -1,68 +1,79 @@
-import {setupHome} from './views/home.js'
-import {setupLogin} from './views/login.js'
-import {setupRegister} from './views/register.js'
-import {setupDashboard} from './views/dashboard.js'
-import {setupDetails} from './views/details.js'
-import {setupCreate} from './views/create.js'
+import { setupHome } from "./home.js";
+import { setupRegister } from "./register.js";
+import { setupLogin } from "./login.js";
+import { setupDashboard } from "./dashboard.js";
+import { setupCreate } from "./create.js";
+import { logout, settings } from "./api.js";
+import { setupDetails } from "./details.js";
 
 const main = document.querySelector('main');
-const nav = document.querySelector('nav');
-const views = {
+const nav = document.querySelector('#navigation');
 
-};
-const links = {
-
-};
+const views = {};
+const links = {};
 
 const navigation = {
-    goTo
-};
-
-registerView('home', document.getElementById('home-page'), setupHome, 'homeLink');
-registerView('login', document.getElementById('login-page'), setupLogin, 'loginLink');
-registerView('register', document.getElementById('register-page'), setupRegister, 'registerLink');
-registerView('dashboard', document.getElementById('dashboard-holder'), setupDashboard, 'dashboardLink');
-registerView('create', document.getElementById('create-page'), setupCreate, 'createLink');
-registerView('details', document.getElementById('details-page'), setupDetails);
-
-setupNavigation();
-
-goTo('home');
-
-function registerView(name, section, setup, linkId){
-    const view = setup(section, navigation);
-    views[name] = view;
-    if (linkId) {
-        links[linkId] = name;
-    }
-    
+    goTo,
+    setNav,
 }
 
-async function goTo(name, ...params){
+async function goTo(name, ...params) {
     main.innerHTML = '';
+
     const view = views[name];
     const section = await view(...params);
     main.appendChild(section);
 }
 
-function setupNavigation(){
-    setUserNav();
-    nav.addEventListener('click', (ev)=>{
-        const viewName = links[ev.target.id];
-        if (viewName) {
-            ev.preventDefault();
-            goTo(viewName);
-        }
-    });
-}
+function registerView(name, section, setup, linkId) {
+    views[name] = setup(section, navigation);
 
-function setUserNav(){
-    const token = sessionStorage.getItem('authToken');
-    if(token != 'null'){
-        [...nav.querySelectorAll('.user-nav')].forEach(e => e.style.display = 'none');
-        [...nav.querySelectorAll('.guest-nav')].forEach(e => e.style.display = 'list-item');
-    }else{
-        [...nav.querySelectorAll('.user-nav')].forEach(e => e.style.display = 'list-item');
-        [...nav.querySelectorAll('.guest-nav')].forEach(e => e.style.display = 'none');
+    if (linkId) {
+        links[linkId] = name;
     }
 }
+
+function setNav() {
+    if (sessionStorage.getItem('token')) {
+        nav.querySelector('#logoutLink').style.display = 'inline-block';
+        nav.querySelector('#createLink').style.display = 'inline-block';
+        nav.querySelector('#loginLink').style.display = 'none';
+        nav.querySelector('#registerLink').style.display = 'none';
+    } else {
+        nav.querySelector('#logoutLink').style.display = 'none';
+        nav.querySelector('#createLink').style.display = 'none';
+        nav.querySelector('#loginLink').style.display = 'inline-block';
+        nav.querySelector('#registerLink').style.display = 'inline-block';
+    }
+}
+
+
+registerView('home', document.getElementById('home'), setupHome, 'homeLink');
+registerView('register', document.getElementById('register'), setupRegister, 'registerLink');
+registerView('login', document.getElementById('login'), setupLogin, 'loginLink');
+registerView('dashboard', document.getElementById('dashboard-holder'), setupDashboard, 'dashboardLink');
+registerView('create', document.getElementById('create'), setupCreate, 'createLink');
+registerView('details', document.getElementById('details'), setupDetails);
+
+
+nav.addEventListener('click', async (ev) => {
+    ev.preventDefault();
+
+    const name = links[ev.target.id];
+    if (name) {
+        goTo(name);
+    }
+
+});
+
+document.querySelector('#logoutLink').addEventListener('click', async (ev) => {
+    ev.preventDefault();
+    
+    settings.host = 'http://localhost:3030';
+    await logout();
+    setNav();
+    goTo('home');
+});
+
+setNav();
+goTo('home');

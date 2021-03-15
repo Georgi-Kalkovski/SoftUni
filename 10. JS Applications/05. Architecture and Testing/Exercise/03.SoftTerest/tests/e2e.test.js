@@ -2,7 +2,7 @@
 const { chromium } = require('playwright-chromium');
 const { expect } = require('chai');
 
-const host = 'http://localhost:5500'; // Application host (NOT service host - that can be anything)
+const host = 'http://localhost:3000'; // Application host (NOT service host - that can be anything)
 const DEBUG = false;
 
 const mockData = require('./mock-data.json');
@@ -36,12 +36,12 @@ describe('E2E tests', function () {
     if (DEBUG) {
         this.timeout(120000);
     } else {
-        this.timeout(120000);
+        this.timeout(6000);
     }
 
     before(async () => {
         if (DEBUG) {
-            browser = await chromium.launch({ headless: false, slowMo: 500 });
+            browser = await chromium.launch({ headless: false, slowMo: 2500 });
         } else {
             browser = await chromium.launch();
         }
@@ -75,7 +75,7 @@ describe('E2E tests', function () {
     });
 
     describe('Catalog', () => {
-        it.only('show most recent ideas', async () => {
+        it('show most recent ideas', async () => {
             await page.goto(host);
             await page.click('text=Dashboard');
             await page.waitForSelector('#dashboard-holder');
@@ -206,7 +206,7 @@ describe('E2E tests', function () {
 
             await page.fill('[name="title"]', mock.title);
             await page.fill('[name="description"]', mock.description);
-            await page.fill('[name="imageURL"]', mock.img);
+            await page.fill('[name="img"]', mock.img);
 
             const [response] = await Promise.all([
                 page.waitForResponse(endpoint),
