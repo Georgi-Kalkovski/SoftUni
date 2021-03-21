@@ -1,34 +1,17 @@
-<!doctype html>
-<html lang="en">
+import {html} from '../../node_modules/lit-html/lit-html.js'
+import {login} from '../api/api.js'
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./static/style.css">
-    <title>Furniture</title>
+export {showLogin}
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-
-<body>
-    <header>
-        <h1><a href="/">Furniture Store</a></h1>
-        <nav>
-            <a id="catalogLink" href="index.html">Dashboard</a>
-            <div id="guest">
-                <a id="loginLink" href="login.html" class="active">Login</a>
-                <a id="registerLink" href="register.html">Register</a>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
+function showLogin(ctx) {
+    const view = html`
         <div class="row space-top">
             <div class="col-md-12">
                 <h1>Login User</h1>
                 <p>Please fill all fields.</p>
             </div>
         </div>
-        <form>
+        <form @submit="${(ev)=>onSubmit(ev,ctx)}">
             <div class="row space-top">
                 <div class="col-md-4">
                     <div class="form-group">
@@ -39,11 +22,21 @@
                         <label class="form-control-label" for="password">Password</label>
                         <input class="form-control" id="password" type="password" name="password">
                     </div>
-                    <input type="submit" class="btn btn-primary" value="Login" />
+                    <input type="submit" class="btn btn-primary" value="Login"/>
                 </div>
             </div>
         </form>
-    </div>
-</body>
+    `;
 
-</html>
+    ctx.render(view, ctx.container);
+}
+
+async function onSubmit(ev,ctx){
+    ev.preventDefault();
+    const data = [...new FormData(ev.target).entries()].reduce((acc,[k,v])=>{
+        acc[k]=v;
+        return acc;
+    },{});
+    await login(data.email,data.password);
+    ctx.page.redirect('/');
+}

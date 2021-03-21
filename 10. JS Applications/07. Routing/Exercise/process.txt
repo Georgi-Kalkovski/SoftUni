@@ -1,0 +1,10 @@
+1. Extract project skeleton and examine files
+2. Setum NPM project (package.json + libraries)       SUPS Admin Panel --> localhost:3030/admin/
+3. Analyze the HTML and determine templates
+4. Configure routing with placeholder modules
+5. Implement requests
+6. Implement each view
+6.1. Create static template
+6.2. Implement fetch request
+6.3. Add parameters to template
+6.4 Add event listener (if any)
