@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider - Web Component</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script type="module" src="./slider.js" defer></script>
+</head>
+
+<body>
+    <template id="slider-template">
+        <div class="slider-container">
+            <input class="slider" type="range" />
+            <div class="slider-end">
+                Percentage: <span class="slider-percentage-value">0 %</span>
+            </div>
+        </div>
+    </template>
+
+    <app-slider slider-value="7" step="0.5" invert>
+    </app-slider>
+
+
+</body>
+
+</html>

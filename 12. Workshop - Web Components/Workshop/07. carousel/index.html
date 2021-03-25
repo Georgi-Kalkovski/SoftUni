@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel - Web Component</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="./carousel.js" defer></script>
+</head>
+
+<body>
+    <template id="carousel-template">
+        <div class="carousel-container">
+            <article class="carousel-slide">
+                <p class="number-text">1 / 3</p>
+                <img src="IMAGEURL1" alt="">
+                <p class="caption-text">CAPTION TEXT 1</p>
+            </article>
+
+            <article class="carousel-slide">
+                <p class="number-text">2 / 3</p>
+                <img src="IMAGEURL2" alt="">
+                <p class="caption-text">CAPTION TEXT 2</p>
+            </article>
+
+            <article class="carousel-slide">
+                <p class="number-text">3 / 3</p>
+                <img src="IMAGEURL3" alt="">
+                <p class="caption-text">CAPTION TEXT 3</p>
+            </article>
+
+            <a class="prev">&#10094;</a>
+            <a class="next">&#10095;</a>
+        </div>
+
+        <!-- The dots/circles -->
+        <div class="carousel-controls" style="text-align:center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </template>
+
+    <app-carousel
+        slide-01-image-url="./images/first.jpg"
+        slide-02-image-url="./images/second.jpg"
+        slide-03-image-url="./images/third.jpg"
+        slide-01-caption="First Caption"
+        slide-02-caption="Second Caption"
+        slide-03-caption="Third Caption">
+    </app-carousel>
+
+</body>
+
+</html>
