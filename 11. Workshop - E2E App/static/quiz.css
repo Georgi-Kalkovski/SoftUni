@@ -1,0 +1,155 @@
+.preview {
+    background-color: white;
+    margin: 32px 0;
+    border-left: 8px solid #000b29;
+    padding: 16px 32px;
+    position: relative;
+}
+
+.preview:hover {
+    border-color: #d70026;
+}
+
+.quiz-title-link {
+    text-decoration: none;
+}
+
+.quiz-title-link:hover {
+    color: #d70026;
+}
+
+.quiz-topic {
+    display: block;
+}
+
+.quiz-meta {
+    color: #666666;
+}
+
+.browse-filter {
+    float: right;
+}
+
+.input {
+    font-size: 18px;
+    border: 1px solid #000b29;
+    padding: 2px 4px;
+}
+
+.submit {
+    font-size: 18px;
+    border: none;
+    padding: 4px 8px;
+}
+
+.details {
+    margin: 32px 0;
+    padding: 32px 64px;
+    position: relative;
+    text-align: center;
+}
+
+.details h1 {
+    margin-bottom: 32px;
+}
+
+.quiz-desc {
+    text-align: left;
+    margin-top: 32px;
+}
+
+.question {
+    border-left: 4px solid #d70026;
+    background-color: white;
+    padding: 32px 64px;
+}
+
+.q-text {
+    font-size: 24px;
+    margin-bottom: 32px;
+    line-height: 1.5;
+}
+
+.q-control {
+    margin-top: 32px;
+}
+
+.q-answer {
+    font-size: 20px;
+    display: block;
+    margin: 16px 0;
+    cursor: pointer;
+}
+
+.q-index {
+    float: left;
+    display: block;
+    width: 16px;
+    height: 16px;
+    border: 3px solid #000b29;
+    margin: 2px;
+    font-size: 10px;
+    line-height: 10px;
+    background-color: #f8f5f2;
+    position: relative;
+}
+
+.q-current::after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 2px;
+    bottom: 2px;
+    left: 2px;
+    right: 2px;
+    background-color: #000b29;
+}
+
+.q-answered {
+    background-color: #edb83d;
+}
+
+.q-index:hover {
+    border-color: #d70026;
+    color: #d70026;
+}
+
+.summary {
+    font-size: 24px;
+    margin: 16px auto;
+    padding: 16px;
+    background-color: #90eca9;
+    width: 320px;
+    font-weight: bold;
+}
+
+.summary-top {
+    font-size: 32px;
+}
+
+.s-correct {
+    background-color: #90eca9;
+    padding: 4px 16px;
+}
+
+.s-correct i {
+    color: #009c2a;
+}
+
+.s-incorrect {
+    background-color: #f5947c;
+    padding: 4px 16px;
+}
+
+.s-incorrect i {
+    color: #af2300;
+}
+
+.s-answer {
+    margin: 16px 0;
+}
+
+
+.s-answer span {
+    padding: 4px 16px;
+}

@@ -1,0 +1,20 @@
+1. Initialize project
+2. Copy /api
+3. Create Back4app app
+4. View documentation on Users
+5. Adjust api.js to include AppID, APIKey, correct headers, register/login/logout routes and bodies
+6. Test register/logout/login
+7. Examine Database Browser, create Quiz collection
+8. Create CRUD functions for Quiz collection
+9. Test Quiz collection, confirm it's public read/write
+10. View documentation on security, ACL, CLP
+11. Configure public read, authenticated write,  NO add field CLP
+12. Test read/write
+13. Configure owner pointer
+14. Adjust data.js to include owner pointer on create { __type: 'Pointer', 'className': '_User', objectId: userId }
+15. Test owner protection
+16. Add query to include owner on GET
+17. Create Question collection, configure CLP, owner pointer, Quiz pointer
+18. Create CRUD functions for Question collection, with owner protection
+19. Test Question collection
+20. Proceed with implementation of views

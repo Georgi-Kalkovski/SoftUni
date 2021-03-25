@@ -1,0 +1,32 @@
+.tab-item {
+    width: 50%;
+    display: block;
+    float: left;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 8px;
+}
+
+a.tab-item {
+    background-color: #000b29;
+    color: #edb83d;
+    text-decoration: none;
+}
+
+a.tab-item:hover {
+    background-color: #d70026;
+    color: #f8f5f2;
+}
+
+.tab-footer {
+    background-color: #000b29;
+    color: #f8f5f2;
+    padding: 8px;
+}
+
+.auth-input {
+    display: block;
+    margin: auto;
+    text-align: center;
+}

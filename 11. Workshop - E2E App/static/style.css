@@ -1,0 +1,41 @@
+.night {
+    background-color: #000b29;
+    color: white;
+}
+
+.red {
+    background-color: #d70026;
+}
+
+.pearl {
+    background-color: #f8f5f2;
+}
+
+.flash {
+    background-color: #edb83d;
+}
+
+body {
+    background-color: #dddddd;
+}
+
+h1, h2, h3 {
+    color: #000b29;
+    font-size: 24px;
+}
+
+a {
+    color: #000b29;
+}
+
+a:hover {
+    color: #edb83d;
+}
+
+.invert {
+    color: #f8f5f2;
+}
+
+header {
+    background-color: white;
+}

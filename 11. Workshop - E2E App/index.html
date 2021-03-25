@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/site.css">
+
+    <script src="/src/app.js" type="module"></script>
+</head>
+
+<body>
+
+    <div id="container">
+
+        <header id="titlebar">
+            <nav>
+                <a class="logotype" href="/"><i class="fas fa-question-circle"></i><i
+                        class="merge fas fa-check-circle"></i><span>Quiz Fever</span></a>
+                <div class="navigation">
+                    <a class="nav-link" href="/browse">Browse</a>
+                    <div id="user-nav">
+                        <a class="nav-link" href="/create">Create</a>
+                        <a class="nav-link profile-link" href="#"><i class="fas fa-user-circle"></i></a>
+                        <a id="logoutBtn" class="nav-link" href="javascript:void(0)">Logout</a>
+                    </div>
+                    <div id="guest-nav">
+                        <a class="nav-link" href="/login">Sign in</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main id="content">
+            <!-- Dynamic content here -->
+        </main>
+
+        <footer id="footer">Viktor Kostadinov &copy; 2021</footer>
+
+        <div id="views">
+
+            <section id="register">
+                <div class="pad-large">
+                    <div class="glass narrow">
+                        <header class="tab layout">
+                            <a class="tab-item" href="/login">Login</a>
+                            <h1 class="tab-item active">Register</h1>
+                        </header>
+                        <form class="pad-med centered">
+                            <label class="block centered">Username: <input class="auth-input input" type="text"
+                                    name="username" /></label>
+                            <label class="block centered">Email: <input class="auth-input input" type="text"
+                                    name="email" /></label>
+                            <label class="block centered">Password: <input class="auth-input input" type="password"
+                                    name="password" /></label>
+                            <label class="block centered">Repeat: <input class="auth-input input" type="password"
+                                    name="repass" /></label>
+                            <input class="block action cta" type="submit" value="Create Account" />
+                        </form>
+                        <footer class="tab-footer">
+                            Already have an account? <a class="invert" href="#">Sign in here</a>.
+                        </footer>
+                    </div>
+                </div>
+            </section>
+
+            <section id="login">
+                <div class="pad-large">
+                    <div class="glass narrow">
+                        <header class="tab layout">
+                            <h1 class="tab-item active">Login</h1>
+                            <a class="tab-item" href="/register">Register</a>
+                        </header>
+                        <form class="pad-med centered">
+                            <label class="block centered">Email: <input class="auth-input input" type="text"
+                                    name="email" /></label>
+                            <label class="block centered">Password: <input class="auth-input input" type="password"
+                                    name="password" /></label>
+                            <input class="block action cta" type="submit" value="Sign In" />
+                        </form>
+                        <footer class="tab-footer">
+                            Don't have an account? <a class="invert" href="#">Create one here</a>.
+                        </footer>
+                    </div>
+                </div>
+            </section>
+
+            <section id="welcome">
+
+                <div class="hero layout">
+                    <div class="splash right-col"><i class="fas fa-clipboard-list"></i></div>
+                    <div class="glass welcome">
+                        <h1>Welcome to Quiz Fever!</h1>
+                        <p>Home to 157 quizes in 12 topics. <a href="#">Browse all quizes</a>.</p>
+                        <a class="action cta" href="#">Sign in to create a quiz</a>
+                    </div>
+                </div>
+
+                <div class="pad-large alt-page">
+                    <h2>Our most recent quiz:</h2>
+
+                    <article class="preview layout">
+                        <div class="right-col">
+                            <a class="action cta" href="#">View Quiz</a>
+                        </div>
+                        <div class="left-col">
+                            <h3>Extensible Markup Language</h3>
+                            <span class="quiz-topic">Topic: Languages</span>
+                            <div class="quiz-meta">
+                                <span>15 questions</span>
+                                <span>|</span>
+                                <span>Taken 54 times</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <div>
+                        <a class="action cta" href="#">Browse all quizes</a>
+                    </div>
+                </div>
+
+            </section>
+
+            <section id="browse">
+                <header class="pad-large">
+                    <form class="browse-filter">
+                        <input class="input" type="text" name="query">
+                        <select class="input" name="topic">
+                            <option value="all">All Categories</option>
+                            <option value="it">Languages</option>
+                            <option value="hardware">Hardware</option>
+                            <option value="software">Tools and Software</option>
+                        </select>
+                        <input class="input submit action" type="submit" value="Filter Quizes">
+                    </form>
+                    <h1>All quizes</h1>
+                </header>
+
+                <div class="pad-large alt-page async">
+                    <div class="sk-cube-grid">
+                        <div class="sk-cube sk-cube1"></div>
+                        <div class="sk-cube sk-cube2"></div>
+                        <div class="sk-cube sk-cube3"></div>
+                        <div class="sk-cube sk-cube4"></div>
+                        <div class="sk-cube sk-cube5"></div>
+                        <div class="sk-cube sk-cube6"></div>
+                        <div class="sk-cube sk-cube7"></div>
+                        <div class="sk-cube sk-cube8"></div>
+                        <div class="sk-cube sk-cube9"></div>
+                    </div>
+                </div>
+
+                <div class="pad-large alt-page">
+
+                    <article class="preview layout">
+                        <div class="right-col">
+                            <a class="action cta" href="#">View Quiz</a>
+                        </div>
+                        <div class="left-col">
+                            <h3><a class="quiz-title-link" href="#">Extensible Markup Language</a></h3>
+                            <span class="quiz-topic">Topic: Languages</span>
+                            <div class="quiz-meta">
+                                <span>15 questions</span>
+                                <span>|</span>
+                                <span>Taken 54 times</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="preview layout">
+                        <div class="right-col">
+                            <a class="action cta" href="#">View Quiz</a>
+                        </div>
+                        <div class="left-col">
+                            <h3><a class="quiz-title-link" href="#">RISC Architecture</a></h3>
+                            <span class="quiz-topic">Topic: Hardware</span>
+                            <div class="quiz-meta">
+                                <span>10 questions</span>
+                                <span>|</span>
+                                <span>Taken 107 times</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="preview layout">
+                        <div class="right-col">
+                            <a class="action cta" href="#">View Quiz</a>
+                        </div>
+                        <div class="left-col">
+                            <h3><a class="quiz-title-link" href="#">Webpack</a></h3>
+                            <span class="quiz-topic">Topic: Tools and Software</span>
+                            <div class="quiz-meta">
+                                <span>17 questions</span>
+                                <span>|</span>
+                                <span>Taken 189 times</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <section id="details">
+                <div class="pad-large alt-page">
+                    <article class="details">
+                        <h1>Extensible Markup Language</h1>
+                        <span class="quiz-topic">A quiz by <a href="#">Peter</a> on the topic of Languages</span>
+                        <div class="quiz-meta">
+                            <span>15 Questions</span>
+                            <span>|</span>
+                            <span>Taken 189 times</span>
+                        </div>
+                        <p class="quiz-desc">Test your knowledge of XML by completing this medium-difficulty quiz.
+                            Lorem ipsum dolor
+                            sit amet consectetur adipisicing elit. Aliquam recusandae corporis voluptatum quibusdam
+                            maxime similique reprehenderit rem, officia vero at.</p>
+
+                        <div>
+                            <a class="cta action" href="#">Begin Quiz</a>
+                        </div>
+
+                    </article>
+                </div>
+            </section>
+
+            <section id="quiz">
+                <header class="pad-large">
+                    <h1>Extensible Markup Language: Question 1 / 15</h1>
+                    <nav class="layout q-control">
+                        <span class="block">Question index</span>
+                        <a class="q-index q-current" href="#"></a>
+                        <a class="q-index q-answered" href="#"></a>
+                        <a class="q-index q-answered" href="#"></a>
+                        <a class="q-index q-answered" href="#"></a>
+                        <a class="q-index" href="#"></a>
+                        <a class="q-index" href="#"></a>
+                        <a class="q-index" href="#"></a>
+                        <a class="q-index" href="#"></a>
+                        <a class="q-index" href="#"></a>
+                        <a class="q-index" href="#"></a>
+                        <a class="q-index" href="#"></a>
+                        <a class="q-index" href="#"></a>
+                        <a class="q-index" href="#"></a>
+                        <a class="q-index" href="#"></a>
+                        <a class="q-index" href="#"></a>
+                    </nav>
+                </header>
+                <div class="pad-large alt-page">
+
+                    <article class="question">
+                        <p class="q-text">
+                            This is the first question. Veniam unde beatae est ab quisquam quos officia, eius
+                            harum accusamus adipisci?
+                        </p>
+
+                        <div>
+                            <label class="q-answer radio">
+                                <input class="input" type="radio" name="question-1" value="0" />
+                                <i class="fas fa-check-circle"></i>
+                                This is answer 1
+                            </label>
+
+                            <label class="q-answer radio">
+                                <input class="input" type="radio" name="question-1" value="0" />
+                                <i class="fas fa-check-circle"></i>
+                                This is answer 2
+                            </label>
+
+                            <label class="q-answer radio">
+                                <input class="input" type="radio" name="question-1" value="0" />
+                                <i class="fas fa-check-circle"></i>
+                                This is answer 3
+                            </label>
+
+                        </div>
+
+                        <nav class="q-control">
+                            <span class="block">12 questions remaining</span>
+                            <a class="action" href=#><i class="fas fa-arrow-left"></i> Previous</a>
+                            <a class="action" href=#><i class="fas fa-sync-alt"></i> Start over</a>
+                            <div class="right-col">
+                                <a class="action" href=#>Next <i class="fas fa-arrow-right"></i></a>
+                                <a class="action" href=#>Submit answers</a>
+                            </div>
+                        </nav>
+                    </article>
+
+                </div>
+            </section>
+
+            <section id="summary">
+                <div class="hero layout">
+                    <article class="details glass">
+                        <h1>Quiz Results</h1>
+                        <h2>Extensible Markup Language</h2>
+
+                        <div class="summary summary-top">
+                            85%
+                        </div>
+
+                        <div class="summary">
+                            12/15 correct answers
+                        </div>
+
+                        <a class="action cta" href="#"><i class="fas fa-sync-alt"></i> Retake Quiz</a>
+                        <a class="action cta" href="#"><i class="fas fa-clipboard-list"></i> See Details</a>
+
+                    </article>
+                </div>
+
+                <div class="pad-large alt-page">
+                    <article class="preview">
+                        <span class="s-correct">
+                            Question 1
+                            <i class="fas fa-check"></i>
+                        </span>
+                        <div class="right-col">
+                            <button class="action">See question</button>
+                        </div>
+                    </article>
+
+                    <article class="preview">
+                        <span class="s-correct">
+                            Question 2
+                            <i class="fas fa-check"></i>
+                        </span>
+                        <div class="right-col">
+                            <button class="action">See question</button>
+                        </div>
+                    </article>
+
+                    <article class="preview">
+                        <span class="s-incorrect">
+                            Question 3
+                            <i class="fas fa-times"></i>
+                        </span>
+                        <div class="right-col">
+                            <button class="action">Reveal answer</button>
+                        </div>
+                    </article>
+
+                    <article class="preview">
+                        <span class="s-incorrect">
+                            Question 4
+                            <i class="fas fa-times"></i>
+                        </span>
+                        <div class="right-col">
+                            <button class="action">Close</button>
+                        </div>
+
+                        <div>
+                            <p>
+                                This is the first question. Veniam unde beatae est ab quisquam quos officia, eius
+                                harum accusamus adipisci?
+                            </p>
+                            <div class="s-answer">
+                                <span class="s-incorrect">
+                                    This is answer 1
+                                    <i class="fas fa-times"></i>
+                                    <strong>Your choice</strong>
+                                </span>
+                            </div>
+                            <div class="s-answer">
+                                <span class="s-correct">
+                                    This is answer 2
+                                    <i class="fas fa-check"></i>
+                                    <strong>Correct answer</strong>
+                                </span>
+                            </div>
+                            <div class="s-answer">
+                                <span>
+                                    This is answer 3
+                                </span>
+                            </div>
+                    </article>
+                </div>
+
+            </section>
+
+            <section id="editor">
+
+                <header class="pad-large">
+                    <h1>New quiz</h1>
+                </header>
+
+                <div class="pad-large alt-page">
+                    <form>
+                        <label class="editor-label layout">
+                            <span class="label-col">Title:</span>
+                            <input class="input i-med" type="text" name="title"></label>
+                        <label class="editor-label layout">
+                            <span class="label-col">Topic:</span>
+                            <select class="input i-med" name="topic">
+                                <option value="all">All Categories</option>
+                                <option value="it">Languages</option>
+                                <option value="hardware">Hardware</option>
+                                <option value="software">Tools and Software</option>
+                            </select>
+                        </label>
+                        <input class="input submit action" type="submit" value="Save">
+                    </form>
+                </div>
+
+                <header class="pad-large">
+                    <h2>Questions</h2>
+                </header>
+
+                <div class="pad-large alt-page">
+
+                    <article class="editor-question">
+                        <div class="layout">
+                            <div class="question-control">
+                                <button class="input submit action"><i class="fas fa-check-double"></i>
+                                    Save</button>
+                                <button class="input submit action"><i class="fas fa-times"></i> Cancel</button>
+                            </div>
+                            <h3>Question 1</h3>
+                        </div>
+                        <form>
+                            <textarea class="input editor-input editor-text" name="text"
+                                placeholder="Enter question"></textarea>
+                            <div class="editor-input">
+
+                                <label class="radio">
+                                    <input class="input" type="radio" name="question-1" value="0" />
+                                    <i class="fas fa-check-circle"></i>
+                                </label>
+
+                                <input class="input" type="text" name="answer-0" />
+                                <button class="input submit action"><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                            <div class="editor-input">
+
+                                <label class="radio">
+                                    <input class="input" type="radio" name="question-1" value="1" />
+                                    <i class="fas fa-check-circle"></i>
+                                </label>
+
+                                <input class="input" type="text" name="answer-1" />
+                                <button class="input submit action"><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                            <div class="editor-input">
+
+                                <label class="radio">
+                                    <input class="input" type="radio" name="question-1" value="2" />
+                                    <i class="fas fa-check-circle"></i>
+                                </label>
+
+                                <input class="input" type="text" name="answer-2" />
+                                <button class="input submit action"><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                            <div class="editor-input">
+                                <button class="input submit action">
+                                    <i class="fas fa-plus-circle"></i>
+                                    Add answer
+                                </button>
+                            </div>
+                        </form>
+                    </article>
+
+                    <article class="editor-question">
+                        <div class="layout">
+                            <div class="question-control">
+                                <button disabled class="input submit action"><i class="fas fa-check-double"></i>
+                                    Save</button>
+                                <button disabled class="input submit action"><i class="fas fa-times"></i>
+                                    Cancel</button>
+                            </div>
+                            <h3>Question 1</h3>
+                        </div>
+                        <form>
+                            <textarea disabled class="input editor-input editor-text" name="text"
+                                placeholder="Enter question"></textarea>
+                            <div class="editor-input">
+
+                                <label class="radio">
+                                    <input disabled class="input" type="radio" name="question-1" value="0" />
+                                    <i class="fas fa-check-circle"></i>
+                                </label>
+
+                                <input disabled class="input" type="text" name="answer-0" />
+                                <button disabled class="input submit action"><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                            <div class="editor-input">
+
+                                <label class="radio">
+                                    <input disabled class="input" type="radio" name="question-1" value="1" />
+                                    <i class="fas fa-check-circle"></i>
+                                </label>
+
+                                <input disabled class="input" type="text" name="answer-1" />
+                                <button disabled class="input submit action"><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                            <div class="editor-input">
+
+                                <label class="radio">
+                                    <input disabled class="input" type="radio" name="question-1" value="2" />
+                                    <i class="fas fa-check-circle"></i>
+                                </label>
+
+                                <input disabled class="input" type="text" name="answer-2" />
+                                <button disabled class="input submit action"><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                            <div class="editor-input">
+                                <button disabled class="input submit action">
+                                    <i class="fas fa-plus-circle"></i>
+                                    Add answer
+                                </button>
+                            </div>
+                        </form>
+                        <div class="loading-overlay working"></div>
+                    </article>
+
+                    <article class="editor-question">
+                        <div class="layout">
+                            <div class="question-control">
+                                <button class="input submit action"><i class="fas fa-edit"></i> Edit</button>
+                                <button class="input submit action"><i class="fas fa-trash-alt"></i> Delete</button>
+                            </div>
+                            <h3>Question 2</h3>
+                        </div>
+                        <form>
+                            <p class="editor-input">This is the second question.</p>
+                            <div class="editor-input">
+                                <label class="radio">
+                                    <input class="input" type="radio" name="question-2" value="0" disabled />
+                                    <i class="fas fa-check-circle"></i>
+                                </label>
+                                <span>Answer 0</span>
+                            </div>
+                            <div class="editor-input">
+                                <label class="radio">
+                                    <input class="input" type="radio" name="question-2" value="1" disabled />
+                                    <i class="fas fa-check-circle"></i>
+                                </label>
+                                <span>Answer 1</span>
+                            </div>
+                            <div class="editor-input">
+                                <label class="radio">
+                                    <input class="input" type="radio" name="question-2" value="2" disabled />
+                                    <i class="fas fa-check-circle"></i>
+                                </label>
+                                <span>Answer 2</span>
+                            </div>
+                        </form>
+                    </article>
+
+                    <article class="editor-question">
+                        <div class="editor-input">
+                            <button class="input submit action">
+                                <i class="fas fa-plus-circle"></i>
+                                Add question
+                            </button>
+                        </div>
+                    </article>
+
+                </div>
+
+            </section>
+
+            <section id="profile">
+                <header class="pad-large">
+                    <h1>Profile Page</h1>
+                </header>
+
+                <div class="hero pad-large">
+                    <article class="glass pad-large profile">
+                        <h2>Profile Details</h2>
+                        <p>
+                            <span class="profile-info">Username:</span>
+                            Peter
+                        </p>
+                        <p>
+                            <span class="profile-info">Email:</span>
+                            peter@mail.cx
+                        </p>
+                        <h2>Your Quiz Results</h2>
+                        <table class="quiz-results">
+                            <tbody>
+                                <tr class="results-row">
+                                    <td class="cell-1">23. March 2021</td>
+                                    <td class="cell-2"><a href="#">RISC Architecture</a></td>
+                                    <td class="cell-3 s-correct">85%</td>
+                                    <td class="cell-4 s-correct">12/15 correct answers</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </article>
+                </div>
+
+                <header class="pad-large">
+                    <h2>Quizes created by you</h2>
+                </header>
+
+                <div class="pad-large alt-page">
+
+                    <article class="preview layout">
+                        <div class="right-col">
+                            <a class="action cta" href="#">View Quiz</a>
+                            <a class="action cta" href="#"><i class="fas fa-edit"></i></a>
+                            <a class="action cta" href="#"><i class="fas fa-trash-alt"></i></a>
+                        </div>
+                        <div class="left-col">
+                            <h3><a class="quiz-title-link" href="#">Extensible Markup Language</a></h3>
+                            <span class="quiz-topic">Topic: Languages</span>
+                            <div class="quiz-meta">
+                                <span>15 questions</span>
+                                <span>|</span>
+                                <span>Taken 54 times</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="preview layout">
+                        <div class="right-col">
+                            <a class="action cta" href="#">View Quiz</a>
+                            <a class="action cta" href="#"><i class="fas fa-edit"></i></a>
+                            <a class="action cta" href="#"><i class="fas fa-trash-alt"></i></a>
+                        </div>
+                        <div class="left-col">
+                            <h3><a class="quiz-title-link" href="#">RISC Architecture</a></h3>
+                            <span class="quiz-topic">Topic: Hardware</span>
+                            <div class="quiz-meta">
+                                <span>10 questions</span>
+                                <span>|</span>
+                                <span>Taken 107 times</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>
