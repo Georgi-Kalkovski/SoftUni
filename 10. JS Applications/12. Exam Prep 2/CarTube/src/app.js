@@ -10,6 +10,7 @@ import { detailsPage } from './views/details.js';
 import { createPage } from './views/create.js';
 import { editPage } from './views/edit.js';
 import { profilePage } from './views/profile.js';
+import { searchPage } from './views/search.js';
 
 page('/', decorateContext, homePage);
 page('/login', decorateContext, loginPage);
@@ -19,6 +20,7 @@ page('/details/:id', decorateContext, detailsPage);
 page('/create', decorateContext, createPage);
 page('/edit/:id', decorateContext, editPage);
 page('/profile', decorateContext, profilePage);
+page('/search', decorateContext, searchPage);
 
 const main = document.querySelector('main');
 setUserNav();
