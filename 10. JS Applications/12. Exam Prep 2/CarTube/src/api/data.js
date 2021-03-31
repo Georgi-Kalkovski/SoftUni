@@ -26,3 +26,7 @@ export async function addItem(item) {
 export async function editItem(id, item) {
     return await api.put(host + '/data/cars/' + id, item);
 }
+
+export async function getProfile(userId) {
+    return await api.get(host + `/data/cars?where=_ownerId%3D%22${userId}%22&sortBy=_createdOn%20desc`);
+}
