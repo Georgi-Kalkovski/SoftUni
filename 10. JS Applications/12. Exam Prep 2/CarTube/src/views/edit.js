@@ -76,6 +76,6 @@ export async function editPage(ctx) {
 
         await editItem(id, item);
         ctx.setUserNav();
-        ctx.page.redirect('/details');
+        ctx.page.redirect(`/details/${id}`);
     }
 }
