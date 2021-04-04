@@ -1,0 +1,65 @@
+#home-page {
+    background-color: transparent;
+}
+
+.recent {
+    float: left;
+    width: 440px;
+    margin: 10px;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+.recent h2 {
+    font-size: 2rem;
+    background-color: darkslategray;
+    color: white;
+}
+
+.recent article {
+    background-color: white;
+    padding: 1em;
+}
+
+.btn.details-btn {
+    background-color: darkslategray;
+    color: white;
+    padding: 0.5em 1em;
+}
+
+.btn.details-btn:hover {
+    background-color: #86a480;
+    color: white;
+}
+
+h3.no-articles {
+    color: black;
+    margin-left: 25px;
+}
+
+.recent article>p {
+    height: 130px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    border-bottom:  2px solid #86a480;
+}
+
+.article-preview {
+    margin: 0;
+    padding: 0;
+    display: block;
+    height: 75px;
+}
+
+.article-preview:hover {
+    background-color: #86a480;
+    color: white;
+}
+
+.article-preview h3 {
+    background-color: rgba(47, 79, 79, 0.404);
+}
+
+.article-preview p {
+    color: #666666;
+}

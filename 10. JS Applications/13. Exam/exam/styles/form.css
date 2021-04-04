@@ -1,0 +1,55 @@
+form {
+    margin: 1em;
+    text-align: left;
+}
+
+form fieldset {
+    border-radius: 1em;
+    min-height: 20em;
+    min-width: 100%;
+    border: none;
+}
+
+form blockquote {
+    margin: 0 1.5em 1.5em 1.5em;
+}
+
+.field {
+    min-width: 20vw;
+    margin: 1.5em 1em;
+    position: relative;
+}
+
+.field input {
+    margin: 0 auto 1.2em auto;
+    width: 100%;
+    padding: 0.3em;
+    border-radius: 0.5em;
+}
+
+input[type=submit] {
+    display: block;
+    width: 50%;
+    margin: 1em 0 1em 0;
+    padding: 0.3em;
+    background-color: darkslategray;
+    border: 1px solid white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin: auto;
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+    background-color: #86a480;
+}
+
+textarea {
+    width: 100%;
+    min-width: 20vw;
+    min-height: 10em;
+    border: 2px solid #86a480;
+    border-radius: 0.5em;
+    border-bottom-color: lightgrey;
+    border-right-color: lightgrey;
+}

@@ -1,0 +1,53 @@
+{
+    "users": [
+        {
+            "_id": "0001",
+            "email": "peter@abv.bg",
+            "password": "123456",
+            "accessToken": "AAAA"
+        },
+        {
+            "_id": "0002",
+            "email": "john@abv.bg",
+            "password": "123456",
+            "accessToken": "BBBB"
+        }
+    ],
+    "catalog": [
+        {
+            "_id": "1001",
+            "_ownerId": "0001",
+            "title": "title1",
+            "category": "JavaScript",
+            "content": "content1"
+        },
+        {
+            "_id": "1002",
+            "_ownerId": "0002",
+            "title": "title2",
+            "category": "C#",
+            "content": "content2"
+        },
+        {
+            "_id": "1003",
+            "_ownerId": "0002",
+            "title": "title3",
+            "category": "Java",
+            "content": "content3"
+        },
+        {
+            "_id": "1004",
+            "_ownerId": "0002",
+            "title": "title4",
+            "category": "Python",
+            "content": "content4"
+        },
+        {
+            "_id": "1005",
+            "_ownerId": "0002",
+            "title": "title5",
+            "category": "JavaScript",
+            "content": "content5"
+        }
+    ]
+}

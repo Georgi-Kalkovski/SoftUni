@@ -1,0 +1,14 @@
+section.search {
+    border: 1px solid;
+    margin: 20px auto;
+}
+
+.search form{
+    display: flex;
+    flex-direction: column;
+}
+
+.field.search{
+    width: 50%;
+    margin: auto;
+}

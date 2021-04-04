@@ -1,0 +1,77 @@
+body {
+    width: 980px;
+    background-color: #86a480;
+}
+
+#container {
+    padding: 0;
+    padding-bottom: 64px;
+    margin: 0;
+    background-color: #cccccc;
+    position: relative;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.content {
+    margin: 30px;
+    background-color: white;
+}
+
+.content::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+header, footer {
+    background-color: darkslategray;
+    color: white;
+    width: 100%;
+}
+
+header {
+    position: relative;
+}
+
+header h1 {
+    display: inline-block;
+}
+
+header nav {
+    font-size: 18px;
+    position: absolute;
+    right: 0;
+    bottom: 8px;
+}
+
+header nav>* {
+    float: left;
+}
+
+footer {
+    padding: 0.5em;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.nav-buttons a {
+    margin: 0 0.5em;
+}
+
+.nav-buttons a:hover {
+    cursor: pointer;
+    color: rgb(204, 248, 204);
+    font-weight: bolder;
+}
+
+.home:hover {
+    color: rgb(204, 248, 204);
+}
+
+#user, #guest {
+    margin: 0;
+    padding: 0;
+}
