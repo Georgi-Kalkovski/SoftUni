@@ -36,7 +36,6 @@ function decorateContext(ctx, next) {
 function setUserNav() {
     const email = sessionStorage.getItem('email');
     if (email != null) {
-        //document.querySelector('div#profile > a').textContent = `Welcome, ${email}`;
         document.getElementById('user').style.display = '';
         document.getElementById('guest').style.display = 'none';
     } else {

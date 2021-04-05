@@ -1,12 +1,14 @@
-import { html } from '../../node_modules/lit-html/lit-html.js'
+import { html } from '../../node_modules/lit-html/lit-html.js';
 
-import { getItems } from '../api/data.js'
+import { getItems } from '../api/data.js';
 
-const catalogTemplate = (data) => html`
+const catalogTemplate = (article) => html`
+<!-- catalogue -->
 <section id="catalog-page" class="content catalogue">
     <h1>All Articles</h1>
-    ${data.length > 0 ? data.map(articleTemplate) : html`<h3 class="no-articles">No articles yet</h3>`}
-</section>`
+    ${article.length > 0 ? article.map(articleTemplate) : html`<h3 class="no-articles">No articles yet</h3>`}
+</section>
+`;
 
 const articleTemplate = (article) => html`
 <a class="article-preview" href="/details/${article._id}">
@@ -14,9 +16,10 @@ const articleTemplate = (article) => html`
         <h3>Topic: <span>${article.title}</span></h3>
         <p>Category: <span>${article.category}</span></p>
     </article>
-</a>`
+</a>
+`;
 
 export async function catalogPage(ctx) {
-    const article = await getItems();
-    ctx.render(catalogTemplate(article));
+    const articles = await getItems();
+    ctx.render(catalogTemplate(articles));
 }

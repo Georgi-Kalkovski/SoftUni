@@ -18,6 +18,7 @@ const createTemplate = (onSubmit) => html`
                 <label for="create-category">Category:</label>
                 <input type="text" id="create-category" name="category" placeholder="Enter article category">
             </p>
+            
             <p class="field">
                 <label for="create-content">Content:</label>
                 <textarea name="content" id="create-content"></textarea>

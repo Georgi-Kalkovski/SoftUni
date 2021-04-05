@@ -6,19 +6,18 @@ const detailsTemplate = (article, onDelete) => html`
 <!-- Details -->
 <section id="details-page" class="content details">
     <h1>${article.title}</h1>
-
     <div class="details-content">
         <strong>Published in category ${article.category}</strong>
         <p>${article.content}</p>
-${article._ownerId === sessionStorage.getItem('userId') ? 
+        
+        ${article._ownerId === sessionStorage.getItem('userId') ? 
             html`
             <div class="buttons">
             <a href="/" @click=${onDelete} class="btn delete">Delete</a>
             <a href="/edit/${article._id}" class="btn edit">Edit</a>
             <a href="/" class="btn edit">Back</a>
             </div>`
-             : html `<a href="/" class="btn edit">Back</a>`}
-        
+        : html `<a href="/" class="btn edit">Back</a>`}
     </div>
 </section>
 `;
