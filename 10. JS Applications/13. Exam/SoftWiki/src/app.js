@@ -9,7 +9,7 @@ import { catalogPage } from './views/catalog.js';
 import { detailsPage } from './views/details.js';
 import { createPage } from './views/create.js';
 import { editPage } from './views/edit.js';
-//import { searchPage } from './views/search.js';
+import { searchPage } from './views/search.js';
 
 page('/', decorateContext, homePage);
 page('/login', decorateContext, loginPage);
@@ -18,7 +18,7 @@ page('/catalog', decorateContext, catalogPage);
 page('/details/:id', decorateContext, detailsPage);
 page('/create', decorateContext, createPage);
 page('/edit/:id', decorateContext, editPage);
-//page('/search', decorateContext, searchPage);
+page('/search', decorateContext, searchPage);
 
 const main = document.querySelector('main');
 setUserNav();

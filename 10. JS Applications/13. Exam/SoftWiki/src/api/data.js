@@ -31,6 +31,6 @@ export async function getRecentArticles() {
     return await api.get(host + '/data/wiki?sortBy=_createdOn%20desc&distinct=category');
 }
 
-//export async function search(query) {
-//    return await api.get(host + `/data/wiki?where=title%20LIKE%20%22{query}%22`);
-//}
+export async function search(query) {
+    return await api.get(host + `/data/wiki?where=title%20LIKE%20%22${query}%22`);
+}
