@@ -1,0 +1,9 @@
+Checkout table
+HTML Table
+Name	Self-Employed	Country
+Alfreds Futterkiste	checked	Germany
+Centro comercial Moctezuma		Mexico
+Ernst Handel		Austria
+Island Trading	checked	UK
+Laughing Bacchus Winecellars	checked	Canada
+Magazzini Alimentari Riuniti		Italy
