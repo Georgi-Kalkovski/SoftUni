@@ -1,4 +1,4 @@
-# SoftUni-CSharp
+# SoftUni
 C# Basics,
 C#  Fundamentals, 
 C# Advanced, 
