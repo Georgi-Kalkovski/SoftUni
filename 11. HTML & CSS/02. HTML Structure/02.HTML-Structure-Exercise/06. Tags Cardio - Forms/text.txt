@@ -1,0 +1,34 @@
+Forms
+Customer Details            
+First Name
+George
+Last Name
+Devis
+Male
+Female
+Other
+Preferred contact method:
+Email
+Phone
+Email
+your@email.com
+Phone
++359885236225
+Town
+Varna
+Plovdiv
+Burgas
+Sofia
+Pleven
+Age
+Programming language
+Java
+PHP
+C#
+JavaScript
+Python
+Ruby
+Other
+More information...
+I agree the Terms and Conditions
+Send

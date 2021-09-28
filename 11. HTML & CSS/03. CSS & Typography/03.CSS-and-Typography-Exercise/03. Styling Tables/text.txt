@@ -1,0 +1,10 @@
+Country	Population	Score
+Somewhere	3M	25
+Somewhere else	12M	125
+That place	23M	235
+Somewhere	3M	25
+Somewhere else	12M	125
+That place	23M	235
+Somewhere	3M	25
+Somewhere else	12M	125
+That place	23M	235
