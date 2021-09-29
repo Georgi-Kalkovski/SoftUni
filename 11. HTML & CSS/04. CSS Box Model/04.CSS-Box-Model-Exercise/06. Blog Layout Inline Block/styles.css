@@ -1,0 +1,24 @@
+html {
+    font-family: Helvetica, sans-serif;
+    color: rgb(51, 51, 51);
+}
+
+body {
+    background-color:rgb(238, 238, 238);
+    display: flex;
+    flex-direction: row;
+}
+
+article {
+    margin: 25px 25px;
+}
+
+img {
+    width: 400px;
+}
+
+aside {
+    float: right;
+width: 100em;
+padding: 2em;
+}

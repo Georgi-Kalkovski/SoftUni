@@ -1,0 +1,16 @@
+html {
+    font-family: Helvetica, sans-serif;
+    color: rgb(51, 51, 51);
+}
+
+body {
+    background-color:rgb(238, 238, 238);
+}
+
+article {
+    margin: 25px 250px;
+}
+
+img {
+    width: 400px;
+}

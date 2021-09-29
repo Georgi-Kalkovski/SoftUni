@@ -1,0 +1,22 @@
+html {
+   background-color: honeydew;
+}
+
+.gallery {
+   list-style-type: none;
+   display: inline-flex;
+   flex-wrap: wrap;
+   align-items: center;
+   margin-left: 5%;
+}
+
+.gallery li {
+    display: inline-block;
+}
+
+.gallery li img {
+    border: 0.4rem solid black;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    max-width: 300px;
+}
