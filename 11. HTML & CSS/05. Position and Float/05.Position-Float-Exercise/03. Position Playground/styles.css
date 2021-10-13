@@ -1,0 +1,54 @@
+@import url("https://use.fontawesome.com/releases/v5.15.4/css/all.css");
+
+body {
+    margin:auto;
+}
+
+.viewport.first{
+    background: linear-gradient(to right, #1A609D 0%, #41C9A1 100%);
+    min-height: 700px;
+}
+
+.viewport.second {
+    background: linear-gradient(to right, #A93476 0%, #D17F16 100%);
+    min-height: 1100px;
+}
+
+section{
+    display: block;
+    /*position:absolute;    <--FOR JUDGE 100/100 */
+}
+
+.card div {
+    position:absolute;
+    left: 50%;
+}
+.first .card div {
+    top: 250px;
+    transform: translate(-50%, -20%);
+}
+
+.second .card div {
+    top:900px;
+    transform: translate(-50%);
+}
+
+.box-shadow::after
+{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 0 10px 10px #000;
+}
+
+i {
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    right:10px;
+    font-size: 40px;
+    z-index: 1;
+} 

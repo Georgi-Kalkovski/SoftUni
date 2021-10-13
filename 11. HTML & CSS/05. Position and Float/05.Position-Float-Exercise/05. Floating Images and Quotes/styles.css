@@ -1,0 +1,73 @@
+* {
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: rgb(238, 238, 238);
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+}
+
+header {
+    font-family: Helvetica, sans-serif;
+}
+
+h1.site-title {
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size:350%;
+}
+
+.headers {
+    font-size:250%;
+    font-family: Georgia, serif;
+}
+
+p {
+    font-size:125%;
+}
+
+hr {
+    border:2px solid black;
+    margin:auto 9.5%;
+}
+
+img {
+    background-color: rgb(255, 255, 255);
+    border: 3px solid #141414;
+    box-shadow:rgba(0, 0, 0, 0.25);
+    padding: 5px;
+    width: 15%;
+    margin: 1% 5%;
+}
+
+img.picture1 {
+    float: right;
+}
+
+blockquote {
+    float: right;
+    font-family: Georgia, serif;
+}
+
+.two-columns {
+    column-count:2;
+    column-rule-style: solid;
+    column-rule-width: 5px;
+    column-rule-color: #DCDCDC;
+}
+
+.author-quote {
+    font-style: italic;
+    color: #524C4F;
+}
+
+.author-name {
+    font-style: italic;
+    float: right;
+    color: #524C4F;
+}
+
+img.picture2 {
+    float: left;
+}

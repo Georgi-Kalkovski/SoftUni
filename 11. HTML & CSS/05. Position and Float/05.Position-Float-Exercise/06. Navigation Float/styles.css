@@ -1,0 +1,125 @@
+* {
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: #EEEEEE;
+    margin-left: 5%;
+    margin-right: 8%;
+    margin-top: 2%;
+}
+
+body {
+    position: relative;
+    min-height: 100%;
+    background-color:rgb(238, 238, 238);
+}
+
+article {
+    margin-left: 0%;
+}
+
+header {
+    font-family: Helvetica, sans-serif;
+}
+
+header ul {
+    list-style-type: none;
+}
+
+header ul li{
+    display: inline;
+}
+
+header a {
+    margin-right: -14%;
+}
+
+header nav{
+    position: relative;
+    margin-left:40%;
+}
+
+p.site-title {
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size:350%;
+}
+
+.headers {
+    font-size:200%;
+    font-family: Georgia, serif;
+    font-size: 1em/1.2;
+}
+
+p {
+    font-size:100%;
+}
+
+hr {
+    border:2px solid black;
+    margin:auto 9.5%;
+    margin-right: 25px;
+}
+
+img {
+    background-image: rgb(255, 255, 255);
+    border: 3px solid #141414;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+    padding: 5px;
+    width: 15%;
+    margin: 1% 5%;
+}
+
+img.picture1 {
+    float: right;
+}
+
+blockquote {
+    float: right;
+    font-family: Georgia, serif;
+}
+
+.two-columns {
+    column-count:2;
+    column-rule-style: solid;
+    column-rule-width: 5px;
+    column-rule-color: #DCDCDC;
+}
+
+.author-quote {
+    font-style: italic;
+    color: #524C4F;
+}
+
+.author-name {
+    font-style: italic;
+    float: right;
+    color: #524C4F;
+}
+
+img.picture2 {
+    float: left;
+}
+
+aside {
+    width:5%;
+    position:absolute;
+    right:3%;
+    bottom:0;
+    top:15%;
+    text-align:center;
+    display:block;
+}
+
+aside h3 {
+    font-size: 150%;
+}
+
+aside section{
+    white-space: nowrap;
+}
+
+a {
+    text-decoration: inherit;
+    color: rgb(0, 102, 0) ;
+}
