@@ -41,6 +41,18 @@ a:before {
   text-decoration: none;
 }
 
-.fab:hover {
-    opacity: 0.7;
+.fa-facebook-square:hover {
+    color: #3B5998;
+}
+.fa-twitter:hover {
+  color: #00ACED;
+}
+.fa-google-plus:hover {
+  color: #DD4B39;
+}
+.fa-linkedin:hover {
+  color: #007BB6;
+}
+.fa-instagram:hover {
+  color: #629BBF;
 }
