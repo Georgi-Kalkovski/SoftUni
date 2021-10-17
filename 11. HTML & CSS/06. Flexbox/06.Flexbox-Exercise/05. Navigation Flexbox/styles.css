@@ -1,0 +1,33 @@
+html {
+    margin: 0;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 5%;
+}
+
+body header {
+    border-bottom: 2px solid rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    font-family: Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+
+header nav ul {
+    display: flex;
+}
+
+li {
+    list-style-type: none;
+    margin: 0 15px 0 15px;
+}
+
+header nav ul li a {
+    color: rgb(0, 153, 0);
+    text-decoration: none;
+}

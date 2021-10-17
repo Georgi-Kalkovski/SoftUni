@@ -1,0 +1,28 @@
+html {
+    margin: 0;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body, ul, li {
+    display: flex;
+    background-color: #EEEEEE;
+}
+
+ul {
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+li {
+    border: 8px solid black;
+    padding: 2% 1%;
+    margin-bottom: 2%;
+    box-shadow:  0px 0px 20px 9px rgb(0 0 0 / 20%);
+}
+
+img {
+    object-fit: contain;
+}

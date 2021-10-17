@@ -1,0 +1,39 @@
+html {
+    margin:0;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    background-color: rgb(238, 238, 238);
+    height: 100vh;
+    width: auto;
+    flex-wrap: wrap;
+    font-family: Helvetica, sans-serif;
+}
+
+header {
+    font-family: Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+
+header {
+    width:100%;
+    border-bottom: 2px solid black;
+}
+
+main {
+    width: 100%;
+}
+
+footer {
+    color: rgb(255, 255, 255);
+    background-color: rgb(102, 102, 102);
+    width: 100%;
+    position: sticky;
+    bottom: 0;
+}
+

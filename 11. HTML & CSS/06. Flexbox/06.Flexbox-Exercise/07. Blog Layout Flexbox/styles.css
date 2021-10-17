@@ -1,0 +1,96 @@
+html {
+    margin:0;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+   background-color: rgb(238, 238, 238);
+}
+
+.page {
+    display: flex;
+    flex-wrap: wrap;
+    margin:5%;
+}
+
+header {
+    width:100%;
+    border-bottom: 2px solid black;
+}
+
+header {
+    font-family: Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+
+img {
+    background-color: rgb(255, 255, 255);
+}
+
+blockquote {
+    font-family: Georgia, serif;
+}
+
+a {
+    color: rgb(0, 153, 0);
+}
+
+.page main h1,h2 {
+    font-family: Georgia, serif;
+}
+
+/*new css logic*/
+
+header {
+    width: 100%;
+}
+
+main {
+    width: 70%;
+}
+
+aside {
+    width:25%;
+    margin-left:5%;
+    align-content: center;
+    white-space: nowrap;
+}
+
+.split-text {
+    display: flex;
+}
+
+blockquote {
+    width: 50%;
+    border-left: 2px solid #797578;
+    color: #797578;
+    font-style: italic;
+    padding-left: 5%;
+}
+
+blockquote:nth-child(2) {
+    text-align: right;
+}
+
+.next-to-blockquote {
+    width: 50%;
+}
+
+img {
+    border: 8px solid black;
+    padding: 2%;
+    box-shadow: rgb(0 0 0 / 20%) 0px 8px 20px 10px;
+}
+
+.img1 {
+    float:right;
+    margin-left: 5%;
+}
+
+.img2 {
+    float:left;
+    margin-right: 5%;
+}

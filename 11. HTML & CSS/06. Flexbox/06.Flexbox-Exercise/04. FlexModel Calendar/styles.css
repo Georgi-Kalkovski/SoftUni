@@ -1,0 +1,80 @@
+html {
+    margin:0;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+} 
+
+div, section {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+div {
+    max-width: 65vw;
+}
+
+section.week {
+    width: 80%;
+}
+
+section.notes {
+    flex-direction: column;
+    width: 20%;
+}
+
+span {
+    border: 1px solid black;
+    padding-top: 3%;
+}
+
+span.workweek {
+    width: 100%;
+}
+
+section.week span{
+    height: 100px;
+}
+
+section.notes span{
+    height: 200px;
+}
+
+span.one {
+    width: 20%;
+}
+
+span.two {
+    width: 20%;
+}
+
+span.three {
+    width: 20%;
+}
+
+span.four {
+    width: 20%;
+}
+
+span.five {
+    width: 20%;
+}
+
+span.weekend {
+    width: 100%;
+}
+
+span.six {
+    width: 50%;
+}
+
+span.seven {
+    width:50%;
+}
+
+section.notes span  {
+    width: 100%;
+}
