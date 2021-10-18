@@ -1,0 +1,31 @@
+html,body {
+    height: 100%;
+}
+
+body {
+    background: rgb(238, 238, 238);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    max-width:60%;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    margin: 1%;
+    box-shadow: 0 2px 20px 14px rgb(0 0 0 / 20%);
+}
+
+img {
+    border-radius: 20px;
+}
+
+.img1, .img3, .img4 {
+    overflow: hidden;
+}
