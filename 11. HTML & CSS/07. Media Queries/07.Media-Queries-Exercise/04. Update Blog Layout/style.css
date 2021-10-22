@@ -1,0 +1,172 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css");
+
+body {
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid black;
+    box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+}
+
+blockquote,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Georgia, serif;
+}
+
+.clear {
+    clear: both;
+}
+
+header {
+    align-items: center;
+    border-bottom: 2px solid black;
+    display: flex;
+    flex: 1 0 100%;
+}
+
+header p {
+    flex: 0 1 55%;
+    font-size: 28px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+header .menu-close {
+    display: none;
+}
+
+h1, h2 {
+    font-weight: 100;
+}
+
+main {
+    flex: 0 1 70%;
+}
+
+.first-image {
+    float: right;
+    margin: 0 0 15px 15px;
+}
+
+.middle {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+blockquote {
+    border-left: 3px solid #c5c3c3;
+    color: #727171;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 100;
+    line-height: 1.5;
+    padding-left: 20px;
+}
+
+blockquote p,
+.middle > p:nth-child(4) {
+    margin-top: 0;
+}
+
+blockquote footer {
+    text-align: right;
+}
+
+.middle > p:nth-child(4) {
+    padding-right: 20px;
+}
+
+.middle h2,
+.middle > p:nth-child(2),
+.middle > p:nth-child(4) {
+    flex: 1 1 100%;
+}
+
+.middle blockquote {
+    flex: 0 1 50%;
+}
+
+.second-image {
+    float: left;
+    margin: 0 15px 15px 0;
+}
+
+aside {
+    flex: 0 1 30%;
+    padding-left: 50px;
+}
+
+aside ul {
+    list-style: square;
+}
+
+aside ul li a {
+    color: rgb(0, 153, 0);
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+
+    .page {
+        flex-direction: column;
+    }
+
+    header {
+        flex-wrap: wrap;
+    }
+
+    header nav {
+        flex: 1 1 100%;
+    }
+
+    header nav ul {
+        flex-flow: column;
+        margin: 10px;
+    }
+
+    header nav ul li {
+        display: flex;
+        flex-flow: column;
+        margin: 3px;
+    }
+
+    header .menu-close {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    header p {
+        flex: 1 0 100%;
+    }
+    
+}
+
+@media (max-width: 480px) {
+    article {
+        display: flex;
+        flex-flow: column;
+        align-items: flex-start;
+    }
+
+    .first-image {
+        margin: 0;
+    }
+}

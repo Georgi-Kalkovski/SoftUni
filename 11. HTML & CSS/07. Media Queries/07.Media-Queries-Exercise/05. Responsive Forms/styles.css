@@ -1,0 +1,125 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+input {
+    border: 1px solid #c5c5c5;
+}
+
+fieldset,
+input,
+.form-title span,
+legend p,
+.wrap-btn p {
+    border-radius: 3px;
+}
+
+legend {
+    position: relative;
+}
+
+legend p {
+    background-color: #f8f8f8;
+    border: 2px solid #5b5b5b;
+    bottom: -16px;
+    display: inline-block;
+    left: -2px;
+    padding: 5px 0 5px 20px;
+    position: absolute;
+    width: 100px;
+}
+
+.wrap-form {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+form {
+    flex: 0 1 500px;
+}
+
+fieldset {
+    height: 200px;
+}
+
+.wrap-all-fields {
+    background-color: #f8f8f8;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    justify-content: space-evenly;
+    padding: 30px 50px;
+}
+
+.each-level {
+    display: flex;
+    justify-content: space-between;
+}
+
+label {
+    flex: 0 1 22%;
+}
+
+.icon {
+    display: flex;
+    flex: 0 1 70%;
+    position: relative;
+}
+
+.icon::before {
+    display: inline-block;
+    font-family: "Font Awesome 5 Free";
+    left: 3px;
+    position: absolute;
+    top: 3px;
+}
+
+.icon.wrap-input-username::before {
+    content: "\f007";
+}
+
+.icon.wrap-input-password::before {
+    content: "\f084";
+}
+
+.icon input {
+    flex: 1 0 100%;
+    padding: 3px 0 3px 20px;
+}
+
+.wrap-btn p {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 6px 12px;
+}
+
+@media (max-width: 1024px) {
+    form {
+        flex: 0 1 450px;
+    }
+}
+
+@media (max-width: 768px) {
+    form {
+        flex: 0 1 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    form {
+        flex: 0 1 320px;
+    }
+}
