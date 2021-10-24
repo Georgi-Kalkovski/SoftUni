@@ -1,0 +1,333 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css");
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital@1&display=swap');
+
+@import url("./reset.css");
+@import url("./buttons.css");
+@import url("./forms.css");
+
+body {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+section {
+    margin: 50px 0;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+h2 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 32px;
+    font-weight: 100;
+}
+
+.name {
+    font-weight: bold;
+    padding-top: 20px;
+}
+
+.profession {
+    padding-bottom: 20px;
+}
+
+.describe-person {
+    font-family: 'Merriweather', serif;
+    font-size: 14px;
+}
+
+hr {
+    width: 100px;
+    background-color: black;
+    border: none;
+    height: 3px;
+    margin: 20px auto;
+    
+}
+
+.purple-h2 {
+    color: #800084;
+}
+
+header {
+    align-items: center;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    width: 1100px;
+}
+
+header div.heading-header {
+    flex: 0 1 30%;
+}
+
+.heading-header p {
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 12.5px;
+    text-transform: uppercase;
+}
+
+header nav {
+    flex: 0 1 38%;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+main {
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+}
+
+section.need-a-website {
+    display: flex;
+    justify-content: flex-start;
+    width: 900px;
+}
+
+.wrap-text-earth {
+    display: flex;
+    flex: 0 1 50%;
+    flex-flow: column;
+}
+
+.wrap-text-earth p {
+    padding: 20px 0;
+}
+
+.frame {
+    align-self: flex-start;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 5px 10px;
+}
+
+.wrap-image-earth {
+    align-items: start;
+    display: flex;
+    flex: 0 1 35%;
+    justify-content: center;
+}
+
+.earth {
+    border-radius: 50%;
+    width: 150px;
+}
+
+section.position {
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+    width: 1100px;
+}
+
+section.position article {
+    width: 100%;
+}
+
+.position article ul {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.position article ul li {
+    align-items: center;
+    display: flex;
+    flex: 0 1 28%;
+    flex-flow: column;
+    text-align: center;
+    padding: 0 30px 45px 30px;
+}
+
+.position img {
+    border-radius: 50%;
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.25);
+    display: block;
+    height: 100px;
+    max-width: 100%;
+    width: 100px;
+}
+
+section.sign-up {
+    background-color: #68347b;
+    width: 100%;
+}
+
+section.sign-up h2 {
+    color: rgb(255, 255, 255);
+    padding-top: 20px;
+}
+
+form {
+    padding: 20px 0 40px 0;
+}
+
+form button,
+form input {
+    border: 1px solid black;
+    border-radius: 3px;
+    height: 30px;
+}
+
+form button {
+    cursor: pointer;
+    font-weight: bold;
+    width: 170px;
+}
+
+form input {
+    width: 250px;
+}
+
+.testimonials p.describe-person {
+    padding-top: 20px;
+}
+
+footer {
+    box-shadow: inset 0px 7px 3px -3px rgba(50, 50, 50, 0.75);
+    display: flex;
+    justify-content: center;
+    line-height: 1.2;
+    width: 100%;
+}
+
+footer section {
+    display: flex;
+    flex: 0 1 1100px;
+    justify-content: space-between;
+}
+
+footer section article:first-child {
+    flex: 0 1 30%;
+}
+
+footer section article:nth-child(2) {
+    flex: 0 1 30%;
+}
+
+footer section article:last-child {
+    flex: 0 1 21%;
+}
+
+.wrap-footer-sitemap {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer h2,
+footer h3 {
+    padding-bottom: 20px;
+}
+
+.fas {
+    width: 20px;
+}
+
+.wrap-icon-address {
+    margin-right: 5px;
+}
+
+.position-address {
+    display: flex;
+}
+
+@media (max-width: 1120px) {
+
+    header,
+    section.position {
+        width: 85%;
+    }
+
+    header div.heading-header {
+        flex: 0 1 50%;
+    }
+
+    header nav {
+        flex: 0 1 50%;
+    }
+
+    .heading-header p {
+        font-size: 8px;
+    }
+
+    section.need-a-website {
+        width: 70%;
+    }
+
+    section.position.sign-up {
+        width: 100%;
+    }
+
+    
+
+}
+
+@media (max-width: 768px) {
+
+    header nav {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: flex;
+    }
+
+    .position article ul li {
+        flex: 0 1 50%;
+    }
+
+    footer section {
+        flex-flow: column;
+        flex: 0 1 85%;
+    }
+
+    .wrap-footer-sitemap ul {
+        flex: 0 1 50%;
+    }
+
+    footer section article {
+        margin: 10px 0;
+    }
+
+    footer h3 {
+        padding-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .heading-header p {
+        font-size: 6px;
+    }
+
+    h2.purple-h2 {
+        font-size: 20px;
+    }
+
+    .sign-up h2 {
+        font-size: 20px;
+    }
+
+    form input {
+        width: 150px;
+    }
+
+    form button {
+        width: 110px;
+    }
+}

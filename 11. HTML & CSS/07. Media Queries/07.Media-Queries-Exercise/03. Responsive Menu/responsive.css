@@ -1,0 +1,38 @@
+@media (max-width: 600px) {
+    header {
+        border-bottom: none;
+        flex-flow: column;
+        align-items: stretch;
+    }
+
+    header .menu-close {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .fa-times,
+    .menu-text {
+        padding: 0 3px;
+    }
+
+    nav {
+        border-bottom: 2px solid black;
+        border-top: 2px solid black;
+    }
+
+    ul {
+        flex-flow: column;
+    }
+
+    li {
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 500px) {
+    header .title {
+        text-align: center;
+        padding-left: 0;
+    }
+}

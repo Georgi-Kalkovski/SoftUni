@@ -1,0 +1,29 @@
+html {
+    margin: 0;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(238, 238, 238);
+    font-family: Georgia, serif;
+    display: flex;
+    height:100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+div.card{
+    background-color: rgb(255, 255, 255);
+    align-self:center;
+    width: 25%;
+    padding: 2%;
+    border-radius: 3%;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+
