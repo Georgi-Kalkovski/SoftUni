@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap');
+
+body {
+    margin: 0;
+    font-family: Poppins;
+}
+
+*,
+*::after,
+*::before {
+box-sizing: border-box;
+}
+
+h1, h2 {
+    font-family: Montserrat;
+}
+
+h2 {
+    font-size: 1.2em;
+}
+
+article {
+    margin: 2% 10%;
+    display: flex;
+}
+
+section {
+    flex-wrap: wrap;
+    margin:2%;
+}
+
+.flex {
+    display:flex;
+    align-items: center;
+}
+
+div {
+    margin: 0;
+    line-height: 0.6;
+}
+
+div img {
+    width: auto;
+    height: 50px;
+}

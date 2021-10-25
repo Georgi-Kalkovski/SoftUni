@@ -1,0 +1,156 @@
+@import url("https://use.fontawesome.com/releases/v5.15.4/css/all.css");
+
+body {
+    margin: 0;
+    font-family: 'Helvetica';
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+header {
+    padding: 0.5% 1.5% 0% 2%;
+    display: flex;
+    justify-content: space-between;
+    background:white;
+}
+
+header ul{
+    display: flex;
+}
+
+header li {
+    list-style-type: none;
+    margin: 2%;
+}
+
+.logo-article {
+    white-space: nowrap;
+    padding-top: 10px;
+}
+
+.u {
+    text-decoration: underline;
+}
+
+.b {
+    font-weight: 700;
+}
+
+.logo {
+    padding-right: 5%;
+    padding-left: 5%;
+    font-size: xx-large;
+    border-right: 3px solid #E5E5E5;
+}
+
+.logo-by {
+    padding-left: 5%;
+    color: gray;
+}
+
+header li {
+    white-space: nowrap;
+    background-color:#ECECEC;
+    color: gray;
+    font-size: small;
+    font-weight: bold;
+    padding: 10px;
+    margin: 1px;
+}
+
+.home {
+    background-color: #E24E2A;
+    color: white;
+}
+
+.img-article {
+    height: 600px;
+}
+
+.img-article img {
+    position:absolute;
+    z-index: -1;
+    width:100%;
+    margin-top: -15%;
+    overflow: hidden;
+}
+
+.orange-section {
+    padding: 2% 10%;
+    margin: 0;
+    background-color:#E24E2A;
+    color: white;
+    text-align: center;
+}
+
+.gray-section {
+    padding: 2%;
+    background-color: #383838;
+    display: flex;
+    text-align: center;
+}
+
+.gray-section article {
+    margin: 1%;
+}
+
+.gray-section i {
+    color:white;
+    background-color: #E24E2A;
+    font-size: 125%;
+    padding:5%
+}
+
+.gray-section h1,h2,h3,h4,h5,h6 {
+    color: white;
+}
+
+.gray-section .first-p{
+    border-top: 1px solid;
+    padding-top:5%;
+     color: #5A5450;
+}
+
+.white-section {
+    text-align: center;
+    padding: 2%;
+}
+
+.white-section h1 {
+    color: #616161;
+}
+
+.white-section h2 {
+    color: #B5B5B5;
+}
+
+.white-section button {
+    background-color: #1B9772;
+    color: white;
+    border: none;
+    padding: 0.5% 2%;
+
+}
+
+.gray-section .second-h1{
+    font-size: 1.5em;
+}
+
+.gray-section .second-p{
+    padding-top:5%;
+    color: #5A5450;
+}
+
+.green-section {
+    background-color: #1B9772;
+    color:#70BEA3;
+    text-align: center;
+    padding: 2%;
+}
+
+
+
