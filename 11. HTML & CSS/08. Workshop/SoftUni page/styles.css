@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css");
+
+body {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  color: #54546d;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+}
+
+.btn {
+  border-radius: 20px;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: rgb(155 93 198);
+  color: rgb(255 255 255);
+  padding: 5px 14px;
+  box-shadow: 0px 0px 21px -11px rgba(0, 0, 0, 0.75);
+}
+
+.btn-outline {
+  color: #a15dc6;
+  border: 2px solid #a15dc6;
+  background-color: transparent;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 7px 12px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  box-shadow: 0px 5px 15px -11px rgba(0, 0, 0, 0.75);
+  background: white;
+}
+
+header nav ul {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list-item {
+  list-style: none;
+  margin: 0 10px;
+}
+
+@media all and (max-width: 1100px) {
+  header nav ul {
+    flex-direction: column;
+  }
+
+  .nav-list-item {
+    margin: 10px;
+  }
+}
+
+.diplomas-and-certificates {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 5%;
+}
+
+.diplomas-and-certificates-content {
+  flex-basis: 65%;
+}
+
+h2 {
+  font-weight: 500;
+}
+
+.diplomas-and-certificates-content-note {
+  font-style: italic;
+  font-size: 12px;
+}
+
+.diplomas-and-certificates-image-award {
+  position: absolute;
+  background-color: #54546d;
+  top: -100px;
+  right: 0;
+  padding: 10% 13%;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.diplomas-and-certificates-image-award img {
+  position: relative;
+  left: 170px;
+  top: 20px;
+}
+
+@media all and (max-width: 1100px) {
+  .diplomas-and-certificates {
+    flex-direction: column;
+  }
+  .diplomas-and-certificates-image-award {
+    display: none;
+  }
+}
+
+.cpe-certificates {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 5%;
+  background: #14162b;
+  color: white;
+}
+
+.cpe-certificates-content {
+  flex-basis: 70%;
+}
+
+.cpe-certificates-image {
+  position: relative;
+  top: 50px;
+}
+
+@media all and (max-width: 1100px) {
+  .cpe-certificates {
+    flex-direction: column;
+  }
+}
+
+.career-center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 5%;
+}
+
+.career-center-content {
+  padding-left: 35px;
+}
+
+.career-center-content p {
+  padding-bottom: 22px;
+}
+
+@media all and (max-width: 1100px) {
+  .career-center {
+    flex-direction: column;
+  }
+
+  .career-center-content {
+    order: 1;
+    margin-bottom: 35px;
+    text-align: center;
+  }
+
+  .career-center-content-title,
+  .career-center-content p {
+    text-align: left;
+  }
+
+  .career-center-image {
+    order: 2;
+  }
+}
+
+footer {
+  background: #2c2c3a;
+  display: flex;
+  padding: 50px 5%;
+  justify-content: space-between;
+  color: white;
+}
+
+footer h3 {
+  color: #9b5bc0;
+}
+
+footer ul {
+  padding: 0;
+}
+
+footer ul li {
+  list-style: none;
+  padding: 5px 0;
+}
+
+.social-media-icons i {
+  font-size: 35px;
+  margin: 13px;
+}
+
+@media all and (max-width: 1100px) {
+  footer {
+    flex-wrap: wrap;
+  }
+}
+
+.menu-responsive {
+  display: none;
+}
+
+@media all and (max-width: 1110px) {
+  .menu-responsive {
+    display: block;
+  }
+
+  .menu-responsive i {
+    font-size: 30px;
+  }
+
+  header nav ul {
+    display: none;
+    padding: 0;
+    width: 100%;
+    margin-left: -10px;
+    position: absolute;
+    background: rgb(255 255 255);
+    width: 100%;
+    left: 0;
+    text-align: center;
+    box-shadow: 0px 13px 6px -13px rgba(0, 0, 0, 0.75);
+  }
+
+  nav:hover ul {
+    display: block;
+  }
+
+  .btn-primary {
+    width: fit-content;
+    margin: 0 auto 10px auto;
+  }
+}
