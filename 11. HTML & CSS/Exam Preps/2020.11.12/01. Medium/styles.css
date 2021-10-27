@@ -1,0 +1,65 @@
+html {
+    margin:0;
+    font-size: x-large;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Helvetica;
+    color: #292929;
+    margin-left: 15%; 
+    margin-right: 15%; 
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: Georgia;
+}
+
+h1 {
+    font-size: 290%;
+}
+
+p {
+    color: #757576;
+}
+
+main {
+    display: flex;
+}
+
+.button-section {
+    display: flex;
+    align-items: flex-end;
+}
+
+.text-section {
+margin-left: 20%;
+}
+
+.button-section button {
+    background-color: #03A87C;
+    color: white;
+    font-weight: bolder;
+    font-size: x-large;
+    white-space: nowrap;
+    border: none;
+    border-radius: 3%;
+    padding: 10px 70px 20px 70px;
+}
+
+.textliner {
+    background-color: #CEFDE9;
+}
+
+.border {
+    border-bottom: 1px solid #757576;
+    margin: auto;
+    margin-top: 8%;
+    width: 40%;
+    padding: 10px;
+}

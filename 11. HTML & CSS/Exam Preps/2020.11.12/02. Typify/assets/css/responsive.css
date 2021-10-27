@@ -1,0 +1,99 @@
+html {
+    margin: 0;
+}
+
+@media all and (max-width:600px) {
+    body {
+        background-color: #F7F7F7;
+    }
+
+    .banner {
+        padding: 3em 0 1em 0;
+    }
+
+    .banner h2 {
+        width: 95%;
+        font-size: 1.5em;
+    }
+
+    header.major {
+        margin-bottom: 1em;
+    }
+
+    ul .actions {
+        margin:0;
+    }
+
+    .actions li {
+        display: block;
+        width: 95%;
+    }
+
+    .actions a {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+
+    .wrapper {
+        padding: 2em 0 4em 0;
+    }
+
+    .wrapper .inner {
+        width: 100%;
+    }
+
+    .features {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .feature {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    section.special {
+        padding-bottom: 0;
+    }
+
+    .grid-form {
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        display: block;
+        margin-left: 5%;
+        margin-right:5%;
+    }
+
+    textarea {
+        width: 90%;
+    }
+
+    .grid-form .form-control.narrow {
+        width: 95%;
+    }
+
+    .wrapper.style2 input{
+        display: block;
+        width: 95%;
+    }
+
+    .wrapper .style2 .special ul.actions li:last-child {
+        display: block;
+    }
+
+    section.wrapper.style2.special ul {
+        margin-left: -2%;
+    }
+
+    .footer:before {
+        width: 95%;
+    }
+
+    .footer {
+        color: #444;
+        padding: 2em 0 1em 0;
+    }
+}
