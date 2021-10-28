@@ -1,0 +1,15 @@
+/* TODO: Add media queries */
+@media all and (max-width: 600px) {
+    .thumbnails {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .thumbnails div {
+        width: 100%;
+    }
+
+    .thumbnails div a:first-child {
+        margin-top: 40px;
+    }
+}
