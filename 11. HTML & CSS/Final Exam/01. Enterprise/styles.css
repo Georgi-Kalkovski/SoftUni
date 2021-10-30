@@ -1,0 +1,77 @@
+/* 1980px-1080px */
+
+@import url("https://use.fontawesome.com/releases/v5.15.4/css/all.css");
+
+body {
+    margin: 0;
+    font-family: Helvetica;
+    color: #37414E;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+main {
+    background-color: #F6F8F9;
+    width: 1200px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+}
+
+.text-section {
+    padding: 5% 5% 5% 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.bolded-text {
+    font-weight: bold;
+    font-size: x-small;
+}
+
+h1 {
+    font-size:xx-large;
+    font-weight: lighter;
+}
+
+.lower-text {
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+button {
+    border: none;
+    padding: 2% 5%;
+    border-radius: 5px;
+}
+
+.blue-button {
+    background-color: #7573F6;
+    color: white;
+    margin-right: 1%;
+    font-weight: bolder;
+}
+
+.white-button {
+    background:none;
+    border:1px solid #37414E;
+    margin-left: 1%;
+    color: #37414E;
+    font-weight: bolder;
+}
+
+.img-section {
+    width: 42%;
+}
+
+p {
+    color: gray;
+}

@@ -1,0 +1,87 @@
+/* TODO: Add responsive styles here... */
+
+
+@media all and (max-width:600px) {
+    .navbar {
+        justify-content: center;
+    }
+
+    .navbar-brand {
+        margin-left:10%;
+    }
+
+    .navbar-brand img {
+        width: 130%;
+        height: 50px;
+    }
+
+    .hero {
+        margin-top:-30%;
+        text-align: center;
+    }
+
+    .hero img {
+        display: none;
+    }
+
+    .hero-btns {
+        display: flex;
+        flex-direction: column;
+        margin: 0% 20%;
+    }
+
+    .service-txt {
+        text-align: center;
+    }
+
+    .row {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .col-sm-6 {
+        max-width: 100%;
+    }
+
+    .service-box {
+        margin: 7% 5%;
+    }
+
+    .about .col-lg-6 {
+        text-align: center;
+        margin-top: 15%;
+    }
+
+    .contact {
+        text-align: center;
+    }
+
+    footer .col-12 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer h3 {
+        font-size: 4rem;
+        Line-height: 1.3;
+    }
+
+    footer h6 {
+        padding-bottom: 15px;
+    }
+
+    .contact-btn {
+        padding-bottom: 5%;
+    }
+
+
+    /* Why hiding it tho? */
+    .contact-btn {
+        display: none;
+    }
+}
