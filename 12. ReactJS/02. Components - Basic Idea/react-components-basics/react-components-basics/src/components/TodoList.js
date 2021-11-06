@@ -41,7 +41,7 @@ function TodoList() {
 
             <button onClick={addButtonClickHandler}>+</button>
         </>
-    )
+    );
 }
 
 export default TodoList;
