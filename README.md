@@ -11,5 +11,5 @@
 |<a href="https://softuni.bg/trainings/3217/js-advanced-january-2021"> JS Advanced </a>| <a href="https://softuni.bg/certificates/details/98349/f2b1de32"> 👉📜✔️</a> |
 |<a href="https://softuni.bg/trainings/3218/js-applications-february-2021"> JS Applications </a>| <a href="https://softuni.bg/certificates/details/102417/aee63c56"> 👉📜✔️</a> |
 |<a href="https://softuni.bg/trainings/3354/asp-dot-net-core-june-2021"> ASP.NET Core </a>| <a href="https://softuni.bg/certificates/details/113499/ba57a349"> 👉📜✔️</a> |
-|<a href="https://softuni.bg/trainings/3530/html-and-css-september-2021"> HTML & CSS </a>| Soon™ 👨‍💻 |
+|<a href="https://softuni.bg/trainings/3530/html-and-css-september-2021"> HTML & CSS </a>| <a href="https://softuni.bg/certificates/details/117757/0dc5b993"> 👉📜✔️</a> |
 |<a href="https://softuni.bg/trainings/3497/reactjs-november-2021"> ReactJS </a>| Soon™ 👨‍💻 |
