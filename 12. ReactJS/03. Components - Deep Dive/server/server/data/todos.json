@@ -1,0 +1,81 @@
+[{
+  "id": 1,
+  "text": "Give dog a bath",
+  "isDone": true
+}, {
+  "id": 2,
+  "text": "Do laundry",
+  "isDone": true
+}, {
+  "id": 3,
+  "text": "Vacuum floor",
+  "isDone": false
+}, {
+  "id": 4,
+  "text": "Feed cat",
+  "isDone": true
+}, {
+  "id": 5,
+  "text": "Change light bulbs",
+  "isDone": false
+}, {
+  "id": 6,
+  "text": "Go to Store",
+  "isDone": true
+}, {
+  "id": 7,
+  "text": "Fill gas tank",
+  "isDone": true
+}, {
+  "id": 8,
+  "text": "Change linens",
+  "isDone": false
+}, {
+  "id": 9,
+  "text": "Rake leaves",
+  "isDone": true
+}, {
+  "id": 10,
+  "text": "Bake Cookies",
+  "isDone": false
+}, {
+  "id": 11,
+  "text": "Take nap",
+  "isDone": true
+}, {
+  "id": 12,
+  "text": "Read book",
+  "isDone": true
+}, {
+  "id": 13,
+  "text": "Exercise",
+  "isDone": false
+}, {
+  "id": 14,
+  "text": "Give dog a bath",
+  "isDone": false
+}, {
+  "id": 15,
+  "text": "Do laundry",
+  "isDone": false
+}, {
+  "id": 16,
+  "text": "Vacuum floor",
+  "isDone": false
+}, {
+  "id": 17,
+  "text": "Feed cat",
+  "isDone": true
+}, {
+  "id": 18,
+  "text": "Change light bulbs",
+  "isDone": false
+}, {
+  "id": 19,
+  "text": "Go to Store",
+  "isDone": false
+}, {
+  "id": 20,
+  "text": "Fill gas tank",
+  "isDone": false
+}]
