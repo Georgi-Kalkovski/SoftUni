@@ -1,0 +1,75 @@
+{
+    "users": [
+        {
+            "_id": "0001",
+            "email": "peter@abv.bg",
+            "password": "123456",
+            "accessToken": "AAAA"
+        },
+        {
+            "_id": "0002",
+            "email": "john@abv.bg",
+            "password": "123456",
+            "accessToken": "BBBB"
+        }
+    ],
+    "catalog": [
+        {
+            "_id": "1001",
+            "_ownerId": "0001",
+            "name": "Name_1",
+            "description": "Description_1",
+            "imageUrl": "/images/cat1.png",
+            "type": "cat"
+        },
+        {
+            "_id": "1002",
+            "_ownerId": "0001",
+            "name": "Name_2",
+            "description": "Description_2",
+            "imageUrl": "/images/dog.png",
+            "type": "dog"
+        },
+        {
+            "_id": "1003",
+            "_ownerId": "0002",
+            "name": "Name_3",
+            "description": "Description_3",
+            "imageUrl": "/images/parrot.png",
+            "type": "parrot"
+        },
+        {
+            "_id": "1004",
+            "_ownerId": "0002",
+            "name": "Name_4",
+            "description": "Description_4",
+            "imageUrl": "/images/dog2.png",
+            "type": "dog"
+        },
+        {
+            "_id": "1005",
+            "_ownerId": "0002",
+            "name": "Name_5",
+            "description": "Description_5",
+            "imageUrl": "/images/cat2.jpg",
+            "type": "cat"
+        }
+    ],
+    "likes": [
+        {
+            "_ownerId": "0001",
+            "petId": "1002",
+            "_id": "e2d43547-5f76-451c-93df-14a83cb042e7"
+        },
+        {
+            "_ownerId": "0001",
+            "petId": "1001",
+            "_id": "9d709077-9bbb-417a-988e-87a0677b73d2"
+        },
+        {
+            "_ownerId": "0002",
+            "petId": "1003",
+            "_id": "16fb2a96-29bd-46b0-82b6-125a962b03ef"
+        }
+    ]
+}
