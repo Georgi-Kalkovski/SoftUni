@@ -1,16 +1,12 @@
 {
-    "name": "name",
-    "description": "description",
-    "authors": "author",
-    "version": "1.0.0",
-    "main": "pathToMain",
-    "dependencies": {
-        "body-parser": "^1.19.0",
-        "express": "^4.17.1",
-        "express-handlebars": "^3.1.0",
-        "uniqid": "^5.0.3"
-    },
-    "devDependencies": {
-        "nodemon": "^1.19.2"
-    }
+  "name": "03.-cubicle-workshop-part-1-resources",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start" : "nodemon"
+  },
+  "keywords": [],
+  "author": "GK",
+  "license": "MIT"
 }
