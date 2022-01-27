@@ -11,7 +11,8 @@ header ul {
 }
 
 img {
-    height: 200px;
+    max-height: 200px;
+    max-width: 200px;
     width: auto;
 }
 
@@ -72,8 +73,8 @@ div.cube {
     display: inline-block;
     border: 1px solid #2b415433;
     background: white;
-    width: 23%;
     vertical-align: top;
+    width: 250px;
 }
 
 div.cube:hover p.name {
@@ -88,6 +89,7 @@ p.name {
     text-transform: uppercase;
     padding: 10px;
     border-bottom: 1px solid #2b415433;
+    height: 60px;
 }
 
 button, main a.btn {
@@ -199,7 +201,7 @@ input[type=submit]:hover {
 div.form {
     border-radius: 5px;
     padding: 20px;
-    width: 36%;
+    width: 300px;
     margin: auto;
 }
 
@@ -259,4 +261,12 @@ footer {
     to {
         opacity: 0;
     }
+}
+
+.description {
+    display: none;
+}
+
+.description p {
+    margin: 10px;
 }

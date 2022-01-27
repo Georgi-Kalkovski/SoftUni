@@ -1,12 +1,24 @@
 {
-  "name": "03.-cubicle-workshop-part-1-resources",
+  "name": "cubicle",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start" : "nodemon"
+    "start": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viktorpts/js-back-end-cars.git"
   },
   "keywords": [],
-  "author": "GK",
-  "license": "MIT"
+  "author": "VK",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/viktorpts/js-back-end-cars/issues"
+  },
+  "homepage": "https://github.com/viktorpts/js-back-end-cars#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "express-handlebars": "^6.0.2"
+  }
 }
