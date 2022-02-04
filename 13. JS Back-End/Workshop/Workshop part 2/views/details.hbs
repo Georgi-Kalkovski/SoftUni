@@ -1,0 +1,22 @@
+{{#with car}}
+<h1>{{name}}</h1>
+<img class="cube" src="/static/assets/{{imageUrl}}">
+<div class="details">
+    <p><span>Description:</span> {{description}}</p>
+    <p><span>Price:</span> {{price}}</p>
+    <a class="btn" href="/">Back</a>
+    <a class="btn" href="/attach/{{id}}">Attach Accessory</a>
+    <a class="btn" href="/edit/{{id}}">Edit</a>
+    <a class="btn" href="/delete/{{id}}">Delete</a>
+</div>
+
+<h2>Accessories</h2>
+<div class="accessories">
+    {{#each accessories}}
+    {{> accessory}}
+    {{else}}
+    <h3 class="italic">This vehicle has no accessories yet...</h3>
+    {{/each}}
+</div>
+
+{{/with}}
