@@ -1,6 +1,27 @@
-<h1>Login</h1>
-<form action="/login" method="post">
-    <label>Username: <input type="text" name="username" value="{{data.username}}"></label><br>
-    <label>Password: <input type="password" name="password"></label><br>
-    <input type="submit" value="Login">
-</form>
+<section id="login-page">
+
+    <div class="loginSection">
+        <div class="info">
+            <h2>Welcome, again!</h2>
+            <p>View new posts.</p>
+        </div>
+        <form action="/login" method="POST" class="loginForm">
+            <h2>Login</h2>
+            <ul class="noBullet">
+                <li>
+                    <label for="email">Email:</label>
+                    <input type="text" class="inputFields" id="email" name="email" placeholder="alex@gmail.com" value="{{data.email}}" />
+                </li>
+                <li>
+                    <label for="password">Password:</label>
+                    <input type="password" class="inputFields" id="password" name="password" placeholder="*******" />
+                </li>
+
+                <li id="center-btn">
+                    <button id="login-btn">Login</button>
+                </li>
+            </ul>
+        </form>
+    </div>
+
+</section>

@@ -3,20 +3,59 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{Title}}</title>
+
+    <!-- Do not forget to change the path to the css file -->
+    <link href="/static/css/style.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
-    {{#if errors}}
-    <div>
-        {{#each}}
-        <p>{{msg}}</p>
-        {{/each}}
+
+
+    <div id="box">
+
+        {{#if errors}}
+        <div class="error-container">
+            {{#each errors}}
+            <p>{{msg}}</p>
+            {{/each}}
+        </div>
+        {{/if}}
+
+
+        <nav>
+            <img src="/static/img/logo.png" alt="logo">
+
+            <ul class="menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/catalog">All Posts</a></li>
+                {{#if hasUser}}
+                <!-- Logged users -->
+                <li><a href="/create">Create Post</a></li>
+                <li><a href="/profile">Posts of {{user.email}}</a></li>
+                <li><a href="/logout">Logout</a></li>
+                {{else}}
+                <!-- Guest users -->
+                <li><a href="/register">Register</a></li>
+                <li><a href="/login">Login</a></li>
+                {{/if}}
+            </ul>
+
+        </nav>
+
+        <main>
+
+            {{{body}}}
+
+
+        </main>
+
+
+        <footer>
+            © Js Back-End Exam 2021
+        </footer>
     </div>
-    {{/if}}
-    {{{body}}}
+
 </body>
 
 </html>
