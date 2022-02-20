@@ -1,5 +1,3 @@
-const res = require("express/lib/response");
-
 function isUser() {
     return function (req, res, next) {
         if (req.session.user) {

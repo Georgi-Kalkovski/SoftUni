@@ -1,8 +1,8 @@
 const { isUser } = require('../middleware/guards');
-const { mapErrors } = require('../util/mappers')
+const { createTrip } = require('../services/trip');
+const mapErrors = require('../util/mappers')
 
 const router = require('express').Router();
-const { createTrip } = require('../services/trip');
 
 router.get('/create', isUser(), (req, res) => {
     res.render('create', { title: 'Create Trip Offer', data: {} });
@@ -10,8 +10,8 @@ router.get('/create', isUser(), (req, res) => {
 
 router.post('/create', isUser(), async (req, res) => {
     const trip = {
-        startPoint: req.body.startPoint,
-        endPoint: req.body.endPoint,
+        start: req.body.start,
+        end: req.body.end,
         date: req.body.date,
         time: req.body.time,
         carImg: req.body.carImg,
@@ -21,15 +21,15 @@ router.post('/create', isUser(), async (req, res) => {
         description: req.body.description,
         owner: req.session.user._id
     };
+
     try {
         await createTrip(trip);
-        res.redirect('/trip');
+        res.redirect('/trips');
     } catch (err) {
+        console.log(err);
         const errors = mapErrors(err);
         res.render('create', { title: 'Create Trip Offer', data: trip, errors });
     }
-    console.log(req.body);
-    res.redirect('/trips');
 });
 
 
