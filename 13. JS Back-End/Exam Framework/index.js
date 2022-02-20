@@ -12,6 +12,7 @@ async function start() {
     await databaseConfig(app);
     routesConfig(app);
 
+	// TODO Delete this
     app.get('/', (req, res) => {
         console.log(req.session);
         res.render('home', { layout: false });

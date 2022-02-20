@@ -1,0 +1,125 @@
+<html lang="en">
+
+<head>
+    <!-- Do not forget to change the path to the css file -->
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Details Trip</title>
+</head>
+
+<body>
+    <!-- In case of error, you should display div with class "error" -->
+    <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
+
+    <!-- <div class="error">
+        <p>Error message - 1</p>
+        <p>Error message - 2</p>
+    </div> -->
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <!-- Do not forget to change the path to the images -->
+            <img class="logo" src="../static/images/before.png" alt="before-logo">
+            <img class="car logo" src="../static/images/trip-logo.png" alt="trip-logo">
+            <img class="logo" src="../static/images/after.png" alt="after-logo">
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+
+                <ul class="navbar-nav ml-auto">
+                    <!-- Guest users and Logged users -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Shared Trips</a>
+                    </li>
+                    <!-- Logged users -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Offer Trip</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Logout as [ test@abv.bg ]</a>
+                    </li>
+                    <!-- Guest users -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="py-5 details" id="trip-details-page">
+            <div class="container">
+                <div class="destination">
+                    <div>
+                        <span class="icon"><i class="fas fa-map-marked-alt"></i></span>
+                        <h5> from <span>Plovdiv</span> to <span>Burgas</span> </h5>
+                    </div>
+                    <div>
+                        <span class="icon"><i class="fas fa-calendar-alt"></i></span>
+                        <h5> <span>2021-07-07</span> at <span>10:40</span> </h5>
+                    </div>
+                </div>
+                <p class="line"></p>
+                <div class="buddies-info">
+                    <i class="fas fa-users buddies"></i>
+                    <h5>Shared trip Buddies</h5>
+                    <div>
+                        <!-- if there are joined buddies for the current trip separate them with comma and space", " -->
+                        <p>peter@abv.bg, marry@abv.bg</p>
+
+                        <!-- If not display: -->
+                        <p>there are no buddies yet...</p>
+                    </div>
+                    <h5>Driver: <span>mihail_valkov@mail.bg</span> </h5>
+                </div>
+                <p class="line"></p>
+                <h5 class="brand">Car Brand: <span class="lead">Mercedes</span></h5>
+                <div class="trip-info">
+                    <div>
+                        <img class="img-fluid rounded"
+                            src="https://www.nastarta.com/wp-content/uploads/2018/04/Mercedes-Benz-A-Class-2019-1280-3d.jpg"
+                            alt="car-image">
+                    </div>
+                    <div class="trip-desc">
+                        <h5>Information about the trip</h5>
+                        <textarea class="lead"
+                            disabled>Wishing you a safe journey and a relaxing vacation when you arrive!</textarea>
+                        <h5>Price: <span class="lead">40</span> BGN</h5>
+
+                        <!-- if there are no logged in user do not show div with class actions  -->
+                        <div class="actions">
+                            <!-- Only for logged user and creator to this trip -->
+                            <a href="" class="btn btn-danger">Delete this trip</a>
+                            <a href="" class="btn btn-warning">Edit this trip</a>
+
+                            <!-- logged in user with available seats -->
+                            <a href="" class="btn btn-join">Join now, [ 1 ] seats left!</a>
+
+                            <!-- logged in user and has already joined the trip  -->
+                            <span class="btn btn-info">Already joined. Don't be late!</span>
+
+                            <!-- logged in user with no available seats -->
+                            <span class="btn btn-secondary">No seats available! [0]</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="sticky-footer" class="bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Shared Trip 2021</p>
+        </div>
+    </footer>
+</body>
+
+</html>

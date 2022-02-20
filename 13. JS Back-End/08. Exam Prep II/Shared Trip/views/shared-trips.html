@@ -1,0 +1,179 @@
+<html lang="en">
+
+<head>
+    <!-- Do not forget to change the path to the css file -->
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Shared Trips</title>
+</head>
+
+<body>
+    <!-- In case of error, you should display div with class "error" -->
+    <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
+
+    <!-- <div class="error">
+        <p>Error message - 1</p>
+        <p>Error message - 2</p>
+    </div> -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <!-- Do not forget to change the path to the images -->
+            <img class="logo" src="../static/images/before.png" alt="before-logo">
+            <img class="car logo" src="../static/images/trip-logo.png" alt="trip-logo">
+            <img class="logo" src="../static/images/after.png" alt="after-logo">
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+
+                <ul class="navbar-nav ml-auto">
+                    <!-- Guest users and Logged users -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Shared Trips</a>
+                    </li>
+                    <!-- Logged users -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Offer Trip</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Logout as [ test@abv.bg ]</a>
+                    </li>
+                    <!-- Guest users -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="container" id="shared-trips-page">
+            <header class="trip">
+                <h1>Welcome Sharetripers!</h1>
+                <p class="lead">Sharedtrip is the best way to road across the country.</p>
+                <p class="lead">Find yours Sharedtrip's buddies, when you share with us yours trip plans and let the
+                    exploration begin!</p>
+            </header>
+            <div class="row text-center">
+                <!-- If there are shared trips in the database display each of them -->
+
+                <!-- trip #1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <img class="card-img-top"
+                            src="https://www.audi.bg/media/Theme_Menu_Model_Dropdown_Item_Image_Component/root-bg-model-modelMenu-editableItems-20246-dropdown-92336-image/dh-487-a0e9a6/9896f0b2/1585833686/audi-a5-sportback-2020.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-route"></i> <span>Sofia</span> -
+                                <span>Haskovo</span></h5>
+                            <h5 class="mt-4 card-info"><i class="far fa-calendar-alt"></i> Date: <span>2021-06-14</span>
+                            </h5>
+                            <h5 class="mt-4 card-info"><i class="far fa-clock"></i> Time: <span>14:03</span></h5>
+                            <h5 class="mt-4"><i class="fas fa-hand-holding-usd"></i> Price: <span>25</span> BGN</h5>
+                        </div>
+                        <div class="card-footer">
+                            <a href="" class="btn btn-primary">Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- trip #2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <img class="card-img-top"
+                            src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/cybertruck-1-1574399754.jpeg"
+                            alt="">
+                        <div class="card-body">
+                            <h5><i class="fas fa-route"></i> <span>Plovdiv</span> - <span>Sofia</span></h5>
+                            <h5 class="mt-4 card-info"><i class="far fa-calendar-alt"></i> Date: <span>2021-06-16</span>
+                            </h5>
+                            <h5 class="mt-4 card-info"><i class="far fa-clock"></i> Time: <span>21:47</span></h5>
+                            <h5 class="mt-4"><i class="fas fa-hand-holding-usd"></i> Price: <span>22</span> BGN</h5>
+                        </div>
+                        <div class="card-footer">
+                            <a href="" class="btn btn-primary">Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- trip #3 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <img class="card-img-top"
+                            src="https://www.nastarta.com/wp-content/uploads/2017/12/2018-mercedes-benz-cls-8.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-route"></i> <span>Svilengrad </span> -
+                                <span>Sofia</span></h5>
+                            <h5 class="mt-4 card-info"><i class="far fa-calendar-alt"></i> Date: <span>2021-06-16</span>
+                            </h5>
+                            <h5 class="mt-4 card-info"><i class="far fa-clock"></i> Time: <span>20:40</span></h5>
+                            <h5 class="mt-4"><i class="fas fa-hand-holding-usd"></i> Price: <span>30</span> BGN</h5>
+                        </div>
+                        <div class="card-footer">
+                            <a href="" class="btn btn-primary">Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- trip #4 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <img class="card-img-top"
+                            src="https://www.nastarta.com/wp-content/uploads/2018/04/Mercedes-Benz-A-Class-2019-1280-3d.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-route"></i> <span>Plovdiv</span> -
+                                <span>Burgas</span></h5>
+                            <h5 class="mt-4 card-info"><i class="far fa-calendar-alt"></i> Date: <span>2021-07-07</span>
+                            </h5>
+                            <h5 class="mt-4 card-info"><i class="far fa-clock"></i> Time: <span>10:40</span></h5>
+                            <h5 class="mt-4"><i class="fas fa-hand-holding-usd"></i> Price: <span>40</span> BGN</h5>
+                        </div>
+                        <div class="card-footer">
+                            <a href="" class="btn btn-primary">Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- trip #5 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <img class="card-img-top"
+                            src="https://autobild.bg/wp-content/uploads/2018/01/Mercedes-AMG-CLS-53-2018-Preis-Motor-Infos-1200x800-dffb5975c6d73154.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-route"></i> <span>Sofia</span> -
+                                <span>Nesebur</span></h5>
+                            <h5 class="mt-4 card-info"><i class="far fa-calendar-alt"></i> Date: <span>2021-08-01</span>
+                            </h5>
+                            <h5 class="mt-4 card-info"><i class="far fa-clock"></i> Time: <span>09:00</span></h5>
+                            <h5 class="mt-4"><i class="fas fa-hand-holding-usd"></i> Price: <span>25</span> BGN</h5>
+                        </div>
+                        <div class="card-footer">
+                            <a href="" class="btn btn-primary">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- If there are no shared trips in the database -->
+                <div class="no-trips">
+                    <img src="https://www.stagweb.co.uk/img/activities/big/sexyhitchhiker1.jpg" />
+                    <p class="lead">Hitchhiker time...</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer id="sticky-footer" class="bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Shared Trip 2021</p>
+        </div>
+    </footer>
+</body>
+
+</html>

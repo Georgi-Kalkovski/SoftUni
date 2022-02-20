@@ -1,0 +1,91 @@
+<html lang="en">
+
+<head>
+    <!-- Do not forget to change the path to the css file -->
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Profile Page</title>
+</head>
+
+<body>
+    <!-- In case of error, you should display div with class "error" -->
+    <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
+
+    <!-- <div class="error">
+        <p>Error message - 1</p>
+        <p>Error message - 2</p>
+    </div> -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <!-- Do not forget to change the path to the images -->
+            <img class="logo" src="../static/images/before.png" alt="before-logo">
+            <img class="car logo" src="../static/images/trip-logo.png" alt="trip-logo">
+            <img class="logo" src="../static/images/after.png" alt="after-logo">
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+
+                <ul class="navbar-nav ml-auto">
+                    <!-- Guest users and Logged users -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Shared Trips</a>
+                    </li>
+                    <!-- Logged users -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Offer Trip</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Logout as [ test@abv.bg ]</a>
+                    </li>
+                    <!-- Guest users -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="profile col-md-6 text-center col-lg" id="profile-page">
+            <div class="profile-container">
+                <!-- Do not forget to change the path to the image -->
+                <!-- Gender of the user determines which picture is displayed as their avatar -->
+                <img class="profile-img" src="../static/images/male.png">
+                <p>Email: <span>mihail_valkov@mail.bg</span></p>
+            </div>
+            <div class="profile-info">
+                <p>Trips History: <span>3</span> counts</p>
+
+                <div class="trips-info">
+                    <!-- If there are trips created by the current logged in user display each of them -->
+                    <p>from <span>Svilengrad</span> to <span>Sofia</span> on <span>2021-06-16</span> at
+                        <span>20:40</span></p>
+                    <p>from <span>Plovdiv</span> to <span>Burgas</span> on <span>2021-07-07</span> at <span>10:40</span>
+                    </p>
+                    <p>from <span>Sofia</span> to <span>Nesebur</span> on <span>2021-08-01</span> at <span>09:00</span>
+                    </p>
+
+                    <!-- If there are no trips created by the current logged in user display:-->
+                    <p>there are no offer trips yet...</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer id="sticky-footer" class="bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Shared Trip 2021</p>
+        </div>
+    </footer>
+</body>
+
+</html>

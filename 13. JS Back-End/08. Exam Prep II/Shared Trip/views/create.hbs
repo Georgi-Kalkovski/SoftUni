@@ -1,0 +1,57 @@
+<section class="py-5" id="offer-trip-page">
+    <div class="container offer-trip">
+        <h1>Offer trip</h1>
+        <div>
+            {{#with data}}
+            <form action="/create" method="post">
+                <div class="offer-label">
+                    <label for="startPoint"> <i class="fas fa-map-marker-alt"></i> Starting Point </label>
+                    <label for="endPoint"> <i class="fas fa-map-marker-alt"></i> End Point</label>
+                </div>
+                <div class="form-group offer-input">
+                    <input type="text" class="form-control-2" id="startPoint" placeholder="Studentski grad"
+                        name="startPoint" value="{{start}}">
+                    <input type="text" class="form-control-2" id="endPoint" placeholder="Pamporovo" name="endPoint"
+                        value="{{end}}">
+                </div>
+                <div class="offer-label">
+                    <label for="date"> <i class="far fa-calendar-alt"></i> Date</label>
+                    <label for="time"> <i class="far fa-clock"></i> Time</label>
+                </div>
+                <div class="form-group offer-input">
+                    <input type="date" class="form-control-2" id="date" placeholder="18 May 2021" name="date"
+                        value="{{date}}">
+                    <input type="time" class="form-control-2" id="time" placeholder="19:00 PM" name="time"
+                        value="{{time}}">
+                </div>
+                <div class="offer-label">
+                    <label for="carImage">Car Image</label>
+                    <label for="carBrand">Car Brand</label>
+                </div>
+                <div class="form-group offer-input">
+                    <input type="text" class="form-control-2" id="carImage" placeholder="https://..." name="carImg"
+                        value="{{carImg}}">
+                    <input type="text" class="form-control-2" id="carBrand" placeholder="Audi" name="carBrand"
+                        value="{{carBrand}}">
+                </div>
+                <div class="offer-label">
+                    <label for="seats">Available Seats</label>
+                    <label for="price">Price</label>
+                </div>
+                <div class="form-group offer-input">
+                    <input type="text" class="form-control-2" id="seats" placeholder="4" name="seats" value="{{seats}}">
+                    <input type="text" class="form-control-2" id="price" placeholder="25" name="price"
+                        value="{{price}}">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" id="description" placeholder="Information about the trip"
+                        name="description">{{description}}</textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+            {{/with}}
+        </div>
+    </div>
+</section>
