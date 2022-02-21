@@ -9,8 +9,8 @@ router.get('/register', isGuest(), (req, res) => {
 
 router.post('/register', isGuest(), async (req, res) => {
     try {
-        if (req.body.password.trim() == '') {
-            throw new Error('Passwords is required');
+        if (req.body.password.trim().length < 4) {
+            throw new Error('Passwords must be at least 4 characters long');
         }
         if (req.body.password != req.body.repass) {
             throw new Error('Passwords don\'t match');

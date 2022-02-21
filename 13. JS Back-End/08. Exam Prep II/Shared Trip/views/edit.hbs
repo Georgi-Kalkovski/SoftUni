@@ -1,0 +1,48 @@
+<section class="py-5" id="edit-trip-page">
+    <div class="container edit">
+        <h1>Edit trip</h1>
+        <div>
+            {{#with trip}}
+            <form action="/edit/{{_id}}" method="post">
+                <div class="edit-label">
+                    <label for="startPoint"> <i class="fas fa-map-marker-alt"></i> Starting Point</label>
+                    <label for="endPoint"> <i class="fas fa-map-marker-alt"></i> End Point</label>
+                </div>
+                <div class="form-group edit-input">
+                    <input type="text" class="form-control-2" id="startPoint" name="start" value="{{start}}">
+                    <input type="text" class="form-control-2" id="endPoint" name="end" value="{{end}}">
+                </div>
+                <div class="edit-label">
+                    <label for="date"> <i class="far fa-calendar-alt"></i> Date</label>
+                    <label for="time"> <i class="far fa-clock"></i> Time</label>
+                </div>
+                <div class="form-group edit-input">
+                    <input type="date" class="form-control-2" id="date" name="date" value="{{date}}">
+                    <input type="time" class="form-control-2" id="time" name="time" value="{{time}}">
+                </div>
+                <div class="edit-label">
+                    <label for="carImage">Car Image</label>
+                    <label for="carBrand">Car Brand</label>
+                </div>
+                <div class="form-group edit-input">
+                    <input type="text" class="form-control-2" id="carImage" name="carImg" value="{{carImg}}">
+                    <input type="text" class="form-control-2" id="carBrand" name="carBrand" value="{{carBrand}}">
+                </div>
+                <div class="edit-label">
+                    <label for="seats">Available Seats</label>
+                    <label for="price">Price</label>
+                </div>
+                <div class="form-group edit-input">
+                    <input type="text" class="form-control-2" id="seats" name="seats" value="{{seats}}">
+                    <input type="text" class="form-control-2" id="price" name="price" value="{{price}}">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" id="description" name="description">{{description}}</textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            {{/with}}
+        </div>
+    </div>
+</section>

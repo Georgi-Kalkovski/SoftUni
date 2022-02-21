@@ -19,13 +19,14 @@ function isGuest() {
 }
 
 function isOwner() {
-    const userId = req.session.user?._id;
-    // TODO change property name to match collection
-    if (res.locals.trip.owner == userId) {
-        next();
-    } else {
-        res.redirect('/login');
-    }
+    return function (req, res, next) {
+        const userId = req.session.user?._id;
+        if (res.locals.trip.owner == userId) {
+            next();
+        } else {
+            res.redirect('/login');
+        }
+    };
 }
 
 module.exports = {
