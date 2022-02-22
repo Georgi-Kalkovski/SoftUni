@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery Page</title>
+
+    <!-- Do not forget to change the path to the css file -->
+    <link rel="stylesheet" href="./style/css/style.css">
+</head>
+
+<body>
+
+    <div id="box">
+
+        <!-- In case of error, you should display div with class "error-box" -->
+        <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
+        <!--<div class="error-box">
+            <p>Error</p>
+        </div>-->
+
+        <nav>
+
+            <!-- Do not forget to change the path to the image -->
+            <img src="./style/img/art-logo.png" alt="logo">
+            <a href="#">ArtGallery</a>
+
+            <ul class="menu">
+                <li><a href="#">Gallery</a></li>
+                <!-- Logged users -->
+                <li><a href="#">Create Publication</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Logout</a></li>
+                <!-- Guest users -->
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Register</a></li>
+            </ul>
+
+        </nav>
+
+        <main>
+
+            <section id="gallery">
+                <h1>Gallery</h1>
+                <article class="gallery-container">
+
+                    <!--If there are art publications in the database, show each of them-->
+                    <article class="card-info">
+                        <article class="card-info-image">
+                            <img src="./style/img/blog-img14.jpg" alt="art-image">
+                        </article>
+                        <article class="card-info-text">
+                            <h2>Title: Painting is everything</h2>
+                            <h3>Certificate of authenticity: No</h3>
+                            <a href="#" class="details-btn">Details</a>
+                        </article>
+                    </article>
+
+                    <article class="card-info">
+                        <article class="card-info-image">
+                            <img src="./style/img/img-5.jpg" alt="art-image">
+                        </article>
+                        <article class="card-info-text">
+                            <h2>Title: Spring in the garden</h2>
+                            <h3>Certificate of authenticity: Yes</h3>
+                            <a href="#" class="details-btn">Details</a>
+                        </article>
+                    </article>
+
+                    <!--If there are still no art publications in the database display:-->
+                    <!-- <article class="no-available-publications">
+                        <h1>No publications created yet.</h1>
+                        <a href="#" class="create-pub">Create publication</a>
+                    </article>-->
+
+                </article>
+            </section>
+
+        </main>
+
+        <footer>
+            © Js Back-End Retake Exam 2021
+        </footer>
+    </div>
+</body>
+
+</html>

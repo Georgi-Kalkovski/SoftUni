@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Register Page</title>
+
+    <!-- Do not forget to change the path to the css file -->
+    <link rel="stylesheet" href="./style/css/style.css">
+</head>
+
+<body>
+
+    <div id="box">
+
+        <!-- In case of error, you should display div with class "error-box" -->
+        <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
+        <!--<div class="error-box">
+            <p>Error</p>
+        </div>-->
+
+        <nav>
+
+            <!-- Do not forget to change the path to the image -->
+            <img src="./style/img/art-logo.png" alt="logo">
+            <a href="#">ArtGallery</a>
+
+            <ul class="menu">
+                <li><a href="#">Gallery</a></li>
+                <!-- Logged users -->
+                <li><a href="#">Create Publication</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Logout</a></li>
+                <!-- Guest users -->
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Register</a></li>
+            </ul>
+
+        </nav>
+
+        <main>
+
+            <section id="register-container">
+                <div class="register-container-info">
+                    <!-- Do not forget to change the path to the image -->
+                    <img src="./style/img/slider.jpg" alt="image">
+
+                    <form action="#" method="" class="container-text">
+                        <h2>Register</h2>
+                        <p>Register to get ideas and view the latest masterpieces.</p>
+
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" placeholder="ivan_00" name="">
+
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" placeholder="*****" name="">
+
+                        <label for="re-password">Repeat password:</label>
+                        <input type="password" id="re-password" placeholder="*****" name="">
+
+                        <label for="address">Address:</label>
+                        <input type="text" id="address" placeholder="2572 Orphan Road" name="">
+
+                        <button class="register-btn">Register</button>
+                        <div class="card-no-account">
+                            <p>Already have an account?<a href="#"> Sign in</p>
+                        </div>
+
+                    </form>
+                </div>
+
+            </section>
+
+        </main>
+
+        <footer>
+            © Js Back-End Retake Exam 2021
+        </footer>
+    </div>
+</body>
+
+</html>
