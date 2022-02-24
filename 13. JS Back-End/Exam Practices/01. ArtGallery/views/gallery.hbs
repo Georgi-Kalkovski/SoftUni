@@ -2,9 +2,12 @@
     <h1>Gallery</h1>
     <article class="gallery-container">
 
-        {{#each gallery}}
+        {{#each publications}}
+
         {{> publicationPreview}}
+
         {{else}}
+
         <article class="no-available-publications">
             <h1>No publications created yet.</h1>
             <a href="/create" class="create-pub">Create publication</a>

@@ -9,7 +9,7 @@ module.exports = (app) => {
     }).engine);
     app.set('view engine', '.hbs');
 
-    app.use('/static', express.static('static'));
+    app.use('/style', express.static('style'));
     app.use(session({
         secret: 'secret',
         resave: false, 
@@ -19,5 +19,5 @@ module.exports = (app) => {
         }
     }));
     app.use(express.urlencoded({ extended: true }));
-    app.use(userSession());
+	app.use(userSession());
 }

@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 require('../models/User');
 require('../models/Publication');
 
-// TODO change database name
 const dbName = 'artgallery';
 
 const connectionString = `mongodb://localhost:27017/${dbName}`;

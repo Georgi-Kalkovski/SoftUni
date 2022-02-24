@@ -1,10 +1,13 @@
 const { Schema, model, Types: { ObjectId } } = require('mongoose');
 
+// TODO change user model according to exam description
+// TODO add validation
+
 const userSchema = new Schema({
     username: { type: String, required: true },
     hashedPassword: { type: String, required: true },
     address: { type: String, required: true },
-    publications: { type: [ObjectId], ref: 'Publication', default: [] },
+    publications: { type: [ObjectId], ref: 'Trip', default: [] },
 });
 
 userSchema.index({ username: 1 }, {

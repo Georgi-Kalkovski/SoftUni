@@ -16,7 +16,7 @@ router.post('/register', isGuest(), async (req, res) => {
 
         const user = await register(req.body.username, req.body.password, req.body.address);
         req.session.user = user;
-        res.redirect('/'); // TODO check redirect requirements
+        res.redirect('/');
     } catch (err) {
         console.error(err);
         // TODO send error messages
@@ -33,7 +33,7 @@ router.post('/login', isGuest(), async (req, res) => {
     try {
         const user = await login(req.body.username, req.body.password);
         req.session.user = user;
-        res.redirect('/'); // TODO check redirect requirements
+        res.redirect('/');
     } catch (err) {
         console.error(err);
         // TODO send error messages

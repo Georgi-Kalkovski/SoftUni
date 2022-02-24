@@ -2,6 +2,7 @@ const User = require('../models/User');
 const { hash, compare } = require('bcrypt');
 
 
+// TODO add all fields required by the exam
 async function register(username, password, address) {
     const existing = await getUserByUsername(username);
     console.log(existing)

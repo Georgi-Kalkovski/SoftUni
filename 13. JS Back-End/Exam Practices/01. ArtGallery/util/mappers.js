@@ -10,34 +10,37 @@ function mapErrors(err) {
     }
 }
 
-function publicationsViewModel(publication) {
+
+
+function publicationViewModel(publication) {
     return {
         _id: publication._id,
         title: publication.title,
-        technique: publication.technique,
+        tech: publication.tech,
         picture: publication.picture,
         certificate: publication.certificate,
         author: authorViewModel(publication.author),
-        users: publication.users.map(usersViewModel)
+        shares: publication.shares.map(sharesViewModel),
+        username: publication.username
     };
 }
 
 function authorViewModel(user) {
     return {
         _id: user._id,
-        username: user.username,
-        address: user.address
+        username: user.username
     };
 }
 
-function usersViewModel(user) {
+function sharesViewModel(user) {
     return {
         _id: user._id,
         username: user.username
     };
 }
 
+
 module.exports = {
     mapErrors,
-    publicationsViewModel
+    publicationViewModel
 };

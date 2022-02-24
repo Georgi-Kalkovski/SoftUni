@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <title>{{title}}</title>
 
-    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Do not forget to change the path to the css file -->
+    <link rel="stylesheet" href="/style/css/style.css">
 </head>
 
 <body>
@@ -22,18 +23,19 @@
 
         <nav>
 
-            <img src="/static/img/art-logo.png" alt="logo">
+            <!-- Do not forget to change the path to the image -->
+            <img src="/style/img/art-logo.png" alt="logo">
             <a href="/">ArtGallery</a>
 
             <ul class="menu">
                 <li><a href="/gallery">Gallery</a></li>
-                {{#if hasUser}}
                 <!-- Logged users -->
-                <li><a href="create">Create Publication</a></li>
+                {{#if hasUser}}
+                <li><a href="/create">Create Publication</a></li>
                 <li><a href="/profile">Profile</a></li>
                 <li><a href="/logout">Logout</a></li>
-                {{else}}
                 <!-- Guest users -->
+                {{else}}
                 <li><a href="/login">Login</a></li>
                 <li><a href="/register">Register</a></li>
                 {{/if}}
