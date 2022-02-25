@@ -3,20 +3,58 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- Do not forget to change the path to the css file -->
+    <title>{{title}}</title>
+    <link href="/static/css/style.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
-    {{#if errors}}
-    <div>
-        {{#each}}
-        <p>{{msg}}</p>
-        {{/each}}
+
+    <div id="box">
+
+        {{#if errors}}
+        <div>
+            <div class="errorContainer">
+                {{#each errors}}
+                <p>{{msg}}</p>
+                {{/each}}
+            </div>
+        </div>
+        {{/if}}
+
+        <nav>
+            <a href="/">Home</a>
+            <ul>
+                <!-- Guest users and Logged users -->
+                <li><a href="/rents">Housing for rent</a></li>
+                <!-- Logged users -->
+                {{#if hasUser}}
+                <li><a href="/create">Create offer</a></li>
+                <li><a href="/search">Search</a></li>
+                <li><a href="/logout">Logout</a></li>
+                <!-- Guest users -->
+                {{else}}
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+                {{/if}}
+            </ul>
+        </nav>
+
+        <main>
+
+
+            {{{body}}}
+
+        </main>
+
+
+
+
+        <footer>
+            © 2021
+        </footer>
     </div>
-    {{/if}}
-    {{{body}}}
+
 </body>
 
 </html>

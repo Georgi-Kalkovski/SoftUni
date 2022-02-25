@@ -1,7 +1,35 @@
-<h1>Register</h1>
-<form action="/register" method="post">
-    <label>Username: <input type="text" name="username" value="{{data.username}}"></label><br>
-    <label>Password: <input type="password" name="password"></label><br>
-    <label>Repeat: <input type="password" name="repass"></label><br>
-    <input type="submit" value="Register">
-</form>
+<section id="register-page">
+    <div class="boxs">
+        <div class="card-image">
+            <h2 class="card-heading">
+                Create your account
+            </h2>
+        </div>
+        <form class="card-form" action="/register" method="post">
+            <div class="input">
+                <input type="text" class="input-field" placeholder="Alexander Parkinson" id="name" name="name" value="{{name}}" />
+                <label class="name">Full Name</label>
+            </div>
+            <div class="input">
+                <input type="text" class="input-field" placeholder="alexander" id="username" name="username" value="{{username}}" />
+                <label class="username">Username</label>
+            </div>
+            <div class="input">
+                <input type="password" class="input-field" id="password" name="password" placeholder="******" />
+                <label class="password">Password</label>
+            </div>
+            <div class="input">
+                <input type="password" class="input-field" id="re-password" name="repass" placeholder="******" />
+                <label class="re-password">Repeat Password</label>
+            </div>
+            <div class="action">
+                <button class="action-button">Get started</button>
+            </div>
+        </form>
+
+        <div class="card-info">
+            <small>Already have an account?<a href="/login"> Sign in</a>
+            </small>
+        </div>
+    </div>
+</section>

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 require('../models/User');
 
 // TODO change database name
-const dbName = 'wildlife';
+const dbName = 'realestateagency';
 
 const connectionString = `mongodb://localhost:27017/${dbName}`;
 

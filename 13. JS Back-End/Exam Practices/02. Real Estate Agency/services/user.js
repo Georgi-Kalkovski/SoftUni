@@ -3,17 +3,28 @@ const { hash, compare } = require('bcrypt');
 
 
 // TODO add all fields required by the exam
-async function register(username, password) {
+async function register(name, username, password, repass) {
     const existing = await getUserByUsername(username);
-    console.log(existing)
+    // console.log(existing)
 
     if (existing) {
         throw new Error('Username is taken');
     }
 
-    const hashedPassword = await hash(password, 10);
+    if (username.length < 5) {
+        throw new Error('Username should be at least 5 characters long');
+    }
 
+    if (password.length < 4) {
+        throw new Error('Password should be at least 4 characters long');
+    }
+
+    console.log(password)
+    console.log(repass)
+    
+    const hashedPassword = await hash(password, 10);
     const user = new User({
+        name,
         username,
         hashedPassword
     });

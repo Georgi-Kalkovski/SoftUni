@@ -1,11 +1,11 @@
 const Trip = require('../models/Trip');
 
 async function getAllTrips() {
-    return Trip.find({ owner: userId }).lean();
+    return Trip.find({}).lean();
 }
 
 async function getTripsByUser(userId) {
-    return Trip.find({}).lean();
+    return Trip.find({ owner: userId }).lean();
 }
 
 async function getTripById(id) {
