@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link href="./static/css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="box">
+
+        <!-- In case of error, you should display div with class "errorContainer" -->
+        <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
+        <!--
+        <div>
+            <div class="errorContainer">
+                <p>Error</p>
+            </div>
+        </div>-->
+
+        <nav>
+            <a href="#">Home</a>
+            <ul>
+                <!-- Guest users and Logged users -->
+                <li><a href="#">Housing for rent</a></li>
+                <!-- Guest users -->
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Register</a></li>
+                <!-- Logged users -->
+                <li><a href="#">Create offer</a></li>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="login-page">
+                <div class="boxs">
+                    <div class="card-image">
+                        <h2 class="card-heading">
+                            Login
+                        </h2>
+                    </div>
+                    <form class="card-form" action="" method="">
+
+                        <div class="input">
+                            <input type="text" class="input-field" placeholder="alexander" id="username" name="" value="" />
+                            <label class="username">Username</label>
+                        </div>
+                        <div class="input">
+                            <input type="password" class="input-field" id="password" name="" placeholder="******" />
+                            <label class="password">Password</label>
+                        </div>
+                        <div class="action">
+                            <button class="action-button">Login</button>
+                        </div>
+                    </form>
+                    <div class="card-info">
+                        <p>Dont have an account?
+                            <a href="#">Sign up</a>.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            © 2021
+
+        </footer>
+    </div>
+
+</body>
+
+</html>

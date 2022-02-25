@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Search Page</title>
+    <link href="./static/css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="box">
+
+        <!-- In case of error, you should display div with class "errorContainer" -->
+        <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
+
+        <!--<div>
+            <div class="errorContainer">
+                <p>Error</p>
+            </div>
+        </div>-->
+
+        <nav>
+            <a href="#">Home</a>
+            <ul>
+                <!-- Guest users and Logged users -->
+                <li><a href="#">Housing for rent</a></li>
+                <!-- Guest users -->
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Register</a></li>
+                <!-- Logged users -->
+                <li><a href="#">Create offer</a></li>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <form class="search" action="" method="">
+                <input type="search" name="" placeholder="Search here...">
+                <button type="submit">Search</button>
+            </form>
+            <section id="find-section">
+
+                <!-- If there are any matching matches from the search, show each of them -->
+
+                <div class="card">
+                    <h3>Real House Luxury Villa</h3>
+                    <p>Spacious and grand villa, 3 bedroom, 2 bath </p>
+                    <div class="cta-container"><a href="#" class="det-link">Details</a></div>
+                    <div class="card_circle"><img src="./static/images/house2.jpg"></div>
+
+                </div>
+
+                <!-- If there are no search matches, show: -->
+                <!--<div class="no-data-listing">
+                    <p class="no-offer">No match was found for the submitted type...</p>
+                </div>-->
+            </section>
+        </main>
+
+        <footer>© 2021</footer>
+    </div>
+</body>
+
+</html>
