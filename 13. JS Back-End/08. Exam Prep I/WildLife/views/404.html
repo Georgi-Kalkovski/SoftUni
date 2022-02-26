@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>404 Page</title>
+
+    <!-- Do not forget to change the path to the css file -->
+    <link href="./static/css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="box">
+
+        <!-- In case of error, you should display div with class "error-container" -->
+        <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
+        <!--
+        <div class="error-container">
+            <p>Error</p>
+        </div>-->
+
+
+        <nav>
+            <!-- Do not forget to change the path to the image -->
+            <img src="./static/img/logo.png" alt="logo">
+
+            <ul class="menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">All Posts</a></li>
+                <!-- Logged users -->
+                <li><a href="#">Create Post</a></li>
+                <li><a href="#">Posts of {{email-of-user}}</a></li>
+                <li><a href="#">Logout</a></li>
+                <!-- Guest users -->
+                <li><a href="#">Register</a></li>
+                <li><a href="#">Login</a></li>
+            </ul>
+
+        </nav>
+
+
+        <main>
+
+            <div class="full-screen">
+                <div class='con-not-found'>
+                    <span class="error-num">4</span>
+                    <div class='eye'></div>
+                    <span class="error-num">4</span>
+
+                    <p class="sub-text">Something went wrong. We're <span class="italic">looking</span> to see what happened.</p>
+                    <p>Go Back to <a href="#">Home</a></p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            © Js Back-End Exam 2021
+        </footer>
+    </div>
+
+</body>
+
+</html>
