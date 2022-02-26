@@ -1,0 +1,34 @@
+<section id="create-page">
+    {{#with data}}
+    <article class="create-page-container">
+        <form action="/create" method="post" class="create-page-form">
+            <h2>Create an ad</h2>
+
+            <label for="headline">Headline:</label>
+            <input type="text" id="headline" placeholder="Front-End Developer with React" name="headline"
+                value="{{headline}}">
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" placeholder="Ruse, Bulgaria" name="location" value="{{location}}">
+
+            <label for="company-name">Company name:</label>
+            <input type="text" id="company-name" placeholder="Digital Solutions" name="companyName"
+                value="{{companyName}}">
+
+            <label for="company-description">Company description:</label>
+            <input type="text" id="company-description" placeholder="We are developing a web application"
+                name="companyDescription" value="{{companyDescription}}">
+
+            <article class="create-page-button">
+                <button class="btn-create">Create</button>
+            </article>
+        </form>
+
+        <article class="create-page-image">
+            <!-- Do not forget to change the path to the image -->
+            <img src="./static/img/job.png" alt="image">
+        </article>
+    </article>
+    {{/with}}
+
+</section>
