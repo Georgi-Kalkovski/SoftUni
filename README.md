@@ -13,7 +13,7 @@
 |<a href="https://softuni.bg/trainings/3354/asp-dot-net-core-june-2021"> ASP.NET Core </a>| <a href="https://softuni.bg/certificates/details/113499/ba57a349"> 👉📜✔️</a> |
 |<a href="https://softuni.bg/trainings/3530/html-and-css-september-2021"> HTML & CSS </a>| <a href="https://softuni.bg/certificates/details/117757/0dc5b993"> 👉📜✔️</a> |
 |<a href="https://softuni.bg/trainings/3575/reactjs-november-2021/"> ReactJS </a>|<a href="https://softuni.bg/certificates/details/122134/8b36b703"> 👉📜✔️</a> |
-|<a href="https://softuni.bg/trainings/3594/js-back-end-january-2022"> JS Back-End </a>| Soon™ 👨‍💻 |
+|<a href="https://softuni.bg/trainings/3594/js-back-end-january-2022"> JS Back-End </a>| <a href="https://softuni.bg/Certificates/Details/127477/ea765c02"> 👉📜✔️</a> |
 | Diploma - C# Web Developer | <a href="https://softuni.bg/certificates/details/117944/24035804">👉🎓✔️</a> |
 | Diploma - C# Full-Stack Developer | Soon™ 👨‍💻 |
 | Diploma - JS Web Developer | Soon™ 👨‍💻 |
