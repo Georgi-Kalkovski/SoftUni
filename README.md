@@ -16,4 +16,4 @@
 |<a href="https://softuni.bg/trainings/3594/js-back-end-january-2022"> JS Back-End </a>| <a href="https://softuni.bg/Certificates/Details/127477/ea765c02"> 👉📜✔️</a> |
 | Diploma - C# Web Developer | <a href="https://softuni.bg/certificates/details/117944/24035804">👉🎓✔️</a> |
 | Diploma - C# Full-Stack Developer | <a href="https://softuni.bg/certificates/details/127884/cd5aaf34">👉🎓✔️</a> |
-| Diploma - JS Web Developer | Soon™ 👨‍💻 |
+| Diploma - JS Web Developer | <a href="https://softuni.bg/certificates/details/133464/843cf590">👉🎓✔️</a> |
