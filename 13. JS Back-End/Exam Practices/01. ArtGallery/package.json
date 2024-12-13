@@ -15,6 +15,6 @@
     "express": "^4.17.2",
     "express-handlebars": "^6.0.2",
     "express-session": "^1.17.2",
-    "mongoose": "^6.2.1"
+    "mongoose": "^6.4.6"
   }
 }
